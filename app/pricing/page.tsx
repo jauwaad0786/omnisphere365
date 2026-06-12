@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Check, X, Zap } from 'lucide-react'
-import { SERVICES } from '../lib/data'
+import { SERVICES } from '@/lib/data'
 
 const COMPARISON = [
   { feature: 'Students', basic: '200', pro: '500', enterprise: 'Unlimited' },
