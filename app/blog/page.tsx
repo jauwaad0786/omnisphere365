@@ -1,4 +1,4 @@
-import { BLOG_POSTS } from '../lib/data'
+import { BLOG_POSTS } from '@/lib/data'
 import Link from 'next/link'
 
 const CATEGORIES = ['All', 'Education', 'AI & Tech', 'Business', 'Automation']
