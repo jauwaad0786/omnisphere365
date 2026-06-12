@@ -4,10 +4,6 @@ import Link from 'next/link'
 import { SERVICES } from '../../../lib/data'
 import { Check, ArrowRight, Zap } from 'lucide-react'
 
-export async function generateStaticParams() {
-  return SERVICES.filter(s => s.available).map(s => ({ id: s.id }))
-}
-
 export default function ServicePage({ params }: { params: { id: string } }) {
   const service = SERVICES.find(s => s.id === params.id)
   if (!service || !service.available) notFound()
