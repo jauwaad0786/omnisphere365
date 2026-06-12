@@ -1,3 +1,4 @@
+'use client'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { SERVICES } from '../../../lib/data'
