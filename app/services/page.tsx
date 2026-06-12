@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { SERVICES } from '../../lib/data'
+import { SERVICES } from '../@/lib/data'
 import { ArrowRight } from 'lucide-react'
 
 export default function ServicesPage() {
