@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { OPEN_ROLES } from '../lib/data'
+import { OPEN_ROLES } from '@/lib/data'
 import { MapPin, Briefcase, ArrowRight } from 'lucide-react'
 
 const PERKS = [
