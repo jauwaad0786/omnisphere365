@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { SERVICES } from '@/lib/data'
+import { SERVICES } from '../../lib/data'
 import { CheckCircle, CalendarDays } from 'lucide-react'
 
 export default function DemoPage() {
