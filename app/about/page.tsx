@@ -1,12 +1,10 @@
 import Link from 'next/link'
-import { WHY_US } from '../lib/data'
+import { WHY_US } from '@/lib/data'
 import { ArrowRight } from 'lucide-react'
 
 const TEAM = [
   { name: 'Jauwaad Shaikh', role: 'Founder & CEO', avatar: 'JS', bg: 'from-indigo-500 to-sky-500' },
-  { name: 'Priya Nair', role: 'CTO', avatar: 'PN', bg: 'from-violet-500 to-purple-600' },
-  { name: 'Rohit Agarwal', role: 'Head of Product', avatar: 'RA', bg: 'from-sky-500 to-cyan-500' },
-  { name: 'Sneha Joshi', role: 'Lead Designer', avatar: 'SJ', bg: 'from-pink-500 to-rose-500' },
+  
 ]
 
 export default function AboutPage() {
