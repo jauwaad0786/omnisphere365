@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { WHY_US } from '../../lib/data'
 import { ArrowRight } from 'lucide-react'

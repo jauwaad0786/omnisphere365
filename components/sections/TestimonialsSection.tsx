@@ -1,3 +1,4 @@
+'use client'
 import { TESTIMONIALS } from '../../lib/data'
 
 export default function TestimonialsSection() {

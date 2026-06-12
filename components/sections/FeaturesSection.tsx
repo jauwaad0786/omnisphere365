@@ -1,3 +1,4 @@
+'use client'
 import { WHY_US } from '../../lib/data'
 
 export default function FeaturesSection() {

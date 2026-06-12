@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { Check, X, Zap } from 'lucide-react'
 import { SERVICES } from '../../lib/data'

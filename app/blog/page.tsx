@@ -1,3 +1,4 @@
+'use client'
 import { BLOG_POSTS } from '../../lib/data'
 import Link from 'next/link'
 
