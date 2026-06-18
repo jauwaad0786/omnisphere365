@@ -5,20 +5,20 @@ import Footer from '../components/layout/Footer'
 import WhatsAppBtn from '../components/ui/WhatsAppBtn'
 
 export const metadata: Metadata = {
-  title: 'OmniSphere 365 — Enterprise Cloud ERP & AI Automation Platform',
-  description: "Transform your institution with OmniSphere 365 — India's most advanced School ERP, HRMS, Sales ERP, Hospital OPD, and AI Business Automation platform.",
-  keywords: 'School ERP India, Cloud ERP, HRMS, Digital Transformation, WhatsApp Automation, Hospital OPD, AI Business Automation, ERP Delhi',
+  title: 'OmniSphere 365 — The Business Operating System for Modern Organizations',
+  description: "OmniSphere 365 unifies ERP, CRM, HRMS, AI & Automation on one cloud platform — for schools, hospitals, and growing enterprises across India and the Gulf.",
+  keywords: 'Enterprise Cloud ERP, School ERP India, HRMS, CRM, Hospital ERP, AI Business Automation, Digital Transformation, ERP Delhi NCR',
   openGraph: {
-    title: 'OmniSphere 365 — Future-Ready Digital Transformation',
-    description: 'Enterprise-grade ERP & AI automation for schools, hospitals, and businesses.',
+    title: 'OmniSphere 365 — One Platform. Unlimited Business Solutions.',
+    description: 'ERP, CRM, HRMS, AI & Automation — unified on one enterprise cloud platform.',
     type: 'website',
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-surface text-slate-200 font-sans">
+    <html lang="en">
+      <body className="bg-white text-slate-700 font-sans">
         <Navbar />
         <main>{children}</main>
         <Footer />

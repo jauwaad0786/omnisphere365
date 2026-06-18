@@ -1,6 +1,7 @@
+'use client'
 import Link from 'next/link'
 import { Check, X, Zap } from 'lucide-react'
-import { SERVICES } from '../lib/data'
+import { SERVICES } from '../../lib/data'
 
 const COMPARISON = [
   { feature: 'Students', basic: '200', pro: '500', enterprise: 'Unlimited' },
@@ -26,23 +27,23 @@ const plans = SERVICES.find(s => s.id === 'school-erp')?.plans ?? []
 function Cell({ val }: { val: boolean | string }) {
   if (typeof val === 'boolean')
     return val
-      ? <Check size={16} className="text-green-400 mx-auto" />
-      : <X size={16} className="text-slate-700 mx-auto" />
-  return <span className="text-slate-300 text-sm">{val}</span>
+      ? <Check size={16} className="text-success-600 mx-auto" />
+      : <X size={16} className="text-slate-300 mx-auto" />
+  return <span className="text-slate-600 text-sm">{val}</span>
 }
 
 export default function PricingPage() {
   return (
-    <div className="pt-24 pb-20">
+    <div className="pt-28 pb-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-14">
           <div className="badge mb-4">School ERP Plans</div>
-          <h1 className="font-display font-bold text-4xl sm:text-5xl text-white">
+          <h1 className="font-display font-bold text-4xl sm:text-5xl text-slate-900">
             Simple, <span className="gradient-text">Transparent Pricing</span>
           </h1>
-          <p className="text-slate-400 mt-4 max-w-xl mx-auto">
+          <p className="text-slate-500 mt-4 max-w-xl mx-auto">
             No hidden fees. No lock-in. Start with Basic and upgrade anytime.
           </p>
         </div>
@@ -52,16 +53,16 @@ export default function PricingPage() {
           {plans.map((plan) => (
             <div key={plan.name}
               className={`relative rounded-2xl border p-7 flex flex-col gap-5 transition-all
-                ${plan.popular ? 'border-indigo-500/50 bg-[#151528] popular-card scale-[1.02]' : 'border-[#1e1e3a] bg-[#151528]/60'}`}>
+                ${plan.popular ? 'border-brand-200 bg-white popular-card scale-[1.02]' : 'border-surface-border bg-white'}`}>
               {plan.badge && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="badge text-[11px] bg-indigo-600 border-indigo-500 text-white px-3 py-1">
+                  <span className="badge text-[11px] bg-brand-600 border-brand-600 text-white px-3 py-1">
                     <Zap size={9} className="fill-current" /> {plan.badge}
                   </span>
                 </div>
               )}
               <div>
-                <h3 className="font-display font-bold text-white text-lg">{plan.name}</h3>
+                <h3 className="font-display font-bold text-slate-900 text-lg">{plan.name}</h3>
                 <div className="mt-3 flex items-end gap-1">
                   <span className="text-4xl font-bold font-display gradient-text">{plan.price}</span>
                   <span className="text-slate-500 text-sm mb-1">{plan.period}</span>
@@ -69,8 +70,8 @@ export default function PricingPage() {
               </div>
               <ul className="space-y-2.5 flex-1">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-                    <Check size={15} className="text-indigo-400 shrink-0 mt-0.5" />
+                  <li key={f} className="flex items-start gap-2.5 text-sm text-slate-600">
+                    <Check size={15} className="text-brand-600 shrink-0 mt-0.5" />
                     {f}
                   </li>
                 ))}
@@ -86,23 +87,23 @@ export default function PricingPage() {
 
         {/* Comparison table */}
         <div className="glass rounded-2xl overflow-hidden mb-12">
-          <h2 className="font-display font-bold text-xl text-white p-6 border-b border-[#1e1e3a]">Feature Comparison</h2>
+          <h2 className="font-display font-bold text-xl text-slate-900 p-6 border-b border-surface-border">Feature Comparison</h2>
           <div className="overflow-x-auto">
             <table className="w-full comparison-table">
               <thead>
-                <tr className="border-b border-[#1e1e3a]">
-                  <th className="text-left text-xs text-slate-400 font-semibold px-6 py-3">Feature</th>
-                  <th className="text-center text-xs text-slate-400 font-semibold px-6 py-3">Basic</th>
-                  <th className="text-center text-xs text-indigo-400 font-semibold px-6 py-3">Professional ⭐</th>
-                  <th className="text-center text-xs text-slate-400 font-semibold px-6 py-3">Enterprise</th>
+                <tr className="border-b border-surface-border">
+                  <th className="text-left text-xs text-slate-500 font-semibold px-6 py-3">Feature</th>
+                  <th className="text-center text-xs text-slate-500 font-semibold px-6 py-3">Basic</th>
+                  <th className="text-center text-xs text-brand-600 font-semibold px-6 py-3">Professional ⭐</th>
+                  <th className="text-center text-xs text-slate-500 font-semibold px-6 py-3">Enterprise</th>
                 </tr>
               </thead>
               <tbody>
                 {COMPARISON.map((row, i) => (
-                  <tr key={row.feature} className={`border-b border-[#1e1e3a]/50 ${i % 2 === 0 ? '' : 'bg-white/[0.01]'}`}>
-                    <td className="text-slate-300 text-sm px-6 py-3">{row.feature}</td>
+                  <tr key={row.feature} className={`border-b border-surface-border ${i % 2 === 0 ? '' : 'bg-surface-subtle/60'}`}>
+                    <td className="text-slate-700 text-sm px-6 py-3">{row.feature}</td>
                     <td className="text-center px-6 py-3"><Cell val={row.basic} /></td>
-                    <td className="text-center px-6 py-3 bg-indigo-500/5"><Cell val={row.pro} /></td>
+                    <td className="text-center px-6 py-3 bg-brand-50/60"><Cell val={row.pro} /></td>
                     <td className="text-center px-6 py-3"><Cell val={row.enterprise} /></td>
                   </tr>
                 ))}
@@ -112,9 +113,9 @@ export default function PricingPage() {
         </div>
 
         {/* Custom ERP section */}
-        <div className="rounded-2xl border border-indigo-500/20 bg-gradient-to-r from-indigo-600/10 to-sky-600/10 p-8 text-center">
-          <h3 className="font-display font-bold text-2xl text-white mb-3">Need a Custom ERP?</h3>
-          <p className="text-slate-400 text-sm max-w-lg mx-auto mb-6">
+        <div className="rounded-2xl border border-brand-100 bg-gradient-to-r from-brand-50 to-sky-50 p-8 text-center">
+          <h3 className="font-display font-bold text-2xl text-slate-900 mb-3">Need a Custom ERP?</h3>
+          <p className="text-slate-500 text-sm max-w-lg mx-auto mb-6">
             Build ERP exactly for your school or business needs — custom modules, white-label branding, pay-as-you-go model, and dedicated support.
           </p>
           <div className="flex flex-wrap justify-center gap-3">

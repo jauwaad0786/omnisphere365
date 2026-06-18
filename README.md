@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**OmniSphere 365** is a premium enterprise SaaS website built with Next.js 14, Tailwind CSS, and Framer Motion — inspired by Microsoft Dynamics 365, Salesforce, Oracle NetSuite, SAP, and Zoho.
+**OmniSphere 365** is "The Business Operating System for Modern Organizations" — a premium enterprise SaaS website built with Next.js 14, Tailwind CSS, and Framer Motion, in a light enterprise visual language inspired by Microsoft Dynamics 365, Salesforce, Oracle NetSuite, and Stripe.
 
 ---
 
@@ -11,50 +11,39 @@
 ```
 omnisphere365/
 ├── app/                          # Next.js App Router pages
-│   ├── page.tsx                  # Homepage (Hero, Stats, Services grid, Pricing, Testimonials)
+│   ├── page.tsx                  # Homepage (Hero, Services grid, Features, Pricing, Testimonials, CTA)
 │   ├── layout.tsx                # Root layout (Navbar, Footer, WhatsApp button, SEO metadata)
-│   ├── globals.css               # Global styles, CSS variables, custom classes
-│   ├── about/
-│   │   └── page.tsx              # About Us — Vision, Mission, Team, Why Choose Us
-│   ├── careers/
-│   │   └── page.tsx              # Careers page — Open positions, culture, internships
-│   ├── contact/
-│   │   └── page.tsx              # Contact — Form, map, WhatsApp CTA, phone/email
-│   ├── demo/
-│   │   └── page.tsx              # Demo Request — 8-field form with success state
-│   ├── pricing/
-│   │   └── page.tsx              # Pricing — School ERP plans, comparison table, FAQ
-│   ├── blog/
-│   │   └── page.tsx              # Blog/Insights — Article cards, categories, search
+│   ├── globals.css               # Design tokens, light theme utility classes
+│   ├── about/page.tsx            # About Us — Vision, Mission, Team, Why Choose Us
+│   ├── careers/page.tsx          # Careers page — Open positions, culture, internships
+│   ├── contact/page.tsx          # Contact — Form, WhatsApp CTA, phone/email
+│   ├── demo/page.tsx             # Demo Request — multi-field form with success state
+│   ├── pricing/page.tsx          # Pricing — School ERP plans, comparison table, custom ERP CTA
+│   ├── blog/page.tsx             # Blog/Insights — Article cards, categories, newsletter
 │   └── services/
-│       ├── page.tsx              # All Services listing — 12 cards with category filter
-│       └── [id]/
-│           └── page.tsx          # Dynamic Service page — Features, Modules, Plans, Demo CTA
+│       ├── page.tsx              # All Services listing — 12 cards grouped by category
+│       └── [id]/page.tsx         # Dynamic Service page — Features, Modules, Plans, Demo CTA
 │
 ├── components/
 │   ├── layout/
-│   │   ├── Navbar.tsx            # Sticky navbar with mega menu, mobile menu, CTA buttons
-│   │   └── Footer.tsx            # Enterprise footer — links, newsletter, social, legal
+│   │   ├── Navbar.tsx            # Sticky white navbar with mega menu, mobile menu, CTA buttons
+│   │   └── Footer.tsx            # Dark navy footer band with a lifted light CTA card
 │   ├── ui/
-│   │   ├── WhatsAppBtn.tsx       # Fixed floating WhatsApp connect button
-│   │   ├── Badge.tsx             # Reusable badge/pill component
-│   │   └── PricingCard.tsx       # Pricing card with popular highlight
+│   │   └── WhatsAppBtn.tsx       # Fixed floating WhatsApp connect button
 │   └── sections/
-│       ├── HeroSection.tsx       # Animated hero — dashboard mockup, floating cards, stats
-│       ├── StatsSection.tsx      # Animated counter stats (500+ Institutions, 1.2L+ Students)
+│       ├── HeroSection.tsx       # Interactive tabbed dashboard preview (School/HRMS/Sales/AI)
 │       ├── ServicesGrid.tsx      # 12-service grid with hover effects
 │       ├── FeaturesSection.tsx   # Why Choose Us — 9 enterprise feature cards
 │       ├── PricingSection.tsx    # School ERP pricing cards (Basic/Pro/Enterprise)
-│       ├── TestimonialsSection.tsx # Testimonial carousel with star ratings
-│       ├── DashboardPreview.tsx  # Interactive ERP dashboard mockup widget
-│       └── CTASection.tsx        # Demo request CTA banner
+│       ├── TestimonialsSection.tsx # Testimonial cards + trusted-by logos row
+│       └── CTASection.tsx        # Bold blue/azure gradient demo-request banner
 │
 ├── lib/
 │   └── data.ts                   # All services data, plans, testimonials, stats constants
 │
 ├── public/                       # Static assets (icons, og-image, favicon)
 ├── package.json                  # Dependencies: next, react, framer-motion, lucide-react
-├── tailwind.config.ts            # Custom colors, fonts, animations, shadows
+├── tailwind.config.ts            # Design tokens — colors, fonts, animations, shadows
 ├── tsconfig.json                 # TypeScript config with @/* path alias
 ├── next.config.mjs               # Next.js config
 └── postcss.config.mjs            # PostCSS for Tailwind
@@ -72,7 +61,7 @@ omnisphere365/
 | Pricing | `/pricing` | School ERP plans + comparison table |
 | About | `/about` | Company story, vision, mission, team |
 | Careers | `/careers` | Job openings, culture, internships |
-| Contact | `/contact` | Form + WhatsApp + map |
+| Contact | `/contact` | Form + WhatsApp + direct contact info |
 | Demo Request | `/demo` | 8-field demo booking form |
 | Blog | `/blog` | Articles and insights grid |
 
@@ -80,20 +69,22 @@ omnisphere365/
 
 ## Services (12 Total)
 
-| # | Service | Status | Route |
-|---|---------|--------|-------|
-| 1 | School ERP | ✅ Live | `/services/school-erp` |
-| 2 | College ERP | 🔜 Coming Soon | `/services` |
-| 3 | HRMS | 🔜 Coming Soon | `/services` |
-| 4 | Inventory Management | 🔜 Coming Soon | `/services` |
-| 5 | Sales ERP | 🔜 Coming Soon | `/services` |
-| 6 | WhatsApp Automation | 🔜 Coming Soon | `/services` |
-| 7 | Hospital OPD | 🔜 Coming Soon | `/services` |
-| 8 | Dynamic Website Development | 🔜 Coming Soon | `/services` |
-| 9 | Digital Transformation | 🔜 Coming Soon | `/services` |
-| 10 | Custom Cloud ERP | 🔜 Coming Soon | `/services` |
-| 11 | Pay-as-you-go ERP | 🔜 Coming Soon | `/services` |
-| 12 | AI Business Automation | 🔜 Coming Soon | `/services` |
+All 12 modules now have a full detail page (`/services/[id]`) — no module is gated behind a "Coming Soon" wall. Modules without a published price plan show a "Custom Pricing Available" card with a Talk to Sales CTA instead.
+
+| # | Service | Route |
+|---|---------|-------|
+| 1 | School ERP | `/services/school-erp` |
+| 2 | College ERP | `/services/college-erp` |
+| 3 | HRMS | `/services/hrms` |
+| 4 | Inventory Management | `/services/inventory` |
+| 5 | Sales ERP | `/services/sales-erp` |
+| 6 | WhatsApp Automation | `/services/whatsapp-automation` |
+| 7 | Hospital OPD | `/services/hospital-opd` |
+| 8 | Dynamic Website Development | `/services/website-development` |
+| 9 | Digital Transformation | `/services/digital-transformation` |
+| 10 | Custom Cloud ERP | `/services/custom-cloud-erp` |
+| 11 | Pay-as-you-go ERP | `/services/payg-erp` |
+| 12 | AI Business Automation | `/services/ai-automation` |
 
 ---
 
@@ -109,21 +100,24 @@ omnisphere365/
 
 ## Design System
 
-- **Primary**: `#6366f1` (Indigo)
-- **Accent**: `#0ea5e9` (Sky Blue)
-- **Background**: `#0f0f1a` (Deep Dark)
-- **Cards**: `#151528` with glassmorphism
+- **Primary (Microsoft Blue)**: `#2563eb`
+- **Secondary (Azure Blue)**: `#0ea5e9`
+- **Accent (Subtle Purple)**: `#8b5cf6` — used sparingly for AI/automation cues
+- **Success**: `#16a34a` · **Warning**: `#f59e0b` / `#ea580c`
+- **Background**: `#ffffff` with `#f8fafc` alternating section panels
+- **Cards**: white, `1px solid #e2e8f0`, soft elevation shadows (no glassmorphism)
+- **Footer**: deep navy `#0b1220` — the one deliberate dark band, Microsoft/Stripe convention
 - **Display Font**: Plus Jakarta Sans (700/800)
 - **Body Font**: Inter (400/500/600)
-- **Style**: Dark theme, glassmorphism, gradient text, floating cards
+- **Style**: Light enterprise theme, soft low-opacity glows, interactive tabbed dashboard preview in the hero
 
 ---
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS v3
-- **Animations**: Framer Motion v11
+- **Styling**: Tailwind CSS v3 (custom design tokens in `tailwind.config.ts`)
+- **Animations**: Framer Motion v11 (hero tab transitions, scroll reveals)
 - **Icons**: Lucide React
 - **Language**: TypeScript
 - **Fonts**: Google Fonts (Plus Jakarta Sans + Inter)
