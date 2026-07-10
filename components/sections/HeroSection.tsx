@@ -4,8 +4,15 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight, ArrowUpRight, GraduationCap, Users, TrendingUp, CheckCircle,
-  BarChart3, Shield, Bot, Briefcase, IndianRupee, Sparkles,
+  BarChart3, Shield, Bot, Briefcase, IndianRupee, Sparkles, Cloud,
 } from 'lucide-react'
+
+const TOP_STATS = [
+  { icon: Cloud, label: 'Cloud Powered', sub: 'Access Anytime, Anywhere' },
+  { icon: Bot, label: 'AI Automation', sub: 'Smarter Workflows, Better Decisions' },
+  { icon: Shield, label: 'Secure & Reliable', sub: 'Enterprise Grade Security' },
+  { icon: TrendingUp, label: 'Scalable Solutions', sub: 'Built for Today, Ready for Tomorrow' },
+]
 
 const COUNTERS = [
   { end: 500, suffix: '+', label: 'Institutions' },
@@ -115,6 +122,49 @@ const TABS: Tab[] = [
   },
 ]
 
+function PeopleAtDashboard() {
+  // Original flat-design illustration — two generic avatars discussing the dashboard.
+  // No real person, no stock photo — safe, on-brand, and matches the "team reviewing analytics" mood.
+  return (
+    <svg viewBox="0 0 300 170" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#2563eb" />
+          <stop offset="100%" stopColor="#0ea5e9" />
+        </linearGradient>
+        <linearGradient id="p2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#7c3aed" />
+          <stop offset="100%" stopColor="#a78bfa" />
+        </linearGradient>
+      </defs>
+
+      {/* ground shadow */}
+      <ellipse cx="150" cy="162" rx="120" ry="7" fill="#0f172a" opacity="0.05" />
+
+      {/* Person A — pointing at screen */}
+      <g>
+        <circle cx="70" cy="70" r="17" fill="#fde8d2" />
+        <path d="M70 86c-24 0-38 14-40 40h80c-2-26-16-40-40-40z" fill="url(#p1)" />
+        <path d="M92 108l26-14" stroke="url(#p1)" strokeWidth="9" strokeLinecap="round" />
+        <circle cx="120" cy="92" r="5" fill="#fde8d2" />
+      </g>
+
+      {/* Person B — holding tablet, listening */}
+      <g>
+        <circle cx="222" cy="66" r="17" fill="#e6c199" />
+        <path d="M222 82c-23 0-37 15-39 44h84c-2-29-17-44-45-44z" fill="url(#p2)" />
+        <rect x="196" y="96" width="26" height="18" rx="3" fill="#fff" opacity="0.9" />
+      </g>
+
+      {/* floating micro cards to echo the dashboard theme */}
+      <rect x="128" y="18" width="44" height="26" rx="6" fill="#fff" stroke="#e2e8f0" />
+      <rect x="134" y="24" width="20" height="4" rx="2" fill="#2563eb" opacity="0.5" />
+      <rect x="134" y="31" width="30" height="4" rx="2" fill="#cbd5e1" />
+      <rect x="134" y="37" width="14" height="4" rx="2" fill="#16a34a" opacity="0.6" />
+    </svg>
+  )
+}
+
 export default function HeroSection() {
   const [activeId, setActiveId] = useState(TABS[0].id)
   const tab = TABS.find((t) => t.id === activeId)!
@@ -127,6 +177,22 @@ export default function HeroSection() {
       <div className="glow-orb w-[300px] h-[300px] bg-violet-500/[0.05] bottom-0 left-1/3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+        {/* Top trust strip */}
+        <div className="hidden md:flex items-center justify-end gap-6 mb-10 flex-wrap">
+          {TOP_STATS.map((s) => (
+            <div key={s.label} className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-brand-50 flex items-center justify-center shrink-0">
+                <s.icon size={15} className="text-brand-600" />
+              </div>
+              <div className="leading-tight">
+                <div className="text-xs font-semibold text-slate-800">{s.label}</div>
+                <div className="text-[10px] text-slate-400">{s.sub}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left — Text */}
@@ -172,8 +238,13 @@ export default function HeroSection() {
           {/* Right — Interactive Dashboard Preview */}
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="relative lg:ml-4">
 
+            {/* Illustrated team discussing the dashboard — sits behind the card, peeking over the top */}
+            <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[280px] h-[150px] pointer-events-none hidden md:block z-0">
+              <PeopleAtDashboard />
+            </div>
+
             {/* Tab switcher */}
-            <div className="flex items-center gap-1.5 mb-4 flex-wrap">
+            <div className="flex items-center gap-1.5 mb-4 flex-wrap relative z-10">
               {TABS.map((t) => (
                 <button
                   key={t.id}
