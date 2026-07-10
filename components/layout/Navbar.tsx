@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { SERVICES } from '../../lib/data'
-import { Menu, X, ChevronDown, Boxes } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Home',     href: '/' },
@@ -49,17 +49,48 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-blur
       ${scrolled ? 'bg-white/90 border-b border-surface-border shadow-[0_1px_2px_rgba(15,23,42,0.04)]' : 'bg-white/60'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-[72px]">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-accent-500 flex items-center justify-center shadow-glow">
-              <Boxes size={16} className="text-white" />
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="relative w-10 h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <svg viewBox="0 0 40 40" className="w-10 h-10 drop-shadow-[0_2px_10px_rgba(37,99,235,0.35)]">
+                <defs>
+                  <linearGradient id="opRingGrad" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#7c3aed" />
+                    <stop offset="55%" stopColor="#2563eb" />
+                    <stop offset="100%" stopColor="#0ea5e9" />
+                  </linearGradient>
+                  <linearGradient id="opCloudGrad" x1="10" y1="20" x2="30" y2="34" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#dbeafe" />
+                    <stop offset="100%" stopColor="#ffffff" />
+                  </linearGradient>
+                </defs>
+                {/* Swirl ring — replace with <image href="/logo.svg" .../> once real logo file is provided */}
+                <path
+                  d="M20 4a16 16 0 1 1 -11.3 27.3"
+                  fill="none"
+                  stroke="url(#opRingGrad)"
+                  strokeWidth="6.5"
+                  strokeLinecap="round"
+                />
+                {/* Cloud bubble */}
+                <circle cx="14" cy="27" r="6.5" fill="url(#opCloudGrad)" />
+                <circle cx="19" cy="24.5" r="5" fill="url(#opCloudGrad)" />
+                <circle cx="23.5" cy="28" r="4.5" fill="url(#opCloudGrad)" />
+              </svg>
             </div>
-            <span className="font-display font-bold text-lg tracking-tight">
-              <span className="text-slate-900">OmniSphere</span>
-              <span className="text-slate-400 font-normal text-sm ml-0.5">365</span>
-            </span>
+            <div className="flex flex-col leading-none">
+              <span className="font-display font-extrabold text-xl tracking-tight">
+                <span className="text-slate-900">One</span>
+                <span className="bg-gradient-to-r from-brand-600 via-violet-600 to-accent-500 bg-clip-text text-transparent">
+                  Platform360
+                </span>
+              </span>
+              <span className="hidden sm:block text-[9px] font-semibold uppercase tracking-[0.15em] text-slate-400 mt-0.5">
+                One Platform. Unlimited Possibilities.
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
