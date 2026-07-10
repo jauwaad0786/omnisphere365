@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
-import { Boxes, Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react'
+import Image from 'next/image'
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from 'lucide-react'
 
 const FOOTER_SERVICES = [
   { label: 'School ERP', href: '/services/school-erp' },
@@ -46,17 +47,24 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center">
-                <Boxes size={16} className="text-white" />
+            <Link href="/" className="flex items-center gap-2.5 mb-4">
+              <div className="relative w-8 h-8 shrink-0">
+                <Image
+                  src="/logo.svg"
+                  alt="OnePlatform360"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 object-contain"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+                />
               </div>
-              <span className="font-display font-bold text-lg">
-                <span className="text-white">OmniSphere</span>
-                <span className="text-slate-500 font-normal text-sm ml-0.5">365</span>
+              <span className="font-display font-bold text-lg leading-none">
+                <span className="text-white">One</span>
+                <span className="bg-gradient-to-r from-brand-400 to-violet-400 bg-clip-text text-transparent">Platform360</span>
               </span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-5">
-              The business operating system for modern organizations — ERP, CRM, HRMS, AI &amp; Automation, unified on one enterprise cloud platform.
+              Empowering organizations, transforming futures — ERP, CRM, HRMS, AI &amp; Automation, unified on one enterprise cloud platform.
             </p>
             <div className="space-y-2.5 text-sm text-slate-400">
               <div className="flex items-center gap-2 hover:text-accent-400 transition-colors">
@@ -134,7 +142,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="py-6 border-t border-surface-darkBorder flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© 2026 OmniSphere 365. All rights reserved.</p>
+          <p>© 2026 OnePlatform360. All rights reserved.</p>
           <div className="flex gap-5">
             <Link href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
