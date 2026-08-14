@@ -1,10 +1,13 @@
 'use client'
 import { useState } from 'react'
 import { SERVICES } from '../../lib/data'
+import { submitLead } from '../../lib/api'
 import { CheckCircle, CalendarDays } from 'lucide-react'
 
 export default function DemoPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '', company: '', email: '', phone: '', city: '', service: '', size: '', message: ''
   })
@@ -13,9 +16,21 @@ export default function DemoPage() {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    if (!form.name || !form.company || !form.email || !form.phone) {
+      setError('Naam, Company, Email aur Phone bharna zaroori hai.')
+      return
+    }
+    setError('')
+    setSubmitting(true)
+    const res = await submitLead({ lead_type: 'DEMO', ...form })
+    setSubmitting(false)
+    if (res.success) {
+      setSubmitted(true)
+    } else {
+      setError(res.error || 'Kuch galat ho gaya, dobara try karein.')
+    }
   }
 
   if (submitted) {
@@ -149,9 +164,13 @@ export default function DemoPage() {
                   placeholder="Tell us about your requirements..." rows={3} className="form-input resize-none" />
               </div>
 
-              <button onClick={handleSubmit}
-                className="btn-primary w-full justify-center text-base py-3">
-                <CalendarDays size={16} /> Book Free Demo
+              {error && (
+                <p className="text-xs text-red-500 text-center">{error}</p>
+              )}
+
+              <button onClick={handleSubmit} disabled={submitting}
+                className="btn-primary w-full justify-center text-base py-3 disabled:opacity-60">
+                <CalendarDays size={16} /> {submitting ? 'Booking...' : 'Book Free Demo'}
               </button>
 
               <p className="text-xs text-slate-400 text-center">By submitting, you agree to our Terms. We never spam.</p>
