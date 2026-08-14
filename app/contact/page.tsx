@@ -1,13 +1,32 @@
 'use client'
 import { useState } from 'react'
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react'
+import { submitLead } from '../../lib/api'
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.email || !form.message) {
+      setError('Naam, Email aur Message bharna zaroori hai.')
+      return
+    }
+    setError('')
+    setSending(true)
+    const res = await submitLead({ lead_type: 'CONTACT', ...form })
+    setSending(false)
+    if (res.success) {
+      setSent(true)
+    } else {
+      setError(res.error || 'Kuch galat ho gaya, dobara try karein.')
+    }
   }
 
   if (sent) {
@@ -116,8 +135,12 @@ export default function ContactPage() {
                   placeholder="Tell us about your requirements..." rows={4} className="form-input resize-none" />
               </div>
 
-              <button onClick={() => setSent(true)} className="btn-primary w-full justify-center text-sm py-3">
-                Send Message →
+              {error && (
+                <p className="text-xs text-red-500 text-center">{error}</p>
+              )}
+
+              <button onClick={handleSubmit} disabled={sending} className="btn-primary w-full justify-center text-sm py-3 disabled:opacity-60">
+                {sending ? 'Sending...' : 'Send Message →'}
               </button>
             </div>
           </div>
