@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { SERVICES } from '../../lib/data'
 import { ArrowRight } from 'lucide-react'
+import { SERVICE_ICONS, IconTile } from '../../lib/icons'
 
 export default function ServicesPage() {
   const categories = Array.from(new Set(SERVICES.map(s => s.category)))
@@ -36,7 +37,7 @@ export default function ServicesPage() {
                     style={{ background: `radial-gradient(circle at 20% 20%, ${s.color}10 0%, transparent 60%)` }} />
                   <div className="relative">
                     <div className="flex items-start justify-between mb-3">
-                      <div className="text-4xl">{s.icon}</div>
+                      <IconTile icon={SERVICE_ICONS[s.id]} color={s.color} size={24} tile={52} rounded={14} />
                       {!s.available && (
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-success-50 text-success-600 border border-success-500/20 font-medium">
                           New
