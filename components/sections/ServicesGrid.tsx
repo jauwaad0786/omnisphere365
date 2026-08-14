@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { SERVICES } from '../../lib/data'
 import { ArrowRight } from 'lucide-react'
+import { SERVICE_ICONS, IconTile } from '../../lib/icons'
 
 export default function ServicesGrid() {
   return (
@@ -29,7 +30,9 @@ export default function ServicesGrid() {
                 style={{ background: `radial-gradient(circle at 30% 30%, ${s.color}12 0%, transparent 70%)` }} />
 
               <div className="relative">
-                <div className="text-3xl mb-3">{s.icon}</div>
+                <div className="mb-3">
+                  <IconTile icon={SERVICE_ICONS[s.id]} color={s.color} />
+                </div>
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <h3 className="text-slate-900 font-semibold text-sm font-display leading-tight">{s.shortTitle}</h3>
                   {!s.available && (
