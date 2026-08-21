@@ -14,10 +14,10 @@ import {
 
 /* ─── Top trust strip data ──────────────────────────────── */
 const TOP_STATS = [
-  { icon: Cloud, label: 'Cloud Powered', sub: 'Access Anytime, Anywhere' },
-  { icon: Bot, label: 'AI Automation', sub: 'Autonomous Smart Workflows' },
-  { icon: Shield, label: 'Secure & Scalable', sub: 'Enterprise-Grade Security' },
-  { icon: TrendingUp, label: 'Growth Driven', sub: 'Built for High Volume' },
+  { icon: Cloud, label: 'Cloud Powered', sub: 'Access Anywhere', color: 'text-blue-600', bg: 'bg-blue-50' },
+  { icon: Bot, label: 'AI Automation', sub: 'Smart Workflows', color: 'text-emerald-600', bg: 'bg-emerald-50' },
+  { icon: Shield, label: 'Secure & Scalable', sub: 'Enterprise Grade', color: 'text-purple-600', bg: 'bg-purple-50' },
+  { icon: TrendingUp, label: 'Growth Driven', sub: 'High Volume Scale', color: 'text-orange-600', bg: 'bg-orange-50' },
 ]
 
 /* ─── Metric Counter Hook ──────────────────────────────── */
@@ -48,11 +48,11 @@ function useCountUp(end: number, duration = 1800) {
 function Counter({ end, suffix, label, prefix = '' }: { end: number; suffix: string; label: string; prefix?: string }) {
   const { count, ref } = useCountUp(end)
   return (
-    <div className="glass rounded-xl p-4 text-center border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300" ref={ref}>
-      <div className="text-2xl sm:text-3xl font-extrabold font-display gradient-text">
+    <div className="rounded-2xl p-5 text-center bg-white text-slate-900 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300" ref={ref}>
+      <div className="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
         {prefix}{count}{suffix}
       </div>
-      <div className="text-[11px] font-medium text-slate-300 mt-1">{label}</div>
+      <div className="text-xs font-semibold text-slate-500 mt-1">{label}</div>
     </div>
   )
 }
@@ -220,21 +220,24 @@ export default function HeroSection() {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Top trust strip badges */}
-        <div className="hidden md:flex items-center justify-between mb-8 pb-4 border-b border-cyan-500/20">
-          <div className="flex items-center gap-2 text-xs text-cyan-300 font-semibold uppercase tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        {/* 🌟 TOP TRUST STRIP BADGES (CRISP WHITE ON NAVY) 🌟 */}
+        <div className="hidden md:flex items-center justify-between mb-10 pb-5 border-b border-cyan-500/20">
+          <div className="flex items-center gap-2 text-xs text-cyan-300 font-bold uppercase tracking-wider">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
             Next-Generation Enterprise ERP &amp; AI Operating System
           </div>
-          <div className="flex items-center gap-6 flex-wrap">
+          <div className="flex items-center gap-3.5 flex-wrap">
             {TOP_STATS.map((s) => (
-              <div key={s.label} className="flex items-center gap-2.5 group">
-                <div className="w-8 h-8 rounded-lg bg-blue-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0 group-hover:bg-blue-500/25 group-hover:scale-105 transition-all duration-300">
-                  <s.icon size={14} className="text-cyan-300" />
+              <div
+                key={s.label}
+                className="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-white text-slate-900 border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group"
+              >
+                <div className={`w-8 h-8 rounded-lg ${s.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
+                  <s.icon size={15} className={s.color} />
                 </div>
                 <div className="leading-tight">
-                  <div className="text-xs font-semibold text-white">{s.label}</div>
-                  <div className="text-[10px] text-slate-300">{s.sub}</div>
+                  <div className="text-xs font-bold text-slate-900">{s.label}</div>
+                  <div className="text-[10px] text-slate-500 font-medium">{s.sub}</div>
                 </div>
               </div>
             ))}
@@ -271,20 +274,20 @@ export default function HeroSection() {
               ERP, HRMS, AI Automation, WhatsApp Integration and many more — everything you need to run and grow your organisation from a single unified platform.
             </p>
 
-            {/* Feature Pills */}
+            {/* 🌟 4 CRISP WHITE FEATURE PILLS ON NAVY 🌟 */}
             <div className="grid grid-cols-2 gap-2.5 pt-1">
               {[
-                { icon: Layers, text: 'Unified Platform' },
-                { icon: Lock, text: 'Role Based Access' },
-                { icon: Bot, text: 'AI Powered' },
-                { icon: Shield, text: 'Secure & Scalable' },
+                { icon: Layers, text: 'Unified Platform', color: 'text-blue-600' },
+                { icon: Lock, text: 'Role Based Access', color: 'text-purple-600' },
+                { icon: Bot, text: 'AI Powered Engine', color: 'text-emerald-600' },
+                { icon: Shield, text: 'Secure & Scalable', color: 'text-orange-600' },
               ].map((f) => (
                 <div
                   key={f.text}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0f223d] border border-cyan-500/25 text-xs font-medium text-slate-200 hover:border-cyan-500/50 hover:bg-blue-600/15 transition-all duration-300"
+                  className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white text-slate-900 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition-all duration-300"
                 >
-                  <f.icon size={13} className="text-cyan-400" />
-                  {f.text}
+                  <f.icon size={15} className={f.color} />
+                  <span className="text-xs font-bold text-slate-900">{f.text}</span>
                 </div>
               ))}
             </div>
@@ -306,7 +309,7 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* Social Trust Proof with live metrics */}
+            {/* 🌟 Social Trust Proof with Crisp White Mini Stat Cards 🌟 */}
             <div className="pt-3 border-t border-cyan-500/20 space-y-3">
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
@@ -328,7 +331,7 @@ export default function HeroSection() {
                 </p>
               </div>
 
-              {/* 4 Mini Stat Pills */}
+              {/* 4 Crisp White Stat Pills */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { value: '72%', label: 'Tasks Automated' },
@@ -336,24 +339,24 @@ export default function HeroSection() {
                   { value: '2.5M+', label: 'Messages Sent' },
                   { value: '500+', label: 'Happy Clients' },
                 ].map((stat) => (
-                  <div key={stat.label} className="p-2 rounded-lg bg-[#0f223d] border border-cyan-500/20 text-center">
-                    <div className="text-xs font-bold text-cyan-300 font-display">{stat.value}</div>
-                    <div className="text-[9px] text-slate-300 mt-0.5">{stat.label}</div>
+                  <div key={stat.label} className="p-2.5 rounded-xl bg-white text-slate-900 border border-slate-200 shadow-sm text-center">
+                    <div className="text-xs font-extrabold text-slate-900 font-display">{stat.value}</div>
+                    <div className="text-[9.5px] text-slate-500 mt-0.5 font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* ──── RIGHT (7 Cols): Executive Boardroom Presentation Scene ──── */}
+          {/* ──── RIGHT (7 Cols): Executive Boardroom Presentation Scene (Crisp White Frame) ──── */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="lg:col-span-7 space-y-4"
           >
-            <div className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/35 bg-[#0a1628] shadow-[0_20px_60px_rgba(5,12,24,0.85)] group">
-              <div className="relative aspect-[16/9] w-full">
+            <div className="relative rounded-2xl overflow-hidden border-2 border-slate-200 bg-white p-1.5 shadow-[0_20px_60px_rgba(0,0,0,0.6)] group">
+              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden">
                 <Image
                   src="/hero-showcase.jpg"
                   alt="OnePlatform360 Executive Boardroom Presentation"
@@ -361,28 +364,30 @@ export default function HeroSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b192e] via-transparent to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
 
-                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-xl bg-[#0b192e]/90 backdrop-blur-md border border-cyan-500/40 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[11px] font-bold text-white tracking-wide">
+                {/* Top Badge */}
+                <div className="absolute top-3 left-3 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200 flex items-center gap-2 shadow-md">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[11px] font-bold text-slate-900 tracking-wide">
                     OnePlatform360 Cloud ERP Display
                   </span>
                 </div>
 
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#0f223d]/92 backdrop-blur-md border border-cyan-500/35 flex items-center justify-between">
+                {/* 🌟 CRISP WHITE BOTTOM OVERLAY BAR 🌟 */}
+                <div className="absolute bottom-3 left-3 right-3 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-2xl flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300">
+                    <div className="w-8 h-8 rounded-lg bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700 shrink-0">
                       <Sparkles size={16} />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-white">Live Institutional Command Center</div>
-                      <div className="text-[10px] text-slate-300">Empowering school boards, hospital directors &amp; CEOs</div>
+                      <div className="text-xs font-bold text-slate-900">Live Institutional Command Center</div>
+                      <div className="text-[10px] text-slate-600 font-medium">Empowering school boards, hospital directors &amp; CEOs</div>
                     </div>
                   </div>
                   <Link
                     href="/demo"
-                    className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center gap-1"
+                    className="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-md transition-all flex items-center gap-1 shrink-0"
                   >
                     Request Demo <ArrowRight size={12} />
                   </Link>
@@ -570,7 +575,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ──── RIGHT (4 Cols): Module Showcase Cards ──── */}
+          {/* ──── RIGHT (4 Cols): Module Showcase Cards in Crisp White ──── */}
           <div className="lg:col-span-4 space-y-4">
 
             {/* Card 1: Powerful ERP */}
@@ -679,7 +684,7 @@ export default function HeroSection() {
 
         </div>
 
-        {/* ──── Bottom Counters Strip ──── */}
+        {/* 🌟 BOTTOM COUNTERS STRIP IN CRISP WHITE CARDS 🌟 */}
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
           <Counter end={500} suffix="+" label="Institutions Across India" />
           <Counter end={120} suffix="K+" label="Students &amp; Staff Managed" />

@@ -69,8 +69,8 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-[#0a1628] border-b border-cyan-500/25 shadow-[0_8px_32px_rgba(3,8,18,0.85)]'
-        : 'bg-[#0b192e] border-b border-cyan-500/15'
+        ? 'bg-[#091526]/95 backdrop-blur-md border-b border-cyan-500/25 shadow-[0_8px_32px_rgba(0,0,0,0.7)]'
+        : 'bg-[#091526] border-b border-cyan-500/15'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[74px]">
@@ -101,9 +101,12 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Clean EXL-Style Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1" ref={megaRef}>
-            <Link href="/" className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+          {/* Clean Desktop Navigation with Pill Active Styles */}
+          <nav className="hidden lg:flex items-center gap-1.5" ref={megaRef}>
+            <Link
+              href="/"
+              className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all"
+            >
               Home
             </Link>
 
@@ -111,24 +114,24 @@ export default function Navbar() {
             <div className="relative">
               <button
                 onClick={() => setMegaOpen(!megaOpen)}
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
                   megaOpen
-                    ? 'text-cyan-300 bg-cyan-500/15 border border-cyan-500/35'
-                    : 'text-slate-200 hover:text-white hover:bg-white/5'
+                    ? 'bg-white text-slate-900 shadow-md font-bold'
+                    : 'text-slate-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 What we do
-                <ChevronDown size={14} className={`transition-transform duration-300 ${megaOpen ? 'rotate-180 text-cyan-300' : 'text-slate-400'}`} />
+                <ChevronDown size={14} className={`transition-transform duration-300 ${megaOpen ? 'rotate-180 text-blue-600' : 'text-slate-400'}`} />
               </button>
 
-              {/* 100% Solid Opaque EXL-Style Mega Panel */}
+              {/* 🌟 100% CRISP WHITE EXL-STYLE MEGA PANEL 🌟 */}
               {megaOpen && (
-                <div className="absolute top-[calc(100%+12px)] -left-44 w-[960px] rounded-2xl border border-cyan-500/30 bg-[#0d203b] shadow-[0_30px_90px_rgba(0,0,0,0.95)] p-7 animate-fade-in z-50">
+                <div className="absolute top-[calc(100%+12px)] -left-44 w-[960px] rounded-3xl border border-slate-200 bg-white text-slate-900 shadow-[0_30px_90px_rgba(0,0,0,0.5)] p-8 animate-fade-in z-50">
                   <div className="grid grid-cols-12 gap-7">
 
                     {/* Column 1 */}
                     <div className="col-span-3 space-y-4">
-                      <div className="text-xs font-bold uppercase tracking-wider text-cyan-300 pb-2 border-b border-cyan-500/20">
+                      <div className="text-xs font-bold uppercase tracking-wider text-orange-600 pb-2 border-b border-slate-200 font-mono">
                         {WHAT_WE_DO_MENU.col1.title}
                       </div>
                       <div className="space-y-3">
@@ -139,10 +142,10 @@ export default function Navbar() {
                             onClick={() => setMegaOpen(false)}
                             className="block group"
                           >
-                            <div className="text-xs font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                            <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[11px] text-slate-300 leading-snug mt-0.5">
+                            <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
                               {item.desc}
                             </div>
                           </Link>
@@ -152,7 +155,7 @@ export default function Navbar() {
 
                     {/* Column 2 */}
                     <div className="col-span-3 space-y-4">
-                      <div className="text-xs font-bold uppercase tracking-wider text-cyan-300 pb-2 border-b border-cyan-500/20">
+                      <div className="text-xs font-bold uppercase tracking-wider text-orange-600 pb-2 border-b border-slate-200 font-mono">
                         {WHAT_WE_DO_MENU.col2.title}
                       </div>
                       <div className="space-y-3">
@@ -163,10 +166,10 @@ export default function Navbar() {
                             onClick={() => setMegaOpen(false)}
                             className="block group"
                           >
-                            <div className="text-xs font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                            <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[11px] text-slate-300 leading-snug mt-0.5">
+                            <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
                               {item.desc}
                             </div>
                           </Link>
@@ -176,7 +179,7 @@ export default function Navbar() {
 
                     {/* Column 3 */}
                     <div className="col-span-3 space-y-4">
-                      <div className="text-xs font-bold uppercase tracking-wider text-cyan-300 pb-2 border-b border-cyan-500/20">
+                      <div className="text-xs font-bold uppercase tracking-wider text-orange-600 pb-2 border-b border-slate-200 font-mono">
                         {WHAT_WE_DO_MENU.col3.title}
                       </div>
                       <div className="space-y-3">
@@ -187,10 +190,10 @@ export default function Navbar() {
                             onClick={() => setMegaOpen(false)}
                             className="block group"
                           >
-                            <div className="text-xs font-semibold text-white group-hover:text-cyan-300 transition-colors">
+                            <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                               {item.label}
                             </div>
-                            <div className="text-[11px] text-slate-300 leading-snug mt-0.5">
+                            <div className="text-[11px] text-slate-500 leading-snug mt-0.5">
                               {item.desc}
                             </div>
                           </Link>
@@ -200,27 +203,27 @@ export default function Navbar() {
 
                     {/* Column 4: EXL-Style Featured Box */}
                     <div className="col-span-3">
-                      <div className="rounded-xl bg-gradient-to-br from-[#102747] via-[#0d223f] to-[#0a182e] border border-cyan-500/30 p-5 h-full flex flex-col justify-between shadow-lg">
+                      <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 h-full flex flex-col justify-between shadow-sm">
                         <div>
                           <div className="flex items-center justify-between mb-3">
-                            <span className="text-[10px] font-bold text-amber-400 tracking-wider">
+                            <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider font-mono">
                               {WHAT_WE_DO_MENU.featured.tag}
                             </span>
-                            <Sparkles size={13} className="text-cyan-300" />
+                            <Sparkles size={14} className="text-blue-600" />
                           </div>
-                          <h4 className="font-display font-bold text-sm text-white mb-2 leading-snug">
+                          <h4 className="font-display font-bold text-sm text-slate-900 mb-2 leading-snug">
                             {WHAT_WE_DO_MENU.featured.title}
                           </h4>
-                          <p className="text-[11px] text-slate-300 leading-relaxed mb-4">
+                          <p className="text-[11px] text-slate-600 leading-relaxed mb-4">
                             {WHAT_WE_DO_MENU.featured.desc}
                           </p>
                         </div>
                         <Link
                           href={WHAT_WE_DO_MENU.featured.href}
                           onClick={() => setMegaOpen(false)}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 hover:text-white transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 transition-colors"
                         >
-                          {WHAT_WE_DO_MENU.featured.cta} <ArrowRight size={13} />
+                          {WHAT_WE_DO_MENU.featured.cta} <ArrowRight size={13} className="text-orange-500" />
                         </Link>
                       </div>
                     </div>
@@ -230,23 +233,38 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link href="/services" className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+            <Link
+              href="/services"
+              className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all"
+            >
               Solutions
             </Link>
 
-            <Link href="/pricing" className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+            <Link
+              href="/pricing"
+              className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all"
+            >
               Pricing
             </Link>
 
-            <Link href="/blog" className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+            <Link
+              href="/blog"
+              className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all"
+            >
               Blog
             </Link>
 
-            <Link href="/about" className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+            <Link
+              href="/about"
+              className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all"
+            >
               About
             </Link>
 
-            <Link href="/contact" className="px-3.5 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/5 transition-all">
+            <Link
+              href="/contact"
+              className="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all"
+            >
               Contact
             </Link>
           </nav>
@@ -255,7 +273,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/demo"
-              className="btn-primary text-sm py-2.5 px-5 shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.75)]"
+              className="btn-primary text-xs sm:text-sm py-2.5 px-5 shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.75)]"
             >
               <Sparkles size={14} className="text-cyan-300" /> Book a Demo
             </Link>
@@ -264,7 +282,7 @@ export default function Navbar() {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
+            className="lg:hidden p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -273,7 +291,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="lg:hidden mobile-menu border-t border-cyan-500/20 max-h-[85vh] overflow-y-auto bg-[#0a1628]">
+        <div className="lg:hidden mobile-menu border-t border-cyan-500/20 max-h-[85vh] overflow-y-auto bg-[#091526]">
           <div className="px-4 py-5 space-y-2">
             <Link href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:bg-blue-600/15">
               Home
