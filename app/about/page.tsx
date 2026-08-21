@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { WHY_US } from '../../lib/data'
-import { ArrowRight, Target, Telescope } from 'lucide-react'
+import { ArrowRight, Target } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function AboutPage() {
@@ -58,7 +58,7 @@ export default function AboutPage() {
             <div className="glow-orb w-40 h-40 bg-brand-500/[0.06] -top-10 -right-10" />
             <div className="relative">
               <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center mb-4">
-                <Telescope size={22} className="text-brand-600" />
+                <Target size={22} className="text-brand-600" />
               </div>
               <h3 className="font-display font-bold text-xl text-slate-900 mb-3">Our Vision</h3>
               <p className="text-slate-500 text-sm leading-relaxed">

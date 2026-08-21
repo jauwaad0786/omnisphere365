@@ -1,7 +1,7 @@
 'use client'
 import {
   GraduationCap, Building2, Users, Package, TrendingUp,
-  MessageCircle, Hospital, Globe, Zap, Cloud, DollarSign, Bot,
+  MessageCircle, Stethoscope, Globe, Zap, Cloud, DollarSign, Bot, Target,
 } from 'lucide-react'
 
 export const SERVICE_ICONS: Record<string, any> = {
@@ -11,12 +11,13 @@ export const SERVICE_ICONS: Record<string, any> = {
   'inventory': Package,
   'sales-erp': TrendingUp,
   'whatsapp-automation': MessageCircle,
-  'hospital-opd': Hospital,
+  'hospital-opd': Stethoscope,
   'website-development': Globe,
   'digital-transformation': Zap,
   'custom-cloud-erp': Cloud,
   'payg-erp': DollarSign,
   'ai-automation': Bot,
+  'strategic-consulting': Target,
 }
 
 export function IconTile({ icon: Icon, color }: { icon: any; color: string }) {
