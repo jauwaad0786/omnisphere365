@@ -67,7 +67,7 @@ export default function ContactPage() {
             {[
               { icon: Mail, label: 'Official Email', val: 'OnePlatform360@gmail.com', href: 'mailto:OnePlatform360@gmail.com', color: 'text-cyan-400' },
               { icon: Phone, label: 'Enterprise Line', val: '+91 62079 47958', href: 'tel:+916207947958', color: 'text-blue-400' },
-              { icon: MapPin, label: 'Corporate Office', val: 'Delhi NCR, India & UAE', href: '#', color: 'text-purple-400' },
+              { icon: MapPin, label: 'Corporate Office', val: 'Delhi NCR, India', href: '#', color: 'text-purple-400' },
             ].map((c) => (
               <a key={c.label} href={c.href} className="flex items-center gap-4 glass glass-hover rounded-xl p-5 group border border-blue-500/20">
                 <div className="feature-icon group-hover:bg-blue-600/20 transition-colors">

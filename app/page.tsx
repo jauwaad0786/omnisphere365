@@ -1,6 +1,7 @@
 'use client'
 
 import HeroSection from '../components/sections/HeroSection'
+import WhatWeDoSection from '../components/sections/WhatWeDoSection'
 import ServicesGrid from '../components/sections/ServicesGrid'
 import FeaturesSection from '../components/sections/FeaturesSection'
 import PricingSection from '../components/sections/PricingSection'
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <WhatWeDoSection />
       <ServicesGrid />
       <FeaturesSection />
       <PricingSection />

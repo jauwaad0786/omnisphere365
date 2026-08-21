@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
           className="mt-16 border-t border-blue-500/15 pt-10"
         >
           <p className="text-center text-xs text-slate-400 uppercase tracking-widest mb-6 font-medium">
-            Recognized & trusted by leaders across India & UAE
+            Recognized & trusted by leaders across India
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {['Delhi Public Academy', 'Modern School Noida', 'Apex Hospital Group', 'TechCorp India', 'St. Xavier Global', 'EduTech Solutions'].map((org) => (
