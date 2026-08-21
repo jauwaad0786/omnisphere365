@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import {
@@ -65,16 +66,16 @@ function AnimatedCard({ children, delay = 0, className = '' }: { children: React
 
 function IconGrid({ items }: { items: { icon: any; label: string; color: string }[] }) {
   return (
-    <div className="grid grid-cols-4 gap-2.5 mt-4">
+    <div className="grid grid-cols-4 gap-2.5 mt-3">
       {items.map((item) => (
-        <div key={item.label} className="flex flex-col items-center gap-1.5 group cursor-pointer">
+        <div key={item.label} className="flex flex-col items-center gap-1 group cursor-pointer">
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-            style={{ background: `${item.color}15`, border: `1px solid ${item.color}30` }}
+            className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] bg-[#0f223d]"
+            style={{ border: `1px solid ${item.color}35` }}
           >
-            <item.icon size={16} style={{ color: item.color }} />
+            <item.icon size={15} style={{ color: item.color }} />
           </div>
-          <span className="text-[10px] text-slate-300 text-center leading-tight font-medium group-hover:text-white transition-colors">
+          <span className="text-[9.5px] text-slate-300 text-center leading-tight font-medium group-hover:text-white transition-colors">
             {item.label}
           </span>
         </div>
@@ -85,118 +86,127 @@ function IconGrid({ items }: { items: { icon: any; label: string; color: string 
 
 export default function ServicesGrid() {
   return (
-    <section className="section-pad bg-[#070c1b] relative overflow-hidden">
+    <section className="section-pad bg-[#0b192e] relative overflow-hidden" id="solutions">
       {/* Background glow */}
-      <div className="glow-orb w-[600px] h-[600px] bg-blue-600/[0.08] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      <div className="glow-orb w-[600px] h-[600px] bg-cyan-600/[0.12] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section header */}
         <div className="text-center mb-16">
           <div className="badge mb-4">
-            <Sparkles size={12} className="text-blue-400" /> Enterprise Solutions
+            <Sparkles size={12} className="text-cyan-300" /> Enterprise Product Suites
           </div>
           <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">
             Everything You Need to{' '}
-            <span className="gradient-text">Scale — Without the Complexity</span>
+            <span className="gradient-text">Run Your Entire Organization</span>
           </h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-            Powerful tools designed to simplify operations, improve visibility, and accelerate growth across your organisation.
+          <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+            Modern, responsive cloud applications designed to automate management, eliminate paper workflows, and empower leadership.
           </p>
         </div>
 
         {/* ─── Bento Grid ──── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {/* 01 — Powerful ERP (large card) */}
+          {/* 01 — Powerful School & Campus ERP (large card with real classroom image) */}
           <AnimatedCard delay={0} className="lg:row-span-2">
-            <div className="feature-card-num h-full flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/[0.06] rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="relative">
+            <div className="feature-card-num h-full flex flex-col justify-between p-6">
+              <div>
                 <div className="num flex items-center justify-between">
                   <span>01</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold uppercase">Flagship</span>
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-bold uppercase">
+                    Institutional Flagship
+                  </span>
                 </div>
-                <h3 className="font-display font-bold text-xl text-white mb-2">Powerful ERP</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                  Manage academics, students, finance, exams, attendance and more — all in one centralized cloud platform.
+                <h3 className="font-display font-bold text-xl text-white mb-2">School &amp; College ERP</h3>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                  Complete digital transformation for schools and universities — student enrollment, attendance, gradebooks, fees, and parent portals.
                 </p>
+
+                {/* Real classroom showcase photo */}
+                <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-4 border border-cyan-500/25 shadow-lg group">
+                  <Image
+                    src="/school-erp-showcase.jpg"
+                    alt="School Management ERP Classroom Showcase"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f223d]/90 via-transparent to-transparent" />
+                  <div className="absolute bottom-2 left-3 right-3 text-[10px] text-cyan-200 font-medium flex items-center gap-1">
+                    <Sparkles size={11} className="text-cyan-300" /> Digital Smartboards &amp; Student Tablets
+                  </div>
+                </div>
+
                 <IconGrid items={ERP_MODULES} />
               </div>
-              <div className="pt-6 border-t border-blue-500/15 mt-6">
-                <Link href="/services/school-erp" className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 hover:text-blue-300 group">
-                  Explore ERP Solutions <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+
+              <div className="pt-5 border-t border-cyan-500/20 mt-5">
+                <Link href="/services/school-erp" className="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-white group">
+                  Explore School ERP Modules <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
           </AnimatedCard>
 
-          {/* 02 — Smart HRMS */}
+          {/* 02 — Smart HRMS & Payroll (with real corporate office image) */}
           <AnimatedCard delay={0.1}>
-            <div className="feature-card-num h-full flex flex-col justify-between">
+            <div className="feature-card-num h-full flex flex-col justify-between p-6">
               <div>
                 <div className="num">02</div>
-                <h3 className="font-display font-bold text-lg text-white mb-1.5">Smart HRMS</h3>
-                <p className="text-slate-400 text-xs leading-relaxed">
-                  Complete employee management from recruitment to payroll, tax deductions and appraisal.
+                <h3 className="font-display font-bold text-lg text-white mb-1.5">Smart HRMS &amp; Payroll</h3>
+                <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                  Workforce management from biometric check-in to automated salary generation and tax compliance.
                 </p>
-                <IconGrid items={HRMS_MODULES} />
+
+                {/* Real HRMS showcase photo */}
+                <div className="relative aspect-[16/8] rounded-xl overflow-hidden mb-3 border border-purple-500/25 shadow-md group">
+                  <Image
+                    src="/hrms-showcase.jpg"
+                    alt="Smart HRMS Corporate Team"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+
+                <IconGrid items={HRMS_MODULES.slice(0, 4)} />
               </div>
-              <div className="pt-4 border-t border-blue-500/15 mt-4">
-                <Link href="/services/hrms" className="inline-flex items-center gap-1 text-xs font-semibold text-purple-400 hover:text-purple-300 group">
-                  Explore HRMS <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+
+              <div className="pt-4 border-t border-cyan-500/20 mt-4">
+                <Link href="/services/hrms" className="inline-flex items-center gap-1 text-xs font-semibold text-purple-300 hover:text-white group">
+                  Explore HRMS Suite <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
           </AnimatedCard>
 
-          {/* 03 — AI Automation */}
+          {/* 03 — AI Business Automation (with high-tech workflow image) */}
           <AnimatedCard delay={0.15}>
-            <div className="feature-card-num h-full flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-purple-500/[0.06] rounded-full -translate-y-1/2 translate-x-1/2" />
-              <div className="relative">
+            <div className="feature-card-num h-full flex flex-col justify-between p-6">
+              <div>
                 <div className="num">03</div>
-                <h3 className="font-display font-bold text-lg text-white mb-1.5">AI Automation</h3>
-                <p className="text-slate-400 text-xs leading-relaxed mb-4">
-                  Automate repetitive workflows, sync systems, and generate smart predictive insights.
+                <h3 className="font-display font-bold text-lg text-white mb-1.5">AI Automation Engine</h3>
+                <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                  Automate manual administrative routines, auto-generate report cards, and trigger instant reminders.
                 </p>
 
-                {/* Workflow diagram */}
-                <div className="flex items-center gap-2 mb-4 bg-[#080e1e] p-3 rounded-xl border border-blue-500/15">
-                  <div className="flex-1 text-center">
-                    <div className="w-8 h-8 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center mx-auto mb-1 text-blue-400">
-                      <Zap size={14} />
-                    </div>
-                    <div className="text-[10px] font-semibold text-white">Trigger</div>
-                    <div className="text-[8.5px] text-slate-400">Event / Fee</div>
-                  </div>
-                  <ArrowRight size={12} className="text-slate-500 shrink-0" />
-                  <div className="flex-1 text-center">
-                    <div className="w-8 h-8 rounded-lg bg-purple-500/15 border border-purple-500/30 flex items-center justify-center mx-auto mb-1 text-purple-400">
-                      <Bot size={14} />
-                    </div>
-                    <div className="text-[10px] font-semibold text-white">AI Engine</div>
-                    <div className="text-[8.5px] text-slate-400">Analyze & Verify</div>
-                  </div>
-                  <ArrowRight size={12} className="text-slate-500 shrink-0" />
-                  <div className="flex-1 text-center">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto mb-1 text-emerald-400">
-                      <Send size={14} />
-                    </div>
-                    <div className="text-[10px] font-semibold text-white">Action</div>
-                    <div className="text-[8.5px] text-slate-400">Dispatched</div>
-                  </div>
+                {/* Real AI Automation showcase photo */}
+                <div className="relative aspect-[16/8] rounded-xl overflow-hidden mb-3 border border-emerald-500/25 shadow-md group">
+                  <Image
+                    src="/ai-automation-showcase.jpg"
+                    alt="AI Autonomous Tech Operations"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
 
-                {/* Active automations */}
                 <div className="space-y-1.5">
                   {[
-                    { label: 'Auto Fee Reminders', count: '100% active' },
-                    { label: 'Attendance Alerts', count: 'Instant SMS/WA' },
-                    { label: 'Report Generation', count: 'Weekly AI' },
+                    { label: 'Automated Fee Reminders', count: '100% active' },
+                    { label: 'Smart Attendance Alerts', count: 'Instant WhatsApp' },
                   ].map((item) => (
-                    <div key={item.label} className="flex items-center justify-between text-[11px] px-2.5 py-1.5 rounded-lg bg-[#080e1e] border border-blue-500/10">
-                      <span className="text-slate-300 font-medium">{item.label}</span>
+                    <div key={item.label} className="flex items-center justify-between text-[11px] px-2.5 py-1.5 rounded-lg bg-[#0f223d] border border-cyan-500/15">
+                      <span className="text-slate-200 font-medium">{item.label}</span>
                       <span className="text-emerald-400 font-semibold text-[10px] flex items-center gap-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> {item.count}
                       </span>
@@ -204,95 +214,71 @@ export default function ServicesGrid() {
                   ))}
                 </div>
               </div>
-              <div className="pt-4 border-t border-blue-500/15 mt-4">
-                <Link href="/services/ai-automation" className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group">
-                  Explore AI Automation <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+
+              <div className="pt-4 border-t border-cyan-500/20 mt-4">
+                <Link href="/services/ai-automation" className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-300 hover:text-white group">
+                  Explore AI Engine <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
           </AnimatedCard>
 
-          {/* 04 — WhatsApp Integration */}
+          {/* 04 — WhatsApp Business Automation (with smartphone notification image) */}
           <AnimatedCard delay={0.2}>
-            <div className="feature-card-num h-full flex flex-col justify-between">
+            <div className="feature-card-num h-full flex flex-col justify-between p-6">
               <div>
                 <div className="num">04</div>
-                <h3 className="font-display font-bold text-lg text-white mb-1.5">WhatsApp Integration</h3>
-                <p className="text-slate-400 text-xs leading-relaxed mb-3">
-                  Connect instantly with students, parents, and employees through automated official WhatsApp messages.
+                <h3 className="font-display font-bold text-lg text-white mb-1.5">Official WhatsApp Hub</h3>
+                <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                  Connect instantly with students, parents, and employees via verified WhatsApp Cloud API.
                 </p>
 
-                {/* Mini chat preview */}
-                <div className="rounded-xl bg-[#080e1e] border border-emerald-500/20 p-3 space-y-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-full bg-[#25d366] flex items-center justify-center">
-                      <MessageCircle size={11} className="text-white" />
-                    </div>
-                    <span className="text-[11px] font-semibold text-white">OnePlatform360 Bot</span>
-                    <span className="text-[9px] text-emerald-400 ml-auto">Verified</span>
-                  </div>
-                  <div className="bg-[#0c1527] rounded-lg p-2.5 border border-blue-500/15 text-[11px] text-slate-200 leading-relaxed">
-                    Hello Rahul! 👋<br />
-                    Your Term 2 Fee Receipt has been generated: ₹12,500.
-                  </div>
-                  <div className="bg-[#065f46] rounded-lg p-2 text-[11px] text-emerald-100 ml-auto w-fit">
-                    Receipt downloaded, thanks! 🙏
-                  </div>
+                {/* Real WhatsApp showcase photo */}
+                <div className="relative aspect-[16/8] rounded-xl overflow-hidden mb-3 border border-green-500/25 shadow-md group">
+                  <Image
+                    src="/whatsapp-showcase.jpg"
+                    alt="WhatsApp Automation Notifications"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-blue-500/15 mt-4">
-                <Link href="/services/whatsapp-automation" className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group">
-                  Explore WhatsApp <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+              <div className="pt-4 border-t border-cyan-500/20 mt-4">
+                <Link href="/services/whatsapp-automation" className="inline-flex items-center gap-1 text-xs font-semibold text-green-300 hover:text-white group">
+                  Explore WhatsApp Hub <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
           </AnimatedCard>
 
-          {/* 05 — Analytics & Insights */}
+          {/* 05 — Analytics & Executive Insights */}
           <AnimatedCard delay={0.25}>
-            <div className="feature-card-num h-full flex flex-col justify-between">
+            <div className="feature-card-num h-full flex flex-col justify-between p-6">
               <div>
                 <div className="num">05</div>
-                <h3 className="font-display font-bold text-lg text-white mb-1.5">Analytics & Insights</h3>
-                <p className="text-slate-400 text-xs leading-relaxed mb-3">
-                  Executive command dashboards and AI forecasting for high-level institutional decisions.
+                <h3 className="font-display font-bold text-lg text-white mb-1.5">Analytics &amp; Dashboards</h3>
+                <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                  High-level institutional control with revenue forecasting, student retention metrics &amp; SLA tracking.
                 </p>
 
                 {/* Mini stats */}
-                <div className="grid grid-cols-2 gap-2.5 mb-3">
-                  <div className="rounded-xl bg-[#080e1e] border border-blue-500/15 p-2.5">
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="rounded-xl bg-[#0f223d] border border-cyan-500/20 p-2.5">
                     <div className="text-[9.5px] text-slate-400">Total Collections</div>
                     <div className="text-sm font-bold text-white font-display">₹42.8 Lakhs</div>
                     <div className="text-[9.5px] text-emerald-400 font-semibold">+12.6% YoY</div>
                   </div>
-                  <div className="rounded-xl bg-[#080e1e] border border-blue-500/15 p-2.5">
-                    <div className="text-[9.5px] text-slate-400">Student Attendance</div>
+                  <div className="rounded-xl bg-[#0f223d] border border-cyan-500/20 p-2.5">
+                    <div className="text-[9.5px] text-slate-400">Attendance Rate</div>
                     <div className="text-sm font-bold text-white font-display">94.7%</div>
                     <div className="text-[9.5px] text-emerald-400 font-semibold">+2.1% High</div>
                   </div>
                 </div>
-
-                {/* Mini bar chart */}
-                <div className="rounded-xl bg-[#080e1e] border border-blue-500/15 p-3">
-                  <div className="text-[10px] text-slate-300 font-semibold mb-2">Monthly Enrollment Growth</div>
-                  <div className="flex items-end gap-1.5 h-12">
-                    {[40, 55, 48, 65, 58, 72, 85].map((h, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 rounded-t bg-gradient-to-t from-blue-600 to-cyan-400 transition-all duration-300 hover:opacity-100 opacity-80 cursor-pointer"
-                        style={{ height: `${h}%` }}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex justify-between mt-1.5 text-[8.5px] text-slate-400">
-                    {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'].map((m) => <span key={m}>{m}</span>)}
-                  </div>
-                </div>
               </div>
 
-              <div className="pt-4 border-t border-blue-500/15 mt-4">
-                <Link href="/services" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-400 hover:text-blue-300 group">
+              <div className="pt-4 border-t border-cyan-500/20 mt-4">
+                <Link href="/services" className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-300 hover:text-white group">
                   Explore Analytics <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -301,19 +287,19 @@ export default function ServicesGrid() {
 
           {/* 06 — Integrations & Cloud */}
           <AnimatedCard delay={0.3}>
-            <div className="feature-card-num h-full flex flex-col justify-between">
+            <div className="feature-card-num h-full flex flex-col justify-between p-6">
               <div>
                 <div className="num">06</div>
-                <h3 className="font-display font-bold text-lg text-white mb-1.5">Ecosystem & Integrations</h3>
-                <p className="text-slate-400 text-xs leading-relaxed mb-3">
-                  Seamlessly connect with payment gateways, communication APIs, and external databases.
+                <h3 className="font-display font-bold text-lg text-white mb-1.5">Ecosystem &amp; Integrations</h3>
+                <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                  Sync seamlessly with payment gateways, biometric devices, cloud storage, and communication APIs.
                 </p>
                 <IconGrid items={INTEGRATIONS} />
               </div>
 
-              <div className="pt-4 border-t border-blue-500/15 mt-4">
-                <Link href="/services" className="inline-flex items-center gap-1 text-xs font-semibold text-blue-400 hover:text-blue-300 group">
-                  Explore Integrations <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+              <div className="pt-4 border-t border-cyan-500/20 mt-4">
+                <Link href="/services" className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-300 hover:text-white group">
+                  Explore All 12 Integrations <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>

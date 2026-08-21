@@ -15,9 +15,9 @@ import {
 /* ─── Top trust strip data ──────────────────────────────── */
 const TOP_STATS = [
   { icon: Cloud, label: 'Cloud Powered', sub: 'Access Anytime, Anywhere' },
-  { icon: Bot, label: 'AI Automation', sub: 'Smarter Autonomous Workflows' },
-  { icon: Shield, label: 'Secure & Reliable', sub: 'Bank-Grade 256-bit Encryption' },
-  { icon: TrendingUp, label: 'Scalable', sub: 'From 50 to 50,000+ Users' },
+  { icon: Bot, label: 'AI Automation', sub: 'Autonomous Smart Workflows' },
+  { icon: Shield, label: 'Secure & Scalable', sub: 'Enterprise-Grade Security' },
+  { icon: TrendingUp, label: 'Growth Driven', sub: 'Built for High Volume' },
 ]
 
 /* ─── Metric Counter Hook ──────────────────────────────── */
@@ -48,11 +48,11 @@ function useCountUp(end: number, duration = 1800) {
 function Counter({ end, suffix, label, prefix = '' }: { end: number; suffix: string; label: string; prefix?: string }) {
   const { count, ref } = useCountUp(end)
   return (
-    <div className="glass rounded-xl p-4 text-center border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300" ref={ref}>
+    <div className="glass rounded-xl p-4 text-center border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300" ref={ref}>
       <div className="text-2xl sm:text-3xl font-extrabold font-display gradient-text">
         {prefix}{count}{suffix}
       </div>
-      <div className="text-[11px] font-medium text-slate-400 mt-1">{label}</div>
+      <div className="text-[11px] font-medium text-slate-300 mt-1">{label}</div>
     </div>
   )
 }
@@ -77,21 +77,21 @@ const TABS: Tab[] = [
     label: 'Academic ERP',
     icon: GraduationCap,
     color: '#38bdf8',
-    dashboardTitle: 'Academics & Operations Overview',
-    url: 'app.oneplatform360.com/education-erp',
+    dashboardTitle: 'Academics & School ERP Command Center',
+    url: 'app.oneplatform360.com/school-erp',
     kpis: [
-      { label: 'Total Students', value: '2,480', change: '+8.4%', icon: Users, color: 'text-sky-400', bg: 'bg-sky-500/10' },
-      { label: 'Total Employees', value: '184', change: '+4.2%', icon: Briefcase, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
-      { label: 'Fee Collection', value: '₹42.8L', change: '+12.6%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+      { label: 'Total Students', value: '2,480', change: '+8.4%', icon: Users, color: 'text-sky-400', bg: 'bg-sky-500/15' },
+      { label: 'Total Staff', value: '184', change: '+4.2%', icon: Briefcase, color: 'text-indigo-400', bg: 'bg-indigo-500/15' },
+      { label: 'Fee Collection', value: '₹42.8L', change: '+12.6%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
+      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/15' },
     ],
-    chartLabel: 'Fee Collection Trend',
+    chartLabel: 'Monthly Fee Collection Trend',
     chartData: [45, 68, 52, 85, 74, 98],
     activity: [
       { text: 'Fee payment received', sub: '₹14,500 — Class X-A', time: '2 min ago', dot: 'bg-emerald-400' },
       { text: 'Attendance marked', sub: 'Class XII-B (94.7%)', time: '5 min ago', dot: 'bg-sky-400' },
-      { text: 'Exam schedule published', sub: 'Term 2 Finals', time: '15 min ago', dot: 'bg-indigo-400' },
-      { text: 'New admission approved', sub: 'Aryan Sharma — Class VI', time: '30 min ago', dot: 'bg-blue-400' },
+      { text: 'Exam schedule published', sub: 'Final Term Examinations', time: '15 min ago', dot: 'bg-indigo-400' },
+      { text: 'New admission enrolled', sub: 'Aryan Sharma — Class VI', time: '30 min ago', dot: 'bg-blue-400' },
     ],
   },
   {
@@ -99,21 +99,20 @@ const TABS: Tab[] = [
     label: 'Smart HRMS',
     icon: Briefcase,
     color: '#a78bfa',
-    dashboardTitle: 'Human Resources & Payroll',
-    url: 'app.oneplatform360.com/smart-hrms',
+    dashboardTitle: 'HRMS, Attendance & Payroll System',
+    url: 'app.oneplatform360.com/hrms',
     kpis: [
-      { label: 'Total Staff', value: '348', change: '+12 new', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/10' },
-      { label: 'Active Today', value: '339', change: '97.4%', icon: CheckCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-      { label: 'Payroll Processed', value: '₹34.2L', change: '100% on time', icon: IndianRupee, color: 'text-sky-400', bg: 'bg-sky-500/10' },
-      { label: 'Open Positions', value: '8', change: 'Hiring', icon: UserPlus, color: 'text-amber-400', bg: 'bg-amber-500/10' },
+      { label: 'Total Employees', value: '348', change: '+12 new', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/15' },
+      { label: 'Active On-Site', value: '339', change: '97.4%', icon: CheckCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
+      { label: 'Payroll Run', value: '₹34.2L', change: 'On Time', icon: IndianRupee, color: 'text-sky-400', bg: 'bg-sky-500/15' },
+      { label: 'Open Positions', value: '8', change: 'Hiring', icon: UserPlus, color: 'text-amber-400', bg: 'bg-amber-500/15' },
     ],
-    chartLabel: 'Workforce Growth & Retention',
+    chartLabel: 'Workforce Growth & Attendance',
     chartData: [55, 62, 70, 78, 86, 96],
     activity: [
       { text: 'Pooja Verma', sub: 'Onboarding completed', time: '8 min ago', dot: 'bg-purple-400' },
-      { text: 'Payroll Run Oct', sub: 'Disbursed via Direct Bank API', time: '45 min ago', dot: 'bg-emerald-400' },
-      { text: 'Leave Request Approved', sub: 'Dr. Sameer (Medical)', time: '2 hr ago', dot: 'bg-sky-400' },
-      { text: 'Appraisal Report', sub: 'Q3 review completed', time: '4 hr ago', dot: 'bg-indigo-400' },
+      { text: 'Monthly Salary Run', sub: 'Disbursed via Direct Bank API', time: '45 min ago', dot: 'bg-emerald-400' },
+      { text: 'Medical Leave Approved', sub: 'Dr. Sameer (Cardiology)', time: '2 hr ago', dot: 'bg-sky-400' },
     ],
   },
   {
@@ -121,43 +120,41 @@ const TABS: Tab[] = [
     label: 'AI Automation',
     icon: Bot,
     color: '#34d399',
-    dashboardTitle: 'AI Workflows & Autonomous Ops',
+    dashboardTitle: 'AI Autonomous Workflow Pipeline',
     url: 'app.oneplatform360.com/ai-automation',
     kpis: [
-      { label: 'Workflows Active', value: '24', change: 'Active', icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-      { label: 'Executions / Mo', value: '1,284', change: '+28%', icon: Bot, color: 'text-teal-400', bg: 'bg-teal-500/10' },
-      { label: 'Success Rate', value: '97.8%', change: 'Zero fault', icon: Shield, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
-      { label: 'Hours Saved', value: '356 hrs', change: 'This month', icon: Clock, color: 'text-purple-400', bg: 'bg-purple-500/10' },
+      { label: 'Active Workflows', value: '24', change: 'Live', icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
+      { label: 'Executions / Mo', value: '1,284', change: '+28%', icon: Bot, color: 'text-teal-400', bg: 'bg-teal-500/15' },
+      { label: 'Accuracy Score', value: '97.8%', change: 'Verified', icon: Shield, color: 'text-cyan-400', bg: 'bg-cyan-500/15' },
+      { label: 'Time Saved', value: '356 hrs', change: 'This Month', icon: Clock, color: 'text-purple-400', bg: 'bg-purple-500/15' },
     ],
-    chartLabel: 'Autonomous Execution Volume',
+    chartLabel: 'Autonomous Execution Throughput',
     chartData: [38, 54, 66, 78, 89, 100],
     activity: [
       { text: 'Auto Fee Reminder WhatsApp', sub: '342 parents notified', time: '1 min ago', dot: 'bg-emerald-400' },
-      { text: 'Automated Attendance Alert', sub: 'Sent to absent student guardians', time: '18 min ago', dot: 'bg-teal-400' },
-      { text: 'AI Anomaly Detected', sub: 'Payment discrepancy auto-reconciled', time: '52 min ago', dot: 'bg-cyan-400' },
-      { text: 'Weekly AI Summary Report', sub: 'Delivered to Management', time: '3 hr ago', dot: 'bg-purple-400' },
+      { text: 'Attendance Alert Dispatched', sub: 'Sent to guardian phones', time: '18 min ago', dot: 'bg-teal-400' },
+      { text: 'AI Anomaly Reconciled', sub: 'Bank payment matched', time: '52 min ago', dot: 'bg-cyan-400' },
     ],
   },
   {
     id: 'whatsapp',
-    label: 'WhatsApp Bot',
+    label: 'WhatsApp Hub',
     icon: MessageCircle,
     color: '#22c55e',
-    dashboardTitle: 'Official WhatsApp Business Cloud',
+    dashboardTitle: 'Official WhatsApp Business API Hub',
     url: 'app.oneplatform360.com/whatsapp-hub',
     kpis: [
-      { label: 'Messages Sent', value: '2.5M+', change: 'High Speed', icon: MessageCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-      { label: 'Read Rate', value: '98.2%', change: 'Industry Top', icon: CheckCircle, color: 'text-teal-400', bg: 'bg-teal-500/10' },
-      { label: 'Instant Bot Replies', value: '18.4K', change: '< 2s latency', icon: Bot, color: 'text-sky-400', bg: 'bg-sky-500/10' },
-      { label: 'Fee Payments via WA', value: '₹18.9L', change: '+34%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+      { label: 'Messages Sent', value: '2.5M+', change: 'High Speed', icon: MessageCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
+      { label: 'Read Rate', value: '98.2%', change: 'Instant', icon: CheckCircle, color: 'text-teal-400', bg: 'bg-teal-500/15' },
+      { label: 'Bot Auto-Replies', value: '18.4K', change: '< 2s avg', icon: Bot, color: 'text-sky-400', bg: 'bg-sky-500/15' },
+      { label: 'Fees via WhatsApp', value: '₹18.9L', change: '+34%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
     ],
     chartLabel: 'Daily WhatsApp Broadcast Traffic',
     chartData: [42, 60, 58, 82, 91, 99],
     activity: [
-      { text: 'Broadcast: Term Exams Timetable', sub: 'Delivered to 1,850 students', time: '4 min ago', dot: 'bg-emerald-400' },
-      { text: 'WhatsApp Pay Link Clicked', sub: 'Receipt auto-issued', time: '12 min ago', dot: 'bg-teal-400' },
-      { text: 'Parent Bot Inquiry', sub: 'Bus tracking link dispatched', time: '22 min ago', dot: 'bg-sky-400' },
-      { text: 'Staff Circular Sent', sub: 'Meeting notification', time: '1 hr ago', dot: 'bg-cyan-400' },
+      { text: 'Broadcast: Final Exam Date Sheet', sub: 'Delivered to 1,850 parents', time: '4 min ago', dot: 'bg-emerald-400' },
+      { text: 'Payment Confirmation Link', sub: 'Receipt PDF sent to mobile', time: '12 min ago', dot: 'bg-teal-400' },
+      { text: 'Parent Bot Query: Bus Route #4', sub: 'Live location dispatched', time: '22 min ago', dot: 'bg-sky-400' },
     ],
   },
 ]
@@ -201,10 +198,9 @@ function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
 
 export default function HeroSection() {
   const [activeId, setActiveId] = useState(TABS[0].id)
-  const [viewMode, setViewMode] = useState<'dashboard' | 'boardroom'>('dashboard')
   const tab = TABS.find((t) => t.id === activeId)!
 
-  // Auto-switch tabs gently if on dashboard mode
+  // Auto-switch tabs gently
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveId((prev) => {
@@ -218,42 +214,42 @@ export default function HeroSection() {
   return (
     <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden hero-gradient grid-pattern">
       {/* Background glow orbs */}
-      <div className="glow-orb w-[750px] h-[750px] bg-blue-600/[0.12] -top-48 -left-40" />
-      <div className="glow-orb w-[650px] h-[650px] bg-indigo-600/[0.10] top-40 -right-32" />
-      <div className="glow-orb w-[500px] h-[500px] bg-cyan-500/[0.08] bottom-0 left-1/3" />
+      <div className="glow-orb w-[750px] h-[750px] bg-blue-600/[0.18] -top-48 -left-40" />
+      <div className="glow-orb w-[650px] h-[650px] bg-cyan-600/[0.14] top-40 -right-32" />
+      <div className="glow-orb w-[500px] h-[500px] bg-indigo-500/[0.12] bottom-0 left-1/3" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Top trust strip badges */}
-        <div className="hidden md:flex items-center justify-between mb-8 pb-4 border-b border-blue-500/15">
-          <div className="flex items-center gap-2 text-xs text-blue-300 font-semibold uppercase tracking-wider">
+        <div className="hidden md:flex items-center justify-between mb-8 pb-4 border-b border-cyan-500/20">
+          <div className="flex items-center gap-2 text-xs text-cyan-300 font-semibold uppercase tracking-wider">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Next-Generation Enterprise ERP & AI Operating System
+            Next-Generation Enterprise ERP &amp; AI Operating System
           </div>
           <div className="flex items-center gap-6 flex-wrap">
             {TOP_STATS.map((s) => (
               <div key={s.label} className="flex items-center gap-2.5 group">
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 group-hover:scale-105 transition-all duration-300">
-                  <s.icon size={14} className="text-blue-400" />
+                <div className="w-8 h-8 rounded-lg bg-blue-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0 group-hover:bg-blue-500/25 group-hover:scale-105 transition-all duration-300">
+                  <s.icon size={14} className="text-cyan-300" />
                 </div>
                 <div className="leading-tight">
                   <div className="text-xs font-semibold text-white">{s.label}</div>
-                  <div className="text-[10px] text-slate-400">{s.sub}</div>
+                  <div className="text-[10px] text-slate-300">{s.sub}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ──── HERO MAIN 3-COLUMN / GRID LAYOUT ──── */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        {/* ──── HERO TOP ROW: Title & Executive Boardroom Scene ──── */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
 
-          {/* ──── LEFT COLUMN: Headline & CTA (4 Cols) ──── */}
+          {/* ──── LEFT (5 Cols): Headline, Copy, Feature Pills & CTAs ──── */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-4 space-y-6"
+            className="lg:col-span-5 space-y-6"
           >
             {/* Top Pill */}
             <div className="badge-glow w-fit">
@@ -262,9 +258,9 @@ export default function HeroSection() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-display font-extrabold text-3xl sm:text-4xl xl:text-[3.2rem] leading-[1.12] tracking-tight text-white">
+            <h1 className="font-display font-extrabold text-3xl sm:text-4xl xl:text-[3.3rem] leading-[1.12] tracking-tight text-white">
               Run Everything.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">
+              <span className="gradient-text">
                 Smarter. Faster.
               </span><br />
               On <span className="text-white">One</span><span className="gradient-text">Platform360</span>
@@ -272,7 +268,7 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              ERP, HRMS, AI Automation, WhatsApp Integration and many more — everything you need to run and grow your organisation from a single platform.
+              ERP, HRMS, AI Automation, WhatsApp Integration and many more — everything you need to run and grow your organisation from a single unified platform.
             </p>
 
             {/* Feature Pills */}
@@ -285,9 +281,9 @@ export default function HeroSection() {
               ].map((f) => (
                 <div
                   key={f.text}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0c1527]/80 border border-blue-500/20 text-xs font-medium text-slate-200 hover:border-blue-500/40 hover:bg-blue-600/10 transition-all duration-300"
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0f223d] border border-cyan-500/25 text-xs font-medium text-slate-200 hover:border-cyan-500/50 hover:bg-blue-600/15 transition-all duration-300"
                 >
-                  <f.icon size={13} className="text-blue-400" />
+                  <f.icon size={13} className="text-cyan-400" />
                   {f.text}
                 </div>
               ))}
@@ -297,37 +293,37 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href="/demo"
-                className="btn-primary text-sm px-6 py-3.5 shadow-[0_0_25px_rgba(37,99,235,0.45)]"
+                className="btn-primary text-sm px-7 py-3.5 shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.75)]"
               >
                 Explore Platform <ArrowRight size={15} />
               </Link>
               <Link
                 href="/contact"
-                className="btn-secondary text-sm px-6 py-3.5 group"
+                className="btn-secondary text-sm px-7 py-3.5 group"
               >
                 <Play size={13} className="text-cyan-400 group-hover:scale-110 transition-transform" />
-                Watch Demo
+                Watch Live Demo
               </Link>
             </div>
 
             {/* Social Trust Proof with live metrics */}
-            <div className="pt-3 border-t border-blue-500/15 space-y-3">
+            <div className="pt-3 border-t border-cyan-500/20 space-y-3">
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
-                  {['#3b82f6', '#8b5cf6', '#06b6d4', '#f59e0b', '#10b981'].map((c, i) => (
+                  {['#0284c7', '#2563eb', '#7c3aed', '#059669', '#d97706'].map((c, i) => (
                     <div
                       key={i}
-                      className="w-7 h-7 rounded-full border-2 border-[#070c1b] flex items-center justify-center text-[9px] font-bold text-white shadow-md"
+                      className="w-7 h-7 rounded-full border-2 border-[#0b192e] flex items-center justify-center text-[9px] font-bold text-white shadow-md"
                       style={{ background: c, zIndex: 5 - i }}
                     >
                       {['A', 'R', 'P', 'S', 'K'][i]}
                     </div>
                   ))}
-                  <div className="w-7 h-7 rounded-full border-2 border-[#070c1b] bg-blue-950 flex items-center justify-center text-[8px] font-bold text-blue-300 z-0">
+                  <div className="w-7 h-7 rounded-full border-2 border-[#0b192e] bg-blue-950 flex items-center justify-center text-[8px] font-bold text-cyan-300 z-0">
                     +500
                   </div>
                 </div>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-300">
                   Trusted by <span className="font-semibold text-white">500+ organisations</span> across India
                 </p>
               </div>
@@ -340,253 +336,256 @@ export default function HeroSection() {
                   { value: '2.5M+', label: 'Messages Sent' },
                   { value: '500+', label: 'Happy Clients' },
                 ].map((stat) => (
-                  <div key={stat.label} className="p-2 rounded-lg bg-[#0c1527] border border-blue-500/15 text-center">
-                    <div className="text-xs font-bold text-blue-300 font-display">{stat.value}</div>
-                    <div className="text-[9px] text-slate-400 mt-0.5">{stat.label}</div>
+                  <div key={stat.label} className="p-2 rounded-lg bg-[#0f223d] border border-cyan-500/20 text-center">
+                    <div className="text-xs font-bold text-cyan-300 font-display">{stat.value}</div>
+                    <div className="text-[9px] text-slate-300 mt-0.5">{stat.label}</div>
                   </div>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          {/* ──── CENTER COLUMN: Large Interactive TV / Boardroom Showcase (5 Cols) ──── */}
+          {/* ──── RIGHT (7 Cols): The Executive Boardroom Presentation Scene ──── */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="lg:col-span-5 space-y-4"
+            className="lg:col-span-7 space-y-4"
           >
-            {/* View Mode & Tab Selectors */}
+            {/* Boardroom Presentation Frame with Glowing Border */}
+            <div className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/35 bg-[#0a1628] shadow-[0_20px_60px_rgba(5,12,24,0.85)] group">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src="/hero-showcase.jpg"
+                  alt="OnePlatform360 Executive Boardroom Presentation"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b192e] via-transparent to-black/30" />
+
+                {/* Floating On-Screen Badge */}
+                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-xl bg-[#0b192e]/90 backdrop-blur-md border border-cyan-500/40 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[11px] font-bold text-white tracking-wide">
+                    OnePlatform360 Cloud ERP Display
+                  </span>
+                </div>
+
+                {/* Bottom Overlay Bar */}
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#0f223d]/92 backdrop-blur-md border border-cyan-500/35 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300">
+                      <Sparkles size={16} />
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Live Institutional Command Center</div>
+                      <div className="text-[10px] text-slate-300">Empowering school boards, hospital directors &amp; CEOs</div>
+                    </div>
+                  </div>
+                  <Link
+                    href="/demo"
+                    className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold shadow-md hover:brightness-110 transition-all flex items-center gap-1"
+                  >
+                    Request Demo <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* ──── HERO BOTTOM ROW: Interactive Live Dashboard & Side Cards (Just like user reference) ──── */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start pt-6 border-t border-cyan-500/20">
+
+          {/* ──── LEFT (8 Cols): Interactive Live Dashboard Mockup ──── */}
+          <div className="lg:col-span-8 space-y-4">
+            {/* Tab Selectors */}
             <div className="flex items-center justify-between gap-2 flex-wrap">
-              <div className="flex items-center gap-1.5 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap">
                 {TABS.map((t) => (
                   <button
                     key={t.id}
-                    onClick={() => {
-                      setActiveId(t.id)
-                      setViewMode('dashboard')
-                    }}
-                    className={`tab-pill ${activeId === t.id && viewMode === 'dashboard' ? 'active' : ''}`}
+                    onClick={() => setActiveId(t.id)}
+                    className={`tab-pill ${activeId === t.id ? 'active' : ''}`}
                   >
-                    <t.icon size={13} />
+                    <t.icon size={14} />
                     {t.label}
                   </button>
                 ))}
               </div>
-
-              {/* Toggle Boardroom Photo / Live Mockup */}
-              <button
-                onClick={() => setViewMode(viewMode === 'dashboard' ? 'boardroom' : 'dashboard')}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-500/15 border border-blue-500/30 text-blue-300 hover:bg-blue-500/25 transition-all"
-                title="Switch between Live UI & Boardroom Scene"
-              >
-                {viewMode === 'dashboard' ? <Tv size={13} /> : <Monitor size={13} />}
-                {viewMode === 'dashboard' ? 'Boardroom View' : 'Live UI View'}
-              </button>
+              <div className="text-xs text-cyan-300 font-semibold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Interactive Live Preview
+              </div>
             </div>
 
-            {/* Main Center Display Screen */}
-            <div className="dashboard-card relative group">
-              {viewMode === 'boardroom' ? (
-                /* Boardroom Presentation Image View */
-                <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                  <Image
-                    src="/hero-showcase.jpg"
-                    alt="OnePlatform360 Executive Boardroom Presentation"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070c1b] via-transparent to-black/40" />
-                  <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#0a1122]/90 backdrop-blur-md border border-blue-500/30 flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                        <Sparkles size={12} className="text-cyan-400" /> OnePlatform360 Executive Boardroom Display
-                      </div>
-                      <div className="text-[10px] text-slate-300">Empowering institutions with real-time enterprise intelligence</div>
-                    </div>
-                    <button
-                      onClick={() => setViewMode('dashboard')}
-                      className="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-colors"
-                    >
-                      Open Live UI
-                    </button>
+            {/* Dashboard Browser Frame */}
+            <div className="dashboard-card">
+              {/* Browser Header Bar */}
+              <div className="flex items-center gap-2 px-4 py-2.5 border-b border-cyan-500/25 bg-[#091526]">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                </div>
+                <div className="flex-1 mx-3">
+                  <div className="px-3 py-1 rounded-md bg-[#0f223d] border border-cyan-500/25 text-[11px] text-slate-200 font-mono flex items-center gap-1.5 truncate">
+                    <Lock size={10} className="text-emerald-400 shrink-0" />
+                    {tab.url}
                   </div>
                 </div>
-              ) : (
-                /* Interactive Live Dashboard Mockup */
-                <div>
-                  {/* Browser Bar */}
-                  <div className="flex items-center gap-2 px-4 py-2.5 border-b border-blue-500/20 bg-[#070c1b]">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                    </div>
-                    <div className="flex-1 mx-2">
-                      <div className="px-3 py-1 rounded-md bg-[#0c1527] border border-blue-500/20 text-[11px] text-slate-300 font-mono flex items-center gap-1.5 truncate">
-                        <Lock size={10} className="text-emerald-400 shrink-0" />
-                        {tab.url}
+                <div className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                  Active Instance
+                </div>
+              </div>
+
+              {/* Dashboard Content */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={tab.id}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className="p-5 sm:p-6 space-y-5 bg-[#0d1f38]"
+                >
+                  {/* Dashboard Header */}
+                  <div className="flex items-center justify-between border-b border-cyan-500/20 pb-4">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center shadow-lg"
+                        style={{ background: `${tab.color}20`, border: `1px solid ${tab.color}45` }}
+                      >
+                        <tab.icon size={18} style={{ color: tab.color }} />
+                      </div>
+                      <div>
+                        <div className="text-[10px] uppercase tracking-wider text-cyan-300 font-bold">OnePlatform360 Analytics</div>
+                        <div className="text-white font-bold text-sm sm:text-base font-display">{tab.dashboardTitle}</div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live System
+                    <div className="badge bg-cyan-500/15 border-cyan-500/35 text-cyan-300">
+                      Real-time Data
                     </div>
                   </div>
 
-                  {/* Dashboard Body */}
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={tab.id}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.3 }}
-                      className="p-4 sm:p-5 space-y-4 bg-[#0a1122]"
-                    >
-                      {/* Top Header */}
-                      <div className="flex items-center justify-between border-b border-blue-500/15 pb-3">
-                        <div className="flex items-center gap-2.5">
-                          <div
-                            className="w-8 h-8 rounded-lg flex items-center justify-center"
-                            style={{ background: `${tab.color}15`, border: `1px solid ${tab.color}35` }}
-                          >
-                            <tab.icon size={16} style={{ color: tab.color }} />
+                  {/* 4 KPI Metrics */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {tab.kpis.map((kpi) => (
+                      <div
+                        key={kpi.label}
+                        className="rounded-xl bg-[#0f223d] border border-cyan-500/25 p-3 hover:border-cyan-400/50 transition-colors"
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${kpi.bg}`}>
+                            <kpi.icon size={13} className={kpi.color} />
                           </div>
-                          <div>
-                            <div className="text-[10px] uppercase tracking-wider text-slate-400">OnePlatform360</div>
-                            <div className="text-white font-bold text-xs sm:text-sm font-display">{tab.dashboardTitle}</div>
-                          </div>
+                          <span className="text-[10px] text-emerald-400 font-bold">{kpi.change}</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] text-slate-400 bg-[#0c1527] px-2.5 py-1 rounded-lg border border-blue-500/15">
-                            Today: Live
-                          </span>
-                        </div>
+                        <div className="text-white font-bold text-base sm:text-lg font-display">{kpi.value}</div>
+                        <div className="text-[10px] text-slate-300 mt-0.5">{kpi.label}</div>
                       </div>
+                    ))}
+                  </div>
 
-                      {/* KPI Cards Grid */}
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                        {tab.kpis.map((kpi) => (
-                          <div
-                            key={kpi.label}
-                            className="rounded-xl bg-[#0c1527] border border-blue-500/20 p-2.5 hover:border-blue-500/40 transition-colors"
-                          >
-                            <div className="flex items-center justify-between mb-1.5">
-                              <div className={`w-6 h-6 rounded-md flex items-center justify-center ${kpi.bg}`}>
-                                <kpi.icon size={12} className={kpi.color} />
-                              </div>
-                              <span className="text-[9px] text-emerald-400 font-semibold">{kpi.change}</span>
-                            </div>
-                            <div className="text-white font-bold text-sm sm:text-base font-display">{kpi.value}</div>
-                            <div className="text-[9.5px] text-slate-400 mt-0.5">{kpi.label}</div>
+                  {/* Two Charts Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+                    {/* Line / Bar Chart */}
+                    <div className="sm:col-span-3 rounded-xl bg-[#0f223d] border border-cyan-500/25 p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-semibold text-white flex items-center gap-1.5">
+                          <BarChart3 size={14} style={{ color: tab.color }} /> {tab.chartLabel}
+                        </span>
+                        <span className="text-[9px] text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/30">
+                          FY 2026
+                        </span>
+                      </div>
+                      <div className="flex items-end gap-2.5 h-24 pt-2">
+                        {tab.chartData.map((h, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ scaleY: 0 }}
+                            animate={{ scaleY: 1 }}
+                            transition={{ duration: 0.5, delay: i * 0.05 }}
+                            style={{
+                              height: `${h}%`,
+                              background: `linear-gradient(to top, #0284c7, ${tab.color})`,
+                              transformOrigin: 'bottom',
+                            }}
+                            className="flex-1 rounded-t-md opacity-85 hover:opacity-100 transition-opacity cursor-pointer shadow-md"
+                          />
+                        ))}
+                      </div>
+                      <div className="flex justify-between mt-2.5 text-[9.5px] text-slate-400">
+                        {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m) => <span key={m}>{m}</span>)}
+                      </div>
+                    </div>
+
+                    {/* Donut Chart */}
+                    <div className="sm:col-span-2 rounded-xl bg-[#0f223d] border border-cyan-500/25 p-4 flex flex-col justify-between">
+                      <div className="text-xs font-semibold text-white mb-1">Status &amp; Distribution</div>
+                      <div className="flex items-center justify-center my-auto py-2">
+                        <DonutChart
+                          data={[35, 25, 22, 18]}
+                          colors={['#38bdf8', '#818cf8', '#a855f7', '#34d399']}
+                        />
+                      </div>
+                      <div className="grid grid-cols-2 gap-1.5 mt-1">
+                        {[
+                          { label: 'Active', color: '#38bdf8' },
+                          { label: 'Verified', color: '#818cf8' },
+                          { label: 'Processing', color: '#a855f7' },
+                          { label: 'Completed', color: '#34d399' },
+                        ].map((c) => (
+                          <div key={c.label} className="flex items-center gap-1.5 text-[9px] text-slate-300">
+                            <div className="w-2 h-2 rounded-full" style={{ background: c.color }} />
+                            {c.label}
                           </div>
                         ))}
                       </div>
+                    </div>
+                  </div>
 
-                      {/* Charts Grid */}
-                      <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                        {/* Line / Bar Chart */}
-                        <div className="sm:col-span-3 rounded-xl bg-[#0c1527] border border-blue-500/20 p-3.5">
-                          <div className="flex items-center justify-between mb-2.5">
-                            <span className="text-xs font-semibold text-white flex items-center gap-1.5">
-                              <BarChart3 size={13} style={{ color: tab.color }} /> {tab.chartLabel}
-                            </span>
-                            <span className="text-[9px] text-blue-300 px-2 py-0.5 rounded bg-blue-600/20 border border-blue-500/30">
-                              Monthly
-                            </span>
-                          </div>
-                          <div className="flex items-end gap-2 h-20 pt-2">
-                            {tab.chartData.map((h, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ scaleY: 0 }}
-                                animate={{ scaleY: 1 }}
-                                transition={{ duration: 0.5, delay: i * 0.05 }}
-                                style={{
-                                  height: `${h}%`,
-                                  background: `linear-gradient(to top, #2563eb, ${tab.color})`,
-                                  transformOrigin: 'bottom',
-                                }}
-                                className="flex-1 rounded-t-md opacity-85 hover:opacity-100 transition-opacity cursor-pointer"
-                              />
-                            ))}
-                          </div>
-                          <div className="flex justify-between mt-2 text-[9px] text-slate-400">
-                            {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m) => <span key={m}>{m}</span>)}
-                          </div>
-                        </div>
-
-                        {/* Donut Chart */}
-                        <div className="sm:col-span-2 rounded-xl bg-[#0c1527] border border-blue-500/20 p-3.5 flex flex-col justify-between">
-                          <div className="text-xs font-semibold text-white mb-1">Status & Distribution</div>
-                          <div className="flex items-center justify-center my-auto">
-                            <DonutChart
-                              data={[35, 25, 22, 18]}
-                              colors={['#38bdf8', '#818cf8', '#a855f7', '#34d399']}
-                            />
-                          </div>
-                          <div className="grid grid-cols-2 gap-1 mt-1">
-                            {[
-                              { label: 'Active', color: '#38bdf8' },
-                              { label: 'Verified', color: '#818cf8' },
-                              { label: 'Pending', color: '#a855f7' },
-                              { label: 'Completed', color: '#34d399' },
-                            ].map((c) => (
-                              <div key={c.label} className="flex items-center gap-1 text-[8.5px] text-slate-400">
-                                <div className="w-1.5 h-1.5 rounded-full" style={{ background: c.color }} />
-                                {c.label}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                  {/* Real-time Activity Stream */}
+                  <div className="rounded-xl bg-[#0f223d] border border-cyan-500/25 p-4 space-y-2">
+                    <div className="text-xs font-semibold text-white mb-2 flex items-center justify-between">
+                      <span>Real-time Institutional Log</span>
+                      <span className="text-[9px] text-cyan-300">Updated 1s ago</span>
+                    </div>
+                    {tab.activity.map((a, i) => (
+                      <div key={i} className="flex items-center gap-3 text-xs p-2 rounded-lg hover:bg-blue-600/15 transition-colors">
+                        <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${a.dot}`} />
+                        <span className="text-slate-200 font-medium text-[11.5px]">{a.text}</span>
+                        <span className="text-slate-400 text-[10.5px] hidden sm:inline">{a.sub}</span>
+                        <span className="ml-auto text-slate-400 text-[9.5px] shrink-0">{a.time}</span>
                       </div>
-
-                      {/* Recent Real-time Activities */}
-                      <div className="rounded-xl bg-[#0c1527] border border-blue-500/20 p-3 space-y-1.5">
-                        <div className="text-xs font-semibold text-white mb-1 flex items-center justify-between">
-                          <span>Live System Stream</span>
-                          <span className="text-[9px] text-blue-400">Auto Refresh</span>
-                        </div>
-                        {tab.activity.slice(0, 3).map((a, i) => (
-                          <div key={i} className="flex items-center gap-2.5 text-xs p-1.5 rounded-lg hover:bg-blue-600/10 transition-colors">
-                            <div className={`w-2 h-2 rounded-full shrink-0 ${a.dot}`} />
-                            <span className="text-slate-200 font-medium text-[11px]">{a.text}</span>
-                            <span className="text-slate-400 text-[10px] hidden sm:inline">{a.sub}</span>
-                            <span className="ml-auto text-slate-500 text-[9px] shrink-0">{a.time}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-              )}
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </motion.div>
+          </div>
 
-          {/* ──── RIGHT COLUMN: Service & Module Cards Showcase (3 Cols) ──── */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-3 space-y-4"
-          >
+          {/* ──── RIGHT (4 Cols): Module Showcase Cards (Matching reference layout) ──── */}
+          <div className="lg:col-span-4 space-y-4">
+
             {/* Card 1: Powerful ERP */}
-            <div className="glass rounded-2xl p-5 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group">
+            <div className="glass rounded-2xl p-5 border border-cyan-500/25 hover:border-cyan-400/50 transition-all duration-300 group">
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                <div className="w-8 h-8 rounded-xl bg-blue-500/20 border border-cyan-500/35 flex items-center justify-center text-cyan-300">
                   <GraduationCap size={16} />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-white text-sm">Powerful ERP</h3>
-                  <div className="text-[10px] text-blue-300">Complete Institutional Control</div>
+                  <div className="text-[10px] text-cyan-300">Manage academics, finance, exams</div>
                 </div>
               </div>
-              <p className="text-slate-400 text-xs leading-relaxed mb-3">
-                Manage academics, students, finance, exams, attendance and more — all in one place.
+              <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                Complete student lifecycle, examination, gradebooks, and fee collection in one place.
               </p>
 
-              {/* Module Icons 4x2 Grid */}
+              {/* 8 Module Icons */}
               <div className="grid grid-cols-4 gap-1.5 mb-3">
                 {[
                   { label: 'Students', icon: Users, color: '#38bdf8' },
@@ -598,37 +597,37 @@ export default function HeroSection() {
                   { label: 'Library', icon: BookOpenCheck, color: '#a78bfa' },
                   { label: 'Reports', icon: BarChart3, color: '#2dd4bf' },
                 ].map((m) => (
-                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0c1527] border border-blue-500/10 flex flex-col items-center gap-0.5 text-center group-hover:border-blue-500/25">
-                    <m.icon size={12} style={{ color: m.color }} />
-                    <span className="text-[8px] text-slate-300 truncate w-full">{m.label}</span>
+                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0f223d] border border-cyan-500/15 flex flex-col items-center gap-0.5 text-center group-hover:border-cyan-400/30">
+                    <m.icon size={13} style={{ color: m.color }} />
+                    <span className="text-[8.5px] text-slate-200 truncate w-full">{m.label}</span>
                   </div>
                 ))}
               </div>
 
               <Link
                 href="/services/school-erp"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 group-hover:gap-2 transition-all"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-300 hover:text-white group-hover:gap-2 transition-all"
               >
-                Explore ERP <ChevronRight size={13} />
+                Explore ERP Modules <ChevronRight size={13} />
               </Link>
             </div>
 
             {/* Card 2: Smart HRMS */}
-            <div className="glass rounded-2xl p-5 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 group">
+            <div className="glass rounded-2xl p-5 border border-purple-500/25 hover:border-purple-400/50 transition-all duration-300 group">
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                <div className="w-8 h-8 rounded-xl bg-purple-500/20 border border-purple-500/35 flex items-center justify-center text-purple-300">
                   <Users size={16} />
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-white text-sm">Smart HRMS</h3>
-                  <div className="text-[10px] text-purple-300">Staff & Payroll Engine</div>
+                  <div className="text-[10px] text-purple-300">Staff, Payroll &amp; Performance</div>
                 </div>
               </div>
-              <p className="text-slate-400 text-xs leading-relaxed mb-3">
-                Complete employee management from onboarding to payroll and performance.
+              <p className="text-slate-300 text-xs leading-relaxed mb-3">
+                Complete employee management from biometric check-in to automated monthly payroll.
               </p>
 
-              {/* HRMS Icons 4x2 Grid */}
+              {/* 8 HRMS Icons */}
               <div className="grid grid-cols-4 gap-1.5 mb-3">
                 {[
                   { label: 'Employees', icon: Users, color: '#a78bfa' },
@@ -640,46 +639,47 @@ export default function HeroSection() {
                   { label: 'Docs', icon: FolderOpen, color: '#2dd4bf' },
                   { label: 'Org Chart', icon: Building2, color: '#fbbf24' },
                 ].map((m) => (
-                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0c1527] border border-purple-500/10 flex flex-col items-center gap-0.5 text-center group-hover:border-purple-500/25">
-                    <m.icon size={12} style={{ color: m.color }} />
-                    <span className="text-[8px] text-slate-300 truncate w-full">{m.label}</span>
+                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0f223d] border border-purple-500/15 flex flex-col items-center gap-0.5 text-center group-hover:border-purple-400/30">
+                    <m.icon size={13} style={{ color: m.color }} />
+                    <span className="text-[8.5px] text-slate-200 truncate w-full">{m.label}</span>
                   </div>
                 ))}
               </div>
 
               <Link
                 href="/services/hrms"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-400 hover:text-purple-300 group-hover:gap-2 transition-all"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-300 hover:text-white group-hover:gap-2 transition-all"
               >
-                Explore HRMS <ChevronRight size={13} />
+                Explore HRMS Suite <ChevronRight size={13} />
               </Link>
             </div>
 
-            {/* Card 3: AI & WhatsApp Mini Feature Banners */}
+            {/* Card 3: AI Automation & WhatsApp Mini Feature Banners */}
             <div className="grid grid-cols-2 gap-2.5">
-              <Link href="/services/ai-automation" className="glass rounded-xl p-3 border border-emerald-500/20 hover:border-emerald-500/40 transition-all group block">
-                <div className="w-7 h-7 rounded-lg bg-emerald-500/15 flex items-center justify-center text-emerald-400 mb-1.5">
+              <Link href="/services/ai-automation" className="glass rounded-xl p-3 border border-emerald-500/25 hover:border-emerald-400/50 transition-all group block">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 mb-1.5">
                   <Bot size={14} />
                 </div>
                 <div className="text-xs font-bold text-white group-hover:text-emerald-300">AI Automation</div>
-                <div className="text-[9.5px] text-slate-400 mt-0.5">Autonomous tasks</div>
+                <div className="text-[9.5px] text-slate-300 mt-0.5">Autonomous Ops</div>
               </Link>
-              <Link href="/services/whatsapp-automation" className="glass rounded-xl p-3 border border-green-500/20 hover:border-green-500/40 transition-all group block">
-                <div className="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center text-green-400 mb-1.5">
+              <Link href="/services/whatsapp-automation" className="glass rounded-xl p-3 border border-green-500/25 hover:border-green-400/50 transition-all group block">
+                <div className="w-7 h-7 rounded-lg bg-green-500/20 flex items-center justify-center text-green-300 mb-1.5">
                   <MessageCircle size={14} />
                 </div>
                 <div className="text-xs font-bold text-white group-hover:text-green-300">WhatsApp Hub</div>
-                <div className="text-[9.5px] text-slate-400 mt-0.5">Instant alerts & bot</div>
+                <div className="text-[9.5px] text-slate-300 mt-0.5">Automated Alerts</div>
               </Link>
             </div>
-          </motion.div>
+
+          </div>
 
         </div>
 
         {/* ──── Bottom Counters Strip ──── */}
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
           <Counter end={500} suffix="+" label="Institutions Across India" />
-          <Counter end={120} suffix="K+" label="Students & Staff Managed" />
+          <Counter end={120} suffix="K+" label="Students &amp; Staff Managed" />
           <Counter end={99} suffix=".9%" label="Uptime SLA Guaranteed" />
           <Counter end={12} suffix="+" label="Unified Enterprise Modules" />
         </div>
