@@ -18,6 +18,7 @@ type WhatWeDoItem = {
   badge: string
   color: string
   icon: any
+  href: string
   impactMetrics: { value: string; label: string }[]
   capabilities: string[]
   liveDemo: {
@@ -36,8 +37,9 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
     desc: 'Build the trusted, scalable, and AI-ready data foundation your school, college, or enterprise needs to operate at peak efficiency.',
     image: '/school-erp-showcase.jpg',
     badge: 'Education & Enterprise',
-    color: '#38bdf8',
+    color: '#0284c7',
     icon: GraduationCap,
+    href: '/services/school-erp',
     impactMetrics: [
       { value: '50K+', label: 'Students Managed' },
       { value: '99.9%', label: 'Uptime SLA' },
@@ -63,8 +65,9 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
     desc: 'Automate biometric attendance, leave policies, automated salary slips, and staff performance from one central command center.',
     image: '/hrms-showcase.jpg',
     badge: 'HR & Payroll',
-    color: '#a78bfa',
+    color: '#7c3aed',
     icon: Users,
+    href: '/services/hrms',
     impactMetrics: [
       { value: '100%', label: 'On-Time Disbursal' },
       { value: '15 Hrs', label: 'Saved per Month' },
@@ -90,8 +93,9 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
     desc: 'Embed real-time artificial intelligence into your routines — from automated fee recovery reminders to instant gradebook generation.',
     image: '/ai-automation-showcase.jpg',
     badge: 'AI & Automation',
-    color: '#34d399',
+    color: '#059669',
     icon: Bot,
+    href: '/services/ai-automation',
     impactMetrics: [
       { value: '72%', label: 'Admin Work Automated' },
       { value: '< 2s', label: 'Workflow Latency' },
@@ -117,8 +121,9 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
     desc: 'Leverage official Meta-verified WhatsApp Cloud APIs for instant parent alerts, fee payment confirmations, and 24/7 student support bots.',
     image: '/whatsapp-showcase.jpg',
     badge: 'WhatsApp Cloud API',
-    color: '#22c55e',
+    color: '#16a34a',
     icon: MessageCircle,
+    href: '/services/whatsapp-automation',
     impactMetrics: [
       { value: '98.2%', label: 'Message Open Rate' },
       { value: '2.5M+', label: 'Dispatches / Mo' },
@@ -180,11 +185,11 @@ export default function WhatWeDoSection() {
             <span className="gradient-text">drive institutional outcomes</span>
           </h2>
           <p className="text-slate-300 text-xs sm:text-sm mt-3">
-            Click on any enterprise capability below to explore live simulation, impact metrics, and architectural capabilities.
+            Click &quot;Learn more&quot; to view detailed case studies, or &quot;Inspect Sandbox&quot; to test real-time simulations.
           </p>
         </div>
 
-        {/* 4 EXL-Style High-Impact Interactive Cards */}
+        {/* 4 EXL-Style High-Contrast White Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {WHAT_WE_DO_CARDS.map((card) => {
             const isSelected = selectedId === card.id
@@ -192,68 +197,70 @@ export default function WhatWeDoSection() {
             return (
               <div
                 key={card.id}
-                onClick={() => handleCardClick(card.id)}
-                className={`glass rounded-2xl overflow-hidden cursor-pointer transition-all duration-400 flex flex-col justify-between group bg-[#0d203b] ${
+                className={`rounded-2xl overflow-hidden bg-white text-slate-900 border border-slate-200 shadow-xl transition-all duration-300 flex flex-col justify-between group ${
                   isSelected
-                    ? 'border-2 border-cyan-400 shadow-[0_0_40px_rgba(56,189,248,0.35)] scale-[1.02]'
-                    : 'border border-cyan-500/25 hover:border-cyan-400/60 hover:-translate-y-1.5'
+                    ? 'ring-4 ring-cyan-400 shadow-2xl scale-[1.02]'
+                    : 'hover:shadow-2xl hover:-translate-y-1.5'
                 }`}
               >
                 <div>
                   {/* Real Photo on Top */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[#091526]">
+                  <Link href={card.href} className="block relative aspect-[16/10] overflow-hidden bg-slate-900">
                     <Image
                       src={card.image}
                       alt={card.title}
                       fill
-                      className="object-cover transition-transform duration-600 group-hover:scale-108"
+                      className="object-cover transition-transform duration-500 group-hover:scale-108"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d203b] via-transparent to-transparent" />
                     <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-md bg-[#091526]/90 backdrop-blur-md border border-cyan-500/30 text-cyan-300">
+                      <span className="text-[10px] font-bold px-2.5 py-1 rounded-md bg-slate-950/85 backdrop-blur-md text-cyan-300 border border-cyan-500/30">
                         {card.badge}
                       </span>
                     </div>
-
-                    {/* Interactive Click Indicator */}
-                    <div className="absolute top-3 right-3">
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition-all ${
-                        isSelected
-                          ? 'bg-cyan-400 text-[#091526] font-extrabold shadow-md'
-                          : 'bg-[#091526]/80 text-cyan-300 border border-cyan-500/30 group-hover:bg-cyan-500/30'
-                      }`}>
-                        {isSelected ? 'Active Preview' : 'Click to Inspect'}
-                      </span>
-                    </div>
-                  </div>
+                  </Link>
 
                   {/* Body Text */}
                   <div className="p-6">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-orange-600 mb-1 font-mono">
                       {card.subtitle}
                     </div>
-                    <h3 className="font-display font-bold text-lg text-white mb-2.5 group-hover:text-cyan-300 transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                    <Link href={card.href} className="block">
+                      <h3 className="font-display font-bold text-lg text-slate-900 mb-2.5 group-hover:text-blue-700 transition-colors leading-snug">
+                        {card.title}
+                      </h3>
+                    </Link>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
                       {card.desc}
                     </p>
                   </div>
                 </div>
 
-                {/* Bottom CTA Link */}
-                <div className="p-6 pt-0 flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 group-hover:text-white transition-colors">
-                    {isSelected ? 'Close Simulation' : 'Live Interactive Demo'}
-                    <ArrowRight size={14} className="group-hover:translate-x-1.5 text-amber-400 transition-transform" />
-                  </span>
+                {/* Bottom Action Strip with Learn More & Inspect Simulator */}
+                <div className="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
+                  <Link
+                    href={card.href}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 group-hover:text-blue-700 transition-colors"
+                  >
+                    Learn more <ArrowRight size={14} className="text-orange-500 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  <button
+                    onClick={() => handleCardClick(card.id)}
+                    className={`text-[10px] font-bold px-2.5 py-1 rounded-md transition-all ${
+                      isSelected
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-blue-700'
+                    }`}
+                  >
+                    {isSelected ? 'Close Demo' : 'Inspect Sandbox'}
+                  </button>
                 </div>
               </div>
             )
           })}
         </div>
 
-        {/* ──── EXPANDED INTERACTIVE SIMULATOR DRAWER (Opens when any card is clicked) ──── */}
+        {/* ──── EXPANDED INTERACTIVE SIMULATOR DRAWER ──── */}
         <AnimatePresence>
           {activeItem && (
             <motion.div
@@ -292,7 +299,7 @@ export default function WhatWeDoSection() {
 
                 <div className="grid lg:grid-cols-12 gap-8 mt-8 items-start">
 
-                  {/* Left Column: Business Capabilities & Impact Metrics (6 Cols) */}
+                  {/* Left Column: Business Capabilities & Impact Metrics */}
                   <div className="lg:col-span-6 space-y-6">
                     <div>
                       <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-300 mb-3">
@@ -324,7 +331,7 @@ export default function WhatWeDoSection() {
 
                     <div className="flex gap-3 pt-2">
                       <Link
-                        href={`/services/${activeItem.id === 'erp' ? 'school-erp' : activeItem.id === 'whatsapp' ? 'whatsapp-automation' : activeItem.id === 'ai' ? 'ai-automation' : 'hrms'}`}
+                        href={activeItem.href}
                         className="btn-primary text-xs py-3 px-5"
                       >
                         Explore Full Architecture Specs <ArrowRight size={13} />
@@ -335,7 +342,7 @@ export default function WhatWeDoSection() {
                     </div>
                   </div>
 
-                  {/* Right Column: Live Simulator Terminal (6 Cols) */}
+                  {/* Right Column: Live Simulator Terminal */}
                   <div className="lg:col-span-6">
                     <div className="rounded-2xl bg-[#081220] border border-cyan-500/30 p-6 space-y-5 shadow-inner">
                       <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3">

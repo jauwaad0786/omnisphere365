@@ -226,21 +226,6 @@ export default function Navbar() {
                     </div>
 
                   </div>
-
-                  {/* Mega Menu Footer Strip */}
-                  <div className="mt-6 pt-4 border-t border-cyan-500/20 flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2 text-slate-300">
-                      <CheckCircle size={14} className="text-emerald-400" />
-                      <span>12+ Unified Modules · ISO Compliant Architecture · Hosted in Delhi NCR</span>
-                    </div>
-                    <Link
-                      href="/services"
-                      onClick={() => setMegaOpen(false)}
-                      className="text-cyan-300 hover:text-white font-semibold flex items-center gap-1 transition-colors"
-                    >
-                      View All 12 Solutions <ArrowRight size={13} />
-                    </Link>
-                  </div>
                 </div>
               )}
             </div>

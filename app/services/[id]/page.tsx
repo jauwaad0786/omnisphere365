@@ -3,99 +3,182 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SERVICES } from '../../../lib/data'
-import { Check, ArrowRight, Target, Sparkles, CheckCircle, Clock } from 'lucide-react'
+import {
+  Check, ArrowRight, Sparkles, CheckCircle, Clock, ShieldCheck,
+  Monitor, Smartphone, BarChart3, Lock, Zap, Layers
+} from 'lucide-react'
 
 const SERVICE_IMAGES: Record<string, string> = {
   'school-erp': '/school-erp-showcase.jpg',
   'college-erp': '/school-erp-showcase.jpg',
   'hrms': '/hrms-showcase.jpg',
-  'ai-automation': '/ai-automation-showcase.jpg',
+  'inventory': '/hero-showcase.jpg',
+  'sales-erp': '/hero-presentation.jpg',
   'whatsapp-automation': '/whatsapp-showcase.jpg',
+  'hospital-opd': '/hero-presentation.jpg',
+  'website-development': '/ai-automation-showcase.jpg',
+  'digital-transformation': '/hero-showcase.jpg',
+  'custom-cloud-erp': '/hero-presentation.jpg',
+  'payg-erp': '/school-erp-showcase.jpg',
+  'ai-automation': '/ai-automation-showcase.jpg',
 }
 
 export default function ServicePage({ params }: { params: { id: string } }) {
-  const service = SERVICES.find(s => s.id === params.id)
+  const service = SERVICES.find((s) => s.id === params.id)
   if (!service) notFound()
 
-  const showcaseImg = SERVICE_IMAGES[service.id]
+  const showcaseImg = SERVICE_IMAGES[service.id] || '/school-erp-showcase.jpg'
 
   return (
-    <div className="pt-28 pb-20 bg-[#0b192e] min-h-screen text-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 bg-[#091526] min-h-screen text-slate-200">
 
-        {/* Hero */}
-        <div className="relative rounded-3xl overflow-hidden border border-cyan-500/25 bg-gradient-to-br from-[#0f223d] via-[#102747] to-[#0b192e] p-8 sm:p-12 mb-12 shadow-2xl">
-          <div
-            className="absolute inset-0 opacity-20 pointer-events-none"
-            style={{ background: `radial-gradient(ellipse at 30% 50%, ${service.color} 0%, transparent 65%)` }}
-          />
+      {/* ──── 1. EXL-STYLE HERO CASE STUDY BANNER (Matching User Screenshot 2) ──── */}
+      <section className="relative overflow-hidden bg-white text-slate-900 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
 
-          <div className="grid lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-7">
-              <div className="text-5xl mb-4">{service.icon}</div>
-              <div className="badge mb-4 bg-cyan-500/15 border-cyan-500/35 text-cyan-300">
-                {service.category} Solution
+            {/* Left Narrative */}
+            <div className="lg:col-span-7 space-y-5">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-orange-600 font-mono">
+                  {service.category} Solution Portfolio
+                </span>
+                <span className="text-slate-300">·</span>
+                <span className="text-xs font-semibold text-slate-600">{service.shortTitle}</span>
               </div>
-              <h1 className="font-display font-bold text-3xl sm:text-5xl text-white mb-3">{service.title}</h1>
-              <p className="text-base sm:text-lg font-semibold mb-4" style={{ color: service.color }}>{service.tagline}</p>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">{service.description}</p>
 
-              {/* Stats */}
-              {service.stats && (
-                <div className="flex flex-wrap gap-8 mb-8 pb-6 border-b border-cyan-500/20">
-                  {service.stats.map((s) => (
-                    <div key={s.label}>
-                      <div className="text-2xl sm:text-3xl font-extrabold font-display gradient-text">{s.value}</div>
-                      <div className="text-xs text-slate-300 mt-1">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
+              <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-orange-600 leading-tight">
+                Streamlining complex, interconnected operations
+              </h1>
 
-              <div className="flex flex-wrap gap-3">
-                <Link href="/demo" className="btn-primary text-sm shadow-lg shadow-blue-500/30">
-                  Book Free Demo <ArrowRight size={14} />
+              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                Like many growing organizations, institutions suffer from an overly intricate operations framework encompassing multiple disparate systems, manual paperwork, and delayed reconciliation. This requires painstaking verification processes between multiple stakeholders, typically executed in manual silos.
+              </p>
+
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Discover how <strong className="text-slate-900 font-semibold">OnePlatform360 {service.title}</strong> steps in with digital cloud operations to help leadership enhance operational resilience, accelerate fee and revenue recovery through data-driven insights, and shift to an innovative leadership benchmark.
+              </p>
+
+              <div className="pt-3 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/demo"
+                  className="px-6 py-3 rounded-lg border-2 border-orange-600 text-orange-600 font-bold text-xs sm:text-sm hover:bg-orange-600 hover:text-white transition-all flex items-center gap-2"
+                >
+                  Read the case study / Book Demo <ArrowRight size={14} />
                 </Link>
-                <Link href="/contact" className="btn-secondary text-sm">
-                  Consult Solution Specialist
+                <Link
+                  href="/contact"
+                  className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-blue-700 transition-colors"
+                >
+                  Contact Enterprise Architects →
                 </Link>
               </div>
             </div>
 
-            {/* Showcase Image Column if available */}
-            {showcaseImg && (
-              <div className="lg:col-span-5">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border-2 border-cyan-500/35 shadow-2xl group">
-                  <Image
-                    src={showcaseImg}
-                    alt={`${service.title} Enterprise Showcase`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f223d]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-white flex items-center gap-1.5 bg-[#0b192e]/85 backdrop-blur-md p-2.5 rounded-xl border border-cyan-500/30">
-                    <Sparkles size={13} className="text-cyan-300" /> Verified OnePlatform360 Deployment
-                  </div>
-                </div>
-              </div>
-            )}
+            {/* Right Photo */}
+            <div className="lg:col-span-5 relative aspect-[16/11] rounded-2xl overflow-hidden shadow-2xl border border-slate-200">
+              <Image
+                src={showcaseImg}
+                alt={service.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
           </div>
         </div>
+      </section>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
-          {/* Left col — Features + Modules */}
-          <div className="lg:col-span-2 space-y-8">
+      {/* ──── 2. THREE (3) RICH PRODUCT UI SCREENS / DASHBOARD MOCKUPS ──── */}
+      <section className="py-16 bg-[#0b192e] border-b border-cyan-500/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">
+              User Interface &amp; Workflow Previews
+            </span>
+            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-white mt-1">
+              Built for <span className="gradient-text">speed, clarity &amp; daily precision</span>
+            </h2>
+          </div>
 
-            {/* Features */}
+          <div className="grid md:grid-cols-3 gap-6">
+
+            {/* UI Mockup 1: Command Center */}
+            <div className="rounded-2xl bg-white text-slate-900 border border-slate-200 p-6 shadow-xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600">
+                <Monitor size={20} />
+              </div>
+              <div className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">UI View 01</div>
+              <h3 className="font-display font-bold text-lg text-slate-900">Executive Command Center</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Centralized cloud interface consolidating student masters, staff records, real-time KPI metrics, and live status logs in one dashboard.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
+                ✓ Multi-role permission control<br />
+                ✓ 100% cloud synced database
+              </div>
+            </div>
+
+            {/* UI Mockup 2: Automated Workflows & Analytics */}
+            <div className="rounded-2xl bg-white text-slate-900 border border-slate-200 p-6 shadow-xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600">
+                <BarChart3 size={20} />
+              </div>
+              <div className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">UI View 02</div>
+              <h3 className="font-display font-bold text-lg text-slate-900">Automated Processing Stream</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Visual timeline tracking daily fee receipts, biometric attendance punches, automated report calculations, and reconciliation batches.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
+                ✓ Automated audit logging<br />
+                ✓ Instant PDF receipt dispatch
+              </div>
+            </div>
+
+            {/* UI Mockup 3: Mobile & WhatsApp Engagement */}
+            <div className="rounded-2xl bg-white text-slate-900 border border-slate-200 p-6 shadow-xl space-y-4">
+              <div className="w-10 h-10 rounded-xl bg-green-50 border border-green-200 flex items-center justify-center text-green-600">
+                <Smartphone size={20} />
+              </div>
+              <div className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">UI View 03</div>
+              <h3 className="font-display font-bold text-lg text-slate-900">Mobile &amp; WhatsApp Gateway</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Parents, teachers, and staff receive real-time circulars, payment links, and timetable notifications directly on verified WhatsApp.
+              </p>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
+                ✓ Meta Verified Cloud API<br />
+                ✓ 24/7 AI chatbot assistance
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ──── 3. KEY FEATURES & MODULES ──── */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-10 items-start">
+
+          {/* Left Column (8 Cols): Features & Modules */}
+          <div className="lg:col-span-8 space-y-10">
+
+            {/* Features list */}
             {service.features && (
-              <div className="glass rounded-2xl p-7 border border-cyan-500/25">
-                <h2 className="font-display font-bold text-xl text-white mb-5 flex items-center gap-2">
-                  <Sparkles size={18} className="text-cyan-400" /> Key Features &amp; Capabilities
-                </h2>
+              <div className="rounded-2xl bg-[#0d203b] border border-cyan-500/25 p-7 sm:p-9 shadow-xl">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4">
+                  <Sparkles size={16} /> Architectural Capabilities
+                </div>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-6">
+                  Key Features of {service.title}
+                </h3>
                 <div className="grid sm:grid-cols-2 gap-3.5">
                   {service.features.map((f) => (
-                    <div key={f} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200 p-2.5 rounded-xl bg-[#0f223d] border border-cyan-500/15">
-                      <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                    <div
+                      key={f}
+                      className="flex items-start gap-3 p-3 rounded-xl bg-[#091526] border border-cyan-500/15 text-xs sm:text-sm text-slate-200"
+                    >
+                      <CheckCircle size={17} className="text-emerald-400 shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -103,34 +186,45 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               </div>
             )}
 
-            {/* Modules */}
+            {/* Modules list */}
             {service.modules && (
               <div>
-                <h2 className="font-display font-bold text-xl text-white mb-5">Included Modules</h2>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-6">
+                  Included Sub-Modules
+                </h3>
                 <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
                   {service.modules.map((m) => (
-                    <div key={m.name} className="glass glass-hover rounded-xl p-5 group border border-cyan-500/20">
-                      <div className="text-2xl mb-2">{m.icon}</div>
-                      <div className="text-white text-sm font-semibold mb-1 group-hover:text-cyan-300 transition-colors">{m.name}</div>
-                      <div className="text-slate-300 text-xs leading-relaxed">{m.desc}</div>
+                    <div
+                      key={m.name}
+                      className="rounded-xl bg-[#0d203b] border border-cyan-500/20 p-5 hover:border-cyan-400/40 transition-all duration-300 group"
+                    >
+                      <div className="text-2xl mb-2.5">{m.icon}</div>
+                      <div className="text-white text-sm font-semibold mb-1 group-hover:text-cyan-300 transition-colors">
+                        {m.name}
+                      </div>
+                      <div className="text-slate-300 text-xs leading-relaxed">
+                        {m.desc}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             )}
+
           </div>
 
-          {/* Right col — Pricing & Demo */}
-          <div className="space-y-6">
-            <h2 className="font-display font-bold text-xl text-white">Pricing &amp; Deployment</h2>
+          {/* Right Column (4 Cols): Pricing or Custom Enterprise Quote */}
+          <div className="lg:col-span-4 space-y-6">
+            <h3 className="font-display font-bold text-xl text-white">Deployment &amp; Pricing</h3>
+
             {service.plans && service.plans.length > 0 ? (
               service.plans.map((plan) => (
                 <div
                   key={plan.name}
                   className={`rounded-2xl p-6 transition-all duration-300 ${
                     plan.popular
-                      ? 'bg-[#102747] border-2 border-cyan-400 shadow-[0_0_30px_rgba(37,99,235,0.3)]'
-                      : 'glass border border-cyan-500/25'
+                      ? 'bg-[#102747] border-2 border-cyan-400 shadow-[0_0_30px_rgba(37,99,235,0.35)]'
+                      : 'rounded-2xl bg-[#0d203b] border border-cyan-500/25'
                   }`}
                 >
                   {plan.badge && (
@@ -164,16 +258,16 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                 </div>
               ))
             ) : (
-              <div className="glass rounded-2xl p-6 text-center border border-cyan-500/25 space-y-3">
+              <div className="rounded-2xl bg-[#0d203b] border border-cyan-500/25 p-6 text-center space-y-4 shadow-xl">
                 <div className="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center mx-auto text-cyan-300">
                   <Clock size={24} />
                 </div>
                 <div className="badge bg-amber-500/15 border-amber-400/30 text-amber-300 text-[10px]">
-                  Custom Enterprise Rollout
+                  Custom Institutional Scope
                 </div>
-                <div className="text-white font-semibold text-base">Early Access &amp; Custom Quote</div>
+                <div className="text-white font-bold text-base">Early Access &amp; Enterprise Quote</div>
                 <p className="text-slate-300 text-xs leading-relaxed">
-                  Every {service.shortTitle} rollout is tailored to your organization&apos;s exact scale and workflow.
+                  Every {service.shortTitle} rollout is tailored specifically for your volume, user roles, and existing database migration.
                 </p>
                 <Link href="/contact" className="btn-primary text-xs justify-center w-full py-3">
                   Request Custom Quote →
@@ -182,15 +276,17 @@ export default function ServicePage({ params }: { params: { id: string } }) {
             )}
 
             {/* Direct Support Card */}
-            <div className="rounded-2xl bg-gradient-to-br from-[#0f223d] to-[#0c182c] border border-cyan-500/30 p-5 text-center">
-              <div className="text-xs text-slate-300 mb-1">Direct Solution Advisory</div>
+            <div className="rounded-2xl bg-[#081220] border border-cyan-500/25 p-5 text-center">
+              <div className="text-xs text-slate-400 mb-1">Direct Enterprise Advisory</div>
               <div className="text-white font-semibold text-sm">OnePlatform360@gmail.com</div>
               <div className="text-cyan-300 text-xs font-medium mt-1">+91 62079 47958</div>
             </div>
-          </div>
-        </div>
 
-      </div>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   )
 }

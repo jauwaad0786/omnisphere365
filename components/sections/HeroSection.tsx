@@ -76,90 +76,90 @@ const TABS: Tab[] = [
     id: 'school',
     label: 'Academic ERP',
     icon: GraduationCap,
-    color: '#38bdf8',
+    color: '#0284c7',
     dashboardTitle: 'Academics & School ERP Command Center',
     url: 'app.oneplatform360.com/school-erp',
     kpis: [
-      { label: 'Total Students', value: '2,480', change: '+8.4%', icon: Users, color: 'text-sky-400', bg: 'bg-sky-500/15' },
-      { label: 'Total Staff', value: '184', change: '+4.2%', icon: Briefcase, color: 'text-indigo-400', bg: 'bg-indigo-500/15' },
-      { label: 'Fee Collection', value: '₹42.8L', change: '+12.6%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
-      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/15' },
+      { label: 'Total Students', value: '2,480', change: '+8.4%', icon: Users, color: 'text-sky-600', bg: 'bg-sky-100' },
+      { label: 'Total Staff', value: '184', change: '+4.2%', icon: Briefcase, color: 'text-indigo-600', bg: 'bg-indigo-100' },
+      { label: 'Fee Collection', value: '₹42.8L', change: '+12.6%', icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-cyan-600', bg: 'bg-cyan-100' },
     ],
     chartLabel: 'Monthly Fee Collection Trend',
     chartData: [45, 68, 52, 85, 74, 98],
     activity: [
-      { text: 'Fee payment received', sub: '₹14,500 — Class X-A', time: '2 min ago', dot: 'bg-emerald-400' },
-      { text: 'Attendance marked', sub: 'Class XII-B (94.7%)', time: '5 min ago', dot: 'bg-sky-400' },
-      { text: 'Exam schedule published', sub: 'Final Term Examinations', time: '15 min ago', dot: 'bg-indigo-400' },
-      { text: 'New admission enrolled', sub: 'Aryan Sharma — Class VI', time: '30 min ago', dot: 'bg-blue-400' },
+      { text: 'Fee payment received', sub: '₹14,500 — Class X-A', time: '2 min ago', dot: 'bg-emerald-500' },
+      { text: 'Attendance marked', sub: 'Class XII-B (94.7%)', time: '5 min ago', dot: 'bg-sky-500' },
+      { text: 'Exam schedule published', sub: 'Final Term Examinations', time: '15 min ago', dot: 'bg-indigo-500' },
+      { text: 'New admission enrolled', sub: 'Aryan Sharma — Class VI', time: '30 min ago', dot: 'bg-blue-500' },
     ],
   },
   {
     id: 'hrms',
     label: 'Smart HRMS',
     icon: Briefcase,
-    color: '#a78bfa',
+    color: '#7c3aed',
     dashboardTitle: 'HRMS, Attendance & Payroll System',
     url: 'app.oneplatform360.com/hrms',
     kpis: [
-      { label: 'Total Employees', value: '348', change: '+12 new', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/15' },
-      { label: 'Active On-Site', value: '339', change: '97.4%', icon: CheckCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
-      { label: 'Payroll Run', value: '₹34.2L', change: 'On Time', icon: IndianRupee, color: 'text-sky-400', bg: 'bg-sky-500/15' },
-      { label: 'Open Positions', value: '8', change: 'Hiring', icon: UserPlus, color: 'text-amber-400', bg: 'bg-amber-500/15' },
+      { label: 'Total Employees', value: '348', change: '+12 new', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100' },
+      { label: 'Active On-Site', value: '339', change: '97.4%', icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Payroll Run', value: '₹34.2L', change: 'On Time', icon: IndianRupee, color: 'text-sky-600', bg: 'bg-sky-100' },
+      { label: 'Open Positions', value: '8', change: 'Hiring', icon: UserPlus, color: 'text-amber-600', bg: 'bg-amber-100' },
     ],
     chartLabel: 'Workforce Growth & Attendance',
     chartData: [55, 62, 70, 78, 86, 96],
     activity: [
-      { text: 'Pooja Verma', sub: 'Onboarding completed', time: '8 min ago', dot: 'bg-purple-400' },
-      { text: 'Monthly Salary Run', sub: 'Disbursed via Direct Bank API', time: '45 min ago', dot: 'bg-emerald-400' },
-      { text: 'Medical Leave Approved', sub: 'Dr. Sameer (Cardiology)', time: '2 hr ago', dot: 'bg-sky-400' },
+      { text: 'Pooja Verma', sub: 'Onboarding completed', time: '8 min ago', dot: 'bg-purple-500' },
+      { text: 'Monthly Salary Run', sub: 'Disbursed via Direct Bank API', time: '45 min ago', dot: 'bg-emerald-500' },
+      { text: 'Medical Leave Approved', sub: 'Dr. Sameer (Cardiology)', time: '2 hr ago', dot: 'bg-sky-500' },
     ],
   },
   {
     id: 'ai',
     label: 'AI Automation',
     icon: Bot,
-    color: '#34d399',
+    color: '#059669',
     dashboardTitle: 'AI Autonomous Workflow Pipeline',
     url: 'app.oneplatform360.com/ai-automation',
     kpis: [
-      { label: 'Active Workflows', value: '24', change: 'Live', icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
-      { label: 'Executions / Mo', value: '1,284', change: '+28%', icon: Bot, color: 'text-teal-400', bg: 'bg-teal-500/15' },
-      { label: 'Accuracy Score', value: '97.8%', change: 'Verified', icon: Shield, color: 'text-cyan-400', bg: 'bg-cyan-500/15' },
-      { label: 'Time Saved', value: '356 hrs', change: 'This Month', icon: Clock, color: 'text-purple-400', bg: 'bg-purple-500/15' },
+      { label: 'Active Workflows', value: '24', change: 'Live', icon: Zap, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Executions / Mo', value: '1,284', change: '+28%', icon: Bot, color: 'text-teal-600', bg: 'bg-teal-100' },
+      { label: 'Accuracy Score', value: '97.8%', change: 'Verified', icon: Shield, color: 'text-cyan-600', bg: 'bg-cyan-100' },
+      { label: 'Time Saved', value: '356 hrs', change: 'This Month', icon: Clock, color: 'text-purple-600', bg: 'bg-purple-100' },
     ],
     chartLabel: 'Autonomous Execution Throughput',
     chartData: [38, 54, 66, 78, 89, 100],
     activity: [
-      { text: 'Auto Fee Reminder WhatsApp', sub: '342 parents notified', time: '1 min ago', dot: 'bg-emerald-400' },
-      { text: 'Attendance Alert Dispatched', sub: 'Sent to guardian phones', time: '18 min ago', dot: 'bg-teal-400' },
-      { text: 'AI Anomaly Reconciled', sub: 'Bank payment matched', time: '52 min ago', dot: 'bg-cyan-400' },
+      { text: 'Auto Fee Reminder WhatsApp', sub: '342 parents notified', time: '1 min ago', dot: 'bg-emerald-500' },
+      { text: 'Attendance Alert Dispatched', sub: 'Sent to guardian phones', time: '18 min ago', dot: 'bg-teal-500' },
+      { text: 'AI Anomaly Reconciled', sub: 'Bank payment matched', time: '52 min ago', dot: 'bg-cyan-500' },
     ],
   },
   {
     id: 'whatsapp',
     label: 'WhatsApp Hub',
     icon: MessageCircle,
-    color: '#22c55e',
+    color: '#16a34a',
     dashboardTitle: 'Official WhatsApp Business API Hub',
     url: 'app.oneplatform360.com/whatsapp-hub',
     kpis: [
-      { label: 'Messages Sent', value: '2.5M+', change: 'High Speed', icon: MessageCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
-      { label: 'Read Rate', value: '98.2%', change: 'Instant', icon: CheckCircle, color: 'text-teal-400', bg: 'bg-teal-500/15' },
-      { label: 'Bot Auto-Replies', value: '18.4K', change: '< 2s avg', icon: Bot, color: 'text-sky-400', bg: 'bg-sky-500/15' },
-      { label: 'Fees via WhatsApp', value: '₹18.9L', change: '+34%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/15' },
+      { label: 'Messages Sent', value: '2.5M+', change: 'High Speed', icon: MessageCircle, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Read Rate', value: '98.2%', change: 'Instant', icon: CheckCircle, color: 'text-teal-600', bg: 'bg-teal-100' },
+      { label: 'Bot Auto-Replies', value: '18.4K', change: '< 2s avg', icon: Bot, color: 'text-sky-600', bg: 'bg-sky-100' },
+      { label: 'Fees via WhatsApp', value: '₹18.9L', change: '+34%', icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-100' },
     ],
     chartLabel: 'Daily WhatsApp Broadcast Traffic',
     chartData: [42, 60, 58, 82, 91, 99],
     activity: [
-      { text: 'Broadcast: Final Exam Date Sheet', sub: 'Delivered to 1,850 parents', time: '4 min ago', dot: 'bg-emerald-400' },
-      { text: 'Payment Confirmation Link', sub: 'Receipt PDF sent to mobile', time: '12 min ago', dot: 'bg-teal-400' },
-      { text: 'Parent Bot Query: Bus Route #4', sub: 'Live location dispatched', time: '22 min ago', dot: 'bg-sky-400' },
+      { text: 'Broadcast: Final Exam Date Sheet', sub: 'Delivered to 1,850 parents', time: '4 min ago', dot: 'bg-emerald-500' },
+      { text: 'Payment Confirmation Link', sub: 'Receipt PDF sent to mobile', time: '12 min ago', dot: 'bg-teal-500' },
+      { text: 'Parent Bot Query: Bus Route #4', sub: 'Live location dispatched', time: '22 min ago', dot: 'bg-sky-500' },
     ],
   },
 ]
 
-/* ─── Mini donut chart SVG ──── */
+/* ─── Donut chart SVG ──── */
 function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
   const total = data.reduce((a, b) => a + b, 0)
   let cumulative = 0
@@ -189,7 +189,7 @@ function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
           />
         )
       })}
-      <text x="42" y="42" textAnchor="middle" dominantBaseline="central" fill="#ffffff" fontWeight="bold" fontSize="11px">
+      <text x="42" y="42" textAnchor="middle" dominantBaseline="central" fill="#0f172a" fontWeight="bold" fontSize="11px">
         94.7%
       </text>
     </svg>
@@ -292,17 +292,17 @@ export default function HeroSection() {
             {/* Action Buttons */}
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="/demo"
+                href="/services"
                 className="btn-primary text-sm px-7 py-3.5 shadow-[0_0_25px_rgba(37,99,235,0.5)] hover:shadow-[0_0_35px_rgba(37,99,235,0.75)]"
               >
-                Explore Platform <ArrowRight size={15} />
+                Explore All Solutions <ArrowRight size={15} />
               </Link>
               <Link
-                href="/contact"
+                href="#what-we-do"
                 className="btn-secondary text-sm px-7 py-3.5 group"
               >
                 <Play size={13} className="text-cyan-400 group-hover:scale-110 transition-transform" />
-                Watch Live Demo
+                Inspect Capabilities
               </Link>
             </div>
 
@@ -345,14 +345,13 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* ──── RIGHT (7 Cols): The Executive Boardroom Presentation Scene ──── */}
+          {/* ──── RIGHT (7 Cols): Executive Boardroom Presentation Scene ──── */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="lg:col-span-7 space-y-4"
           >
-            {/* Boardroom Presentation Frame with Glowing Border */}
             <div className="relative rounded-2xl overflow-hidden border-2 border-cyan-500/35 bg-[#0a1628] shadow-[0_20px_60px_rgba(5,12,24,0.85)] group">
               <div className="relative aspect-[16/9] w-full">
                 <Image
@@ -364,7 +363,6 @@ export default function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b192e] via-transparent to-black/30" />
 
-                {/* Floating On-Screen Badge */}
                 <div className="absolute top-4 left-4 px-3 py-1.5 rounded-xl bg-[#0b192e]/90 backdrop-blur-md border border-cyan-500/40 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-[11px] font-bold text-white tracking-wide">
@@ -372,7 +370,6 @@ export default function HeroSection() {
                   </span>
                 </div>
 
-                {/* Bottom Overlay Bar */}
                 <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#0f223d]/92 backdrop-blur-md border border-cyan-500/35 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300">
@@ -396,10 +393,10 @@ export default function HeroSection() {
 
         </div>
 
-        {/* ──── HERO BOTTOM ROW: Interactive Live Dashboard & Side Cards (Just like user reference) ──── */}
+        {/* ──── HERO BOTTOM ROW: CRISP WHITE ENTERPRISE DASHBOARD & RIGHT MODULE CARDS ──── */}
         <div className="grid lg:grid-cols-12 gap-8 items-start pt-6 border-t border-cyan-500/20">
 
-          {/* ──── LEFT (8 Cols): Interactive Live Dashboard Mockup ──── */}
+          {/* ──── LEFT (8 Cols): CRISP WHITE MODERN SAAS DASHBOARD ──── */}
           <div className="lg:col-span-8 space-y-4">
             {/* Tab Selectors */}
             <div className="flex items-center justify-between gap-2 flex-wrap">
@@ -421,27 +418,27 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Dashboard Browser Frame */}
-            <div className="dashboard-card">
+            {/* 🌟 LUXURIOUS CRISP WHITE DASHBOARD FRAME 🌟 */}
+            <div className="rounded-2xl overflow-hidden bg-white text-slate-900 border-2 border-slate-200 shadow-[0_25px_70px_rgba(0,0,0,0.5)]">
               {/* Browser Header Bar */}
-              <div className="flex items-center gap-2 px-4 py-2.5 border-b border-cyan-500/25 bg-[#091526]">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-200 bg-slate-100">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                 </div>
                 <div className="flex-1 mx-3">
-                  <div className="px-3 py-1 rounded-md bg-[#0f223d] border border-cyan-500/25 text-[11px] text-slate-200 font-mono flex items-center gap-1.5 truncate">
-                    <Lock size={10} className="text-emerald-400 shrink-0" />
+                  <div className="px-3 py-1 rounded-md bg-white border border-slate-200 text-[11px] text-slate-700 font-mono flex items-center gap-1.5 truncate shadow-sm">
+                    <Lock size={10} className="text-emerald-600 shrink-0" />
                     {tab.url}
                   </div>
                 </div>
-                <div className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30">
+                <div className="text-[10px] text-emerald-700 font-bold px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300">
                   Active Instance
                 </div>
               </div>
 
-              {/* Dashboard Content */}
+              {/* White Dashboard Content Body */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={tab.id}
@@ -449,56 +446,62 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.3 }}
-                  className="p-5 sm:p-6 space-y-5 bg-[#0d1f38]"
+                  className="p-5 sm:p-7 space-y-5 bg-slate-50"
                 >
                   {/* Dashboard Header */}
-                  <div className="flex items-center justify-between border-b border-cyan-500/20 pb-4">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-9 h-9 rounded-xl flex items-center justify-center shadow-lg"
-                        style={{ background: `${tab.color}20`, border: `1px solid ${tab.color}45` }}
+                        className="w-10 h-10 rounded-xl flex items-center justify-center shadow-sm"
+                        style={{ background: `${tab.color}15`, border: `1px solid ${tab.color}35` }}
                       >
-                        <tab.icon size={18} style={{ color: tab.color }} />
+                        <tab.icon size={20} style={{ color: tab.color }} />
                       </div>
                       <div>
-                        <div className="text-[10px] uppercase tracking-wider text-cyan-300 font-bold">OnePlatform360 Analytics</div>
-                        <div className="text-white font-bold text-sm sm:text-base font-display">{tab.dashboardTitle}</div>
+                        <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold font-mono">
+                          OnePlatform360 Analytics Engine
+                        </div>
+                        <div className="text-slate-900 font-bold text-base sm:text-lg font-display">
+                          {tab.dashboardTitle}
+                        </div>
                       </div>
                     </div>
-                    <div className="badge bg-cyan-500/15 border-cyan-500/35 text-cyan-300">
-                      Real-time Data
+                    <div className="text-[10px] font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200">
+                      Real-time Sync
                     </div>
                   </div>
 
-                  {/* 4 KPI Metrics */}
+                  {/* 4 Crisp White KPI Cards */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {tab.kpis.map((kpi) => (
                       <div
                         key={kpi.label}
-                        className="rounded-xl bg-[#0f223d] border border-cyan-500/25 p-3 hover:border-cyan-400/50 transition-colors"
+                        className="rounded-xl bg-white border border-slate-200 p-3.5 shadow-sm hover:border-blue-400 hover:shadow-md transition-all"
                       >
                         <div className="flex items-center justify-between mb-2">
                           <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${kpi.bg}`}>
-                            <kpi.icon size={13} className={kpi.color} />
+                            <kpi.icon size={14} className={kpi.color} />
                           </div>
-                          <span className="text-[10px] text-emerald-400 font-bold">{kpi.change}</span>
+                          <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+                            {kpi.change}
+                          </span>
                         </div>
-                        <div className="text-white font-bold text-base sm:text-lg font-display">{kpi.value}</div>
-                        <div className="text-[10px] text-slate-300 mt-0.5">{kpi.label}</div>
+                        <div className="text-slate-900 font-extrabold text-lg sm:text-xl font-display">{kpi.value}</div>
+                        <div className="text-[11px] text-slate-500 mt-0.5 font-medium">{kpi.label}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* Two Charts Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
-                    {/* Line / Bar Chart */}
-                    <div className="sm:col-span-3 rounded-xl bg-[#0f223d] border border-cyan-500/25 p-4">
+                    {/* Line / Bar Chart Card */}
+                    <div className="sm:col-span-3 rounded-xl bg-white border border-slate-200 p-4 shadow-sm">
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-xs font-semibold text-white flex items-center gap-1.5">
+                        <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
                           <BarChart3 size={14} style={{ color: tab.color }} /> {tab.chartLabel}
                         </span>
-                        <span className="text-[9px] text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/30">
-                          FY 2026
+                        <span className="text-[9px] font-bold text-blue-700 px-2 py-0.5 rounded bg-blue-50 border border-blue-200">
+                          FY 2026 Live
                         </span>
                       </div>
                       <div className="flex items-end gap-2.5 h-24 pt-2">
@@ -513,32 +516,32 @@ export default function HeroSection() {
                               background: `linear-gradient(to top, #0284c7, ${tab.color})`,
                               transformOrigin: 'bottom',
                             }}
-                            className="flex-1 rounded-t-md opacity-85 hover:opacity-100 transition-opacity cursor-pointer shadow-md"
+                            className="flex-1 rounded-t-md opacity-90 hover:opacity-100 transition-opacity cursor-pointer shadow-sm"
                           />
                         ))}
                       </div>
-                      <div className="flex justify-between mt-2.5 text-[9.5px] text-slate-400">
+                      <div className="flex justify-between mt-2.5 text-[9.5px] text-slate-400 font-medium">
                         {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m) => <span key={m}>{m}</span>)}
                       </div>
                     </div>
 
-                    {/* Donut Chart */}
-                    <div className="sm:col-span-2 rounded-xl bg-[#0f223d] border border-cyan-500/25 p-4 flex flex-col justify-between">
-                      <div className="text-xs font-semibold text-white mb-1">Status &amp; Distribution</div>
+                    {/* Donut Chart Card */}
+                    <div className="sm:col-span-2 rounded-xl bg-white border border-slate-200 p-4 shadow-sm flex flex-col justify-between">
+                      <div className="text-xs font-bold text-slate-900 mb-1">Status &amp; Verification</div>
                       <div className="flex items-center justify-center my-auto py-2">
                         <DonutChart
                           data={[35, 25, 22, 18]}
-                          colors={['#38bdf8', '#818cf8', '#a855f7', '#34d399']}
+                          colors={['#0284c7', '#6366f1', '#a855f7', '#10b981']}
                         />
                       </div>
                       <div className="grid grid-cols-2 gap-1.5 mt-1">
                         {[
-                          { label: 'Active', color: '#38bdf8' },
-                          { label: 'Verified', color: '#818cf8' },
+                          { label: 'Active', color: '#0284c7' },
+                          { label: 'Verified', color: '#6366f1' },
                           { label: 'Processing', color: '#a855f7' },
-                          { label: 'Completed', color: '#34d399' },
+                          { label: 'Completed', color: '#10b981' },
                         ].map((c) => (
-                          <div key={c.label} className="flex items-center gap-1.5 text-[9px] text-slate-300">
+                          <div key={c.label} className="flex items-center gap-1.5 text-[9.5px] text-slate-600 font-medium">
                             <div className="w-2 h-2 rounded-full" style={{ background: c.color }} />
                             {c.label}
                           </div>
@@ -548,17 +551,17 @@ export default function HeroSection() {
                   </div>
 
                   {/* Real-time Activity Stream */}
-                  <div className="rounded-xl bg-[#0f223d] border border-cyan-500/25 p-4 space-y-2">
-                    <div className="text-xs font-semibold text-white mb-2 flex items-center justify-between">
-                      <span>Real-time Institutional Log</span>
-                      <span className="text-[9px] text-cyan-300">Updated 1s ago</span>
+                  <div className="rounded-xl bg-white border border-slate-200 p-4 space-y-2 shadow-sm">
+                    <div className="text-xs font-bold text-slate-900 mb-2 flex items-center justify-between">
+                      <span>Real-time Operations Log</span>
+                      <span className="text-[9.5px] font-semibold text-blue-600">Updated 1s ago</span>
                     </div>
                     {tab.activity.map((a, i) => (
-                      <div key={i} className="flex items-center gap-3 text-xs p-2 rounded-lg hover:bg-blue-600/15 transition-colors">
+                      <div key={i} className="flex items-center gap-3 text-xs p-2 rounded-lg hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0">
                         <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${a.dot}`} />
-                        <span className="text-slate-200 font-medium text-[11.5px]">{a.text}</span>
-                        <span className="text-slate-400 text-[10.5px] hidden sm:inline">{a.sub}</span>
-                        <span className="ml-auto text-slate-400 text-[9.5px] shrink-0">{a.time}</span>
+                        <span className="text-slate-900 font-semibold text-[11.5px]">{a.text}</span>
+                        <span className="text-slate-500 text-[10.5px] hidden sm:inline">{a.sub}</span>
+                        <span className="ml-auto text-slate-400 text-[9.5px] shrink-0 font-mono">{a.time}</span>
                       </div>
                     ))}
                   </div>
@@ -567,88 +570,88 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ──── RIGHT (4 Cols): Module Showcase Cards (Matching reference layout) ──── */}
+          {/* ──── RIGHT (4 Cols): Module Showcase Cards ──── */}
           <div className="lg:col-span-4 space-y-4">
 
             {/* Card 1: Powerful ERP */}
-            <div className="glass rounded-2xl p-5 border border-cyan-500/25 hover:border-cyan-400/50 transition-all duration-300 group">
+            <div className="rounded-2xl p-5 bg-white text-slate-900 border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 group">
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-blue-500/20 border border-cyan-500/35 flex items-center justify-center text-cyan-300">
+                <div className="w-8 h-8 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700">
                   <GraduationCap size={16} />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-white text-sm">Powerful ERP</h3>
-                  <div className="text-[10px] text-cyan-300">Manage academics, finance, exams</div>
+                  <h3 className="font-display font-bold text-slate-900 text-sm">Powerful ERP</h3>
+                  <div className="text-[10px] text-blue-600 font-semibold">Manage academics, finance, exams</div>
                 </div>
               </div>
-              <p className="text-slate-300 text-xs leading-relaxed mb-3">
+              <p className="text-slate-600 text-xs leading-relaxed mb-3">
                 Complete student lifecycle, examination, gradebooks, and fee collection in one place.
               </p>
 
               {/* 8 Module Icons */}
               <div className="grid grid-cols-4 gap-1.5 mb-3">
                 {[
-                  { label: 'Students', icon: Users, color: '#38bdf8' },
-                  { label: 'Academics', icon: BookOpen, color: '#818cf8' },
+                  { label: 'Students', icon: Users, color: '#0284c7' },
+                  { label: 'Academics', icon: BookOpen, color: '#6366f1' },
                   { label: 'Exams', icon: FileText, color: '#0ea5e9' },
-                  { label: 'Attendance', icon: CheckCircle, color: '#34d399' },
-                  { label: 'Fees', icon: IndianRupee, color: '#fbbf24' },
-                  { label: 'Timetable', icon: Calendar, color: '#f472b6' },
-                  { label: 'Library', icon: BookOpenCheck, color: '#a78bfa' },
-                  { label: 'Reports', icon: BarChart3, color: '#2dd4bf' },
+                  { label: 'Attendance', icon: CheckCircle, color: '#10b981' },
+                  { label: 'Fees', icon: IndianRupee, color: '#f59e0b' },
+                  { label: 'Timetable', icon: Calendar, color: '#ec4899' },
+                  { label: 'Library', icon: BookOpenCheck, color: '#8b5cf6' },
+                  { label: 'Reports', icon: BarChart3, color: '#14b8a6' },
                 ].map((m) => (
-                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0f223d] border border-cyan-500/15 flex flex-col items-center gap-0.5 text-center group-hover:border-cyan-400/30">
+                  <div key={m.label} className="p-1.5 rounded-lg bg-slate-50 border border-slate-200 flex flex-col items-center gap-0.5 text-center group-hover:border-blue-300">
                     <m.icon size={13} style={{ color: m.color }} />
-                    <span className="text-[8.5px] text-slate-200 truncate w-full">{m.label}</span>
+                    <span className="text-[8.5px] text-slate-700 font-medium truncate w-full">{m.label}</span>
                   </div>
                 ))}
               </div>
 
               <Link
                 href="/services/school-erp"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-300 hover:text-white group-hover:gap-2 transition-all"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 group-hover:gap-2 transition-all"
               >
                 Explore ERP Modules <ChevronRight size={13} />
               </Link>
             </div>
 
             {/* Card 2: Smart HRMS */}
-            <div className="glass rounded-2xl p-5 border border-purple-500/25 hover:border-purple-400/50 transition-all duration-300 group">
+            <div className="rounded-2xl p-5 bg-white text-slate-900 border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 group">
               <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-8 h-8 rounded-xl bg-purple-500/20 border border-purple-500/35 flex items-center justify-center text-purple-300">
+                <div className="w-8 h-8 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700">
                   <Users size={16} />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-white text-sm">Smart HRMS</h3>
-                  <div className="text-[10px] text-purple-300">Staff, Payroll &amp; Performance</div>
+                  <h3 className="font-display font-bold text-slate-900 text-sm">Smart HRMS</h3>
+                  <div className="text-[10px] text-purple-600 font-semibold">Staff, Payroll &amp; Performance</div>
                 </div>
               </div>
-              <p className="text-slate-300 text-xs leading-relaxed mb-3">
+              <p className="text-slate-600 text-xs leading-relaxed mb-3">
                 Complete employee management from biometric check-in to automated monthly payroll.
               </p>
 
               {/* 8 HRMS Icons */}
               <div className="grid grid-cols-4 gap-1.5 mb-3">
                 {[
-                  { label: 'Employees', icon: Users, color: '#a78bfa' },
-                  { label: 'Attendance', icon: CheckCircle, color: '#34d399' },
-                  { label: 'Leave', icon: Clock, color: '#fb923c' },
-                  { label: 'Payroll', icon: IndianRupee, color: '#38bdf8' },
-                  { label: 'Appraisal', icon: Award, color: '#f472b6' },
-                  { label: 'Recruit', icon: UserPlus, color: '#818cf8' },
-                  { label: 'Docs', icon: FolderOpen, color: '#2dd4bf' },
-                  { label: 'Org Chart', icon: Building2, color: '#fbbf24' },
+                  { label: 'Employees', icon: Users, color: '#7c3aed' },
+                  { label: 'Attendance', icon: CheckCircle, color: '#10b981' },
+                  { label: 'Leave', icon: Clock, color: '#f97316' },
+                  { label: 'Payroll', icon: IndianRupee, color: '#0284c7' },
+                  { label: 'Appraisal', icon: Award, color: '#ec4899' },
+                  { label: 'Recruit', icon: UserPlus, color: '#6366f1' },
+                  { label: 'Docs', icon: FolderOpen, color: '#14b8a6' },
+                  { label: 'Org Chart', icon: Building2, color: '#f59e0b' },
                 ].map((m) => (
-                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0f223d] border border-purple-500/15 flex flex-col items-center gap-0.5 text-center group-hover:border-purple-400/30">
+                  <div key={m.label} className="p-1.5 rounded-lg bg-slate-50 border border-slate-200 flex flex-col items-center gap-0.5 text-center group-hover:border-purple-300">
                     <m.icon size={13} style={{ color: m.color }} />
-                    <span className="text-[8.5px] text-slate-200 truncate w-full">{m.label}</span>
+                    <span className="text-[8.5px] text-slate-700 font-medium truncate w-full">{m.label}</span>
                   </div>
                 ))}
               </div>
 
               <Link
                 href="/services/hrms"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-300 hover:text-white group-hover:gap-2 transition-all"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-600 hover:text-purple-800 group-hover:gap-2 transition-all"
               >
                 Explore HRMS Suite <ChevronRight size={13} />
               </Link>
@@ -656,19 +659,19 @@ export default function HeroSection() {
 
             {/* Card 3: AI Automation & WhatsApp Mini Feature Banners */}
             <div className="grid grid-cols-2 gap-2.5">
-              <Link href="/services/ai-automation" className="glass rounded-xl p-3 border border-emerald-500/25 hover:border-emerald-400/50 transition-all group block">
-                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-300 mb-1.5">
+              <Link href="/services/ai-automation" className="rounded-xl p-3.5 bg-white text-slate-900 border border-slate-200 hover:border-emerald-400 hover:shadow-lg transition-all group block">
+                <div className="w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700 mb-1.5">
                   <Bot size={14} />
                 </div>
-                <div className="text-xs font-bold text-white group-hover:text-emerald-300">AI Automation</div>
-                <div className="text-[9.5px] text-slate-300 mt-0.5">Autonomous Ops</div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-emerald-700">AI Automation</div>
+                <div className="text-[9.5px] text-slate-500 mt-0.5">Autonomous Ops</div>
               </Link>
-              <Link href="/services/whatsapp-automation" className="glass rounded-xl p-3 border border-green-500/25 hover:border-green-400/50 transition-all group block">
-                <div className="w-7 h-7 rounded-lg bg-green-500/20 flex items-center justify-center text-green-300 mb-1.5">
+              <Link href="/services/whatsapp-automation" className="rounded-xl p-3.5 bg-white text-slate-900 border border-slate-200 hover:border-green-400 hover:shadow-lg transition-all group block">
+                <div className="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center text-green-700 mb-1.5">
                   <MessageCircle size={14} />
                 </div>
-                <div className="text-xs font-bold text-white group-hover:text-green-300">WhatsApp Hub</div>
-                <div className="text-[9.5px] text-slate-300 mt-0.5">Automated Alerts</div>
+                <div className="text-xs font-bold text-slate-900 group-hover:text-green-700">WhatsApp Hub</div>
+                <div className="text-[9.5px] text-slate-500 mt-0.5">Automated Alerts</div>
               </Link>
             </div>
 
