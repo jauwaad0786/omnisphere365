@@ -20,13 +20,31 @@ export const SERVICE_ICONS: Record<string, any> = {
   'strategic-consulting': Target,
 }
 
-export function IconTile({ icon: Icon, color }: { icon: any; color: string }) {
+export function IconTile({
+  icon: Icon,
+  color,
+  size = 18,
+  tile = 40,
+  rounded = 10,
+}: {
+  icon: any;
+  color: string;
+  size?: number;
+  tile?: number;
+  rounded?: number;
+}) {
   return (
     <div
-      className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-      style={{ background: `${color}12`, border: `1px solid ${color}20` }}
+      className="flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+      style={{
+        width: `${tile}px`,
+        height: `${tile}px`,
+        borderRadius: `${rounded}px`,
+        background: `${color}12`,
+        border: `1px solid ${color}20`,
+      }}
     >
-      <Icon size={18} style={{ color }} />
+      <Icon size={size} style={{ color }} />
     </div>
   )
 }
