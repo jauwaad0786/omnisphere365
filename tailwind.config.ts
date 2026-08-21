@@ -10,21 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary — Microsoft Blue
         brand: {
           50:  '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe',
           300: '#93c5fd', 400: '#5b9bf2', 500: '#2563eb',
           600: '#1d4ed8', 700: '#1e40af', 800: '#1e3a8a',
           900: '#172554', 950: '#0f1a3d',
         },
-        // Secondary — Azure Blue
         accent: { 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1' },
-        // Tertiary accent — Subtle Purple (used sparingly: AI / automation cues)
         violet: { 400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed' },
-        // Status colors
         success: { 50: '#f0fdf4', 400: '#4ade80', 500: '#16a34a', 600: '#15803d' },
         warn:    { 50: '#fffbeb', 400: '#fbbf24', 500: '#f59e0b', 600: '#ea580c' },
-        // Light enterprise surfaces
         surface: {
           DEFAULT:     '#ffffff',
           subtle:      '#f8fafc',
@@ -32,7 +27,6 @@ const config: Config = {
           border:      '#e2e8f0',
           borderStrong:'#cbd5e1',
           hover:       '#f1f5f9',
-          // Deep navy — reserved for the footer and intentional dark accent bands
           dark:        '#0b1220',
           darkCard:    '#121a2c',
           darkBorder:  '#1f2a40',
@@ -49,26 +43,41 @@ const config: Config = {
         'dark-gradient':   'linear-gradient(180deg, #0b1220 0%, #060a14 100%)',
       },
       animation: {
-        'float':      'float 6s ease-in-out infinite',
-        'float-slow': 'float 9s ease-in-out infinite',
-        'slide-up':   'slideUp 0.6s ease forwards',
-        'fade-in':    'fadeIn 0.8s ease forwards',
-        'shimmer':    'shimmer 2.5s linear infinite',
-        'grow-bar':   'growBar 1s cubic-bezier(0.16,1,0.3,1) forwards',
+        'float':        'float 6s ease-in-out infinite',
+        'float-slow':   'float 9s ease-in-out infinite',
+        'float-gentle': 'floatGentle 7s ease-in-out infinite',
+        'slide-up':     'slideUp 0.6s ease forwards',
+        'slide-up-delay': 'slideUp 0.6s ease 0.2s forwards',
+        'fade-in':      'fadeIn 0.8s ease forwards',
+        'fade-in-up':   'fadeInUp 0.7s ease forwards',
+        'shimmer':      'shimmer 2.5s linear infinite',
+        'grow-bar':     'growBar 1s cubic-bezier(0.16,1,0.3,1) forwards',
+        'pulse-soft':   'pulseSoft 3s ease-in-out infinite',
+        'spin-slow':    'spin 8s linear infinite',
+        'bounce-soft':  'bounceSoft 2s ease-in-out infinite',
+        'gradient-x':   'gradientX 3s ease infinite',
       },
       keyframes: {
-        float:   { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-14px)' } },
-        slideUp: { from: { opacity: '0', transform: 'translateY(24px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
-        fadeIn:  { from: { opacity: '0' }, to: { opacity: '1' } },
-        shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
-        growBar: { from: { transform: 'scaleY(0)' }, to: { transform: 'scaleY(1)' } },
+        float:       { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-14px)' } },
+        floatGentle: { '0%,100%': { transform: 'translateY(0) rotate(0deg)' }, '50%': { transform: 'translateY(-8px) rotate(1deg)' } },
+        slideUp:     { from: { opacity: '0', transform: 'translateY(24px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        fadeIn:      { from: { opacity: '0' }, to: { opacity: '1' } },
+        fadeInUp:    { from: { opacity: '0', transform: 'translateY(20px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        shimmer:     { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+        growBar:     { from: { transform: 'scaleY(0)' }, to: { transform: 'scaleY(1)' } },
+        pulseSoft:   { '0%,100%': { opacity: '1' }, '50%': { opacity: '0.7' } },
+        bounceSoft:  { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+        gradientX:   { '0%,100%': { backgroundPosition: '0% 50%' }, '50%': { backgroundPosition: '100% 50%' } },
       },
       boxShadow: {
         'glow':       '0 0 40px rgba(37,99,235,0.12)',
         'glow-lg':    '0 0 80px rgba(37,99,235,0.16)',
+        'glow-blue':  '0 0 30px rgba(37,99,235,0.15), 0 0 60px rgba(37,99,235,0.05)',
         'card':       '0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06)',
         'card-hover': '0 4px 8px rgba(15,23,42,0.04), 0 16px 40px rgba(37,99,235,0.10)',
         'panel':      '0 20px 60px rgba(15,23,42,0.10)',
+        'panel-lg':   '0 30px 80px rgba(15,23,42,0.12), 0 8px 20px rgba(37,99,235,0.05)',
+        'float':      '0 8px 30px rgba(15,23,42,0.08), 0 4px 12px rgba(37,99,235,0.06)',
       },
     },
   },

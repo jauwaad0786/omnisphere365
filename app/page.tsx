@@ -6,6 +6,7 @@ import FeaturesSection from '../components/sections/FeaturesSection'
 import PricingSection from '../components/sections/PricingSection'
 import TestimonialsSection from '../components/sections/TestimonialsSection'
 import CTASection from '../components/sections/CTASection'
+import TrustStrip from '../components/sections/TrustStrip'
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <PricingSection />
       <TestimonialsSection />
       <CTASection />
+      <TrustStrip />
     </>
   )
 }
