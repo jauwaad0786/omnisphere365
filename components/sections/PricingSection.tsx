@@ -19,7 +19,7 @@ export default function PricingSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section className="section-pad bg-[#0b192e] relative overflow-hidden" ref={ref} id="pricing">
+    <section className="section-pad bg-[#091526] relative overflow-hidden" ref={ref} id="pricing">
       {/* Glow */}
       <div className="glow-orb w-96 h-96 bg-cyan-600/10 -top-20 right-0" />
 
@@ -28,7 +28,7 @@ export default function PricingSection() {
           <div className="badge mb-4">
             <Sparkles size={12} className="text-cyan-300" /> Transparent Pricing
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white">
             Simple, <span className="gradient-text">Predictable Pricing</span>
           </h2>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto text-sm sm:text-base">
@@ -44,16 +44,16 @@ export default function PricingSection() {
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                   selectedTab === tab.id
                     ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
-                    : 'bg-[#0f223d] border border-cyan-500/20 text-slate-300 hover:border-cyan-500/40 hover:text-white'
+                    : 'bg-white text-slate-800 border border-slate-200 hover:border-blue-400'
                 }`}
               >
                 <span>{tab.label}</span>
                 {tab.status === 'Live' ? (
-                  <span className="text-[9px] px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/30 font-bold uppercase">
+                  <span className="text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-300 font-bold uppercase">
                     Live
                   </span>
                 ) : (
-                  <span className="text-[9px] px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 font-medium">
+                  <span className="text-[9px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 font-medium">
                     Coming Soon
                   </span>
                 )}
@@ -63,7 +63,7 @@ export default function PricingSection() {
         </div>
 
         {selectedTab === 'school-erp' ? (
-          /* Live School ERP Plans */
+          /* Live School ERP Plans (Crisp White Cards on Navy Background) */
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {plans.map((plan, i) => (
               <motion.div
@@ -71,44 +71,44 @@ export default function PricingSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 ${
+                className={`relative rounded-2xl p-7 flex flex-col justify-between transition-all duration-300 bg-white text-slate-900 border shadow-xl ${
                   plan.popular
-                    ? 'bg-[#102747] border-2 border-cyan-400 shadow-[0_0_40px_rgba(37,99,235,0.35)] scale-[1.03]'
-                    : 'glass border border-cyan-500/25 hover:border-cyan-400/50'
+                    ? 'border-2 border-blue-600 ring-4 ring-blue-500/20 shadow-2xl scale-[1.03]'
+                    : 'border-slate-200 hover:border-blue-300 hover:shadow-2xl'
                 }`}
               >
                 {plan.badge && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="badge text-[11px] bg-gradient-to-r from-blue-600 to-cyan-500 border-cyan-300 text-white px-3 py-1 shadow-lg shadow-blue-500/50">
-                      <Zap size={10} className="fill-current" /> {plan.badge}
+                    <span className="text-[11px] font-bold uppercase tracking-wider bg-blue-600 text-white px-3.5 py-1 rounded-full shadow-lg shadow-blue-500/40 flex items-center gap-1">
+                      <Zap size={11} className="fill-current" /> {plan.badge}
                     </span>
                   </div>
                 )}
 
                 <div>
-                  <h3 className="font-display font-bold text-white text-lg">{plan.name}</h3>
-                  <div className="mt-4 flex items-baseline gap-1.5 pb-5 border-b border-cyan-500/20">
-                    <span className="text-3xl sm:text-4xl font-bold font-display gradient-text">{plan.price}</span>
-                    <span className="text-slate-300 text-sm">{plan.period}</span>
+                  <h3 className="font-display font-bold text-slate-900 text-xl">{plan.name}</h3>
+                  <div className="mt-4 flex items-baseline gap-1.5 pb-5 border-b border-slate-200">
+                    <span className="text-3xl sm:text-4xl font-extrabold font-display text-slate-900">{plan.price}</span>
+                    <span className="text-slate-500 text-sm font-medium">{plan.period}</span>
                   </div>
 
                   <ul className="space-y-3 mt-5">
                     {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
-                        <Check size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                      <li key={f} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                        <Check size={16} className="text-emerald-600 shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-cyan-500/20">
+                <div className="mt-8 pt-4 border-t border-slate-200">
                   <Link
                     href="/demo"
-                    className={`text-sm font-semibold py-3 px-5 rounded-xl text-center w-full flex items-center justify-center gap-2 transition-all duration-300 ${
+                    className={`text-xs sm:text-sm font-bold py-3.5 px-5 rounded-xl text-center w-full flex items-center justify-center gap-2 transition-all duration-300 shadow-md ${
                       plan.popular
-                        ? 'btn-primary justify-center shadow-lg shadow-blue-500/40'
-                        : 'btn-secondary justify-center'
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/40'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
                     }`}
                   >
                     {plan.cta} <ArrowRight size={14} />
@@ -118,30 +118,30 @@ export default function PricingSection() {
             ))}
           </div>
         ) : (
-          /* Coming Soon / Custom Scope for other modules */
-          <div className="glass rounded-3xl p-10 sm:p-14 text-center border border-cyan-500/30 max-w-3xl mx-auto space-y-6">
-            <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center mx-auto text-cyan-300">
+          /* Coming Soon / Custom Scope in Crisp White Card */
+          <div className="rounded-3xl p-10 sm:p-14 text-center border border-slate-200 bg-white text-slate-900 max-w-3xl mx-auto space-y-6 shadow-2xl">
+            <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto text-orange-600">
               <Clock size={32} />
             </div>
             <div>
-              <div className="badge mb-2 bg-amber-500/15 border-amber-400/30 text-amber-300">
+              <div className="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full inline-block mb-3">
                 Early Access &amp; Enterprise Scoping
               </div>
-              <h3 className="font-display font-bold text-2xl sm:text-3xl text-white">
+              <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-900">
                 {PRICING_TABS.find(t => t.id === selectedTab)?.label} Standard Pricing
               </h3>
-              <p className="text-slate-300 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
                 Standard tiered plans for this module are rolling out soon. We are actively deploying customized early-access instances for institutions.
               </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-3 pt-2">
-              <Link href="/contact" className="btn-primary text-sm px-6 py-3">
+              <Link href="/contact" className="btn-primary text-xs sm:text-sm px-6 py-3">
                 Request Early Access &amp; Custom Quote <ArrowRight size={14} />
               </Link>
               <button
                 onClick={() => setSelectedTab('school-erp')}
-                className="btn-secondary text-sm px-6 py-3"
+                className="px-6 py-3 rounded-xl bg-slate-100 text-slate-800 font-semibold text-xs sm:text-sm hover:bg-slate-200 transition-colors"
               >
                 View Live School ERP Pricing
               </button>
@@ -154,16 +154,15 @@ export default function PricingSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-14 rounded-2xl border border-cyan-500/30 bg-gradient-to-r from-[#0c1a30] via-[#102444] to-[#0c1a30] p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl"
+          className="mt-14 rounded-2xl border border-slate-200 bg-white text-slate-900 p-8 sm:p-10 text-center relative overflow-hidden shadow-2xl"
         >
-          <div className="glow-orb w-64 h-64 bg-cyan-500/15 -top-20 -right-20" />
           <div className="relative z-10">
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-white">Need a Multi-Branch or Custom ERP?</h3>
-            <p className="text-slate-300 mt-2 text-sm sm:text-base max-w-xl mx-auto">
+            <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900">Need a Multi-Branch or Custom ERP?</h3>
+            <p className="text-slate-600 mt-2 text-sm sm:text-base max-w-xl mx-auto">
               Custom modules, dedicated servers, white-label branding, or on-premise cloud instances — we build exactly to your requirements.
             </p>
             <div className="mt-6 flex justify-center gap-3">
-              <Link href="/contact" className="btn-primary text-sm px-6 py-3">
+              <Link href="/contact" className="btn-primary text-xs sm:text-sm px-6 py-3">
                 Contact Enterprise Sales <ArrowRight size={14} />
               </Link>
             </div>

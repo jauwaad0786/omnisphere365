@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { SERVICES } from '../../../lib/data'
 import {
   Check, ArrowRight, Sparkles, CheckCircle, Clock, ShieldCheck,
-  Monitor, Smartphone, BarChart3, Lock, Zap, Layers
+  Monitor, Smartphone, BarChart3, Lock, Zap, Layers, Mail, Phone
 } from 'lucide-react'
 
 const SERVICE_IMAGES: Record<string, string> = {
@@ -32,7 +32,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
   return (
     <div className="pt-24 bg-[#091526] min-h-screen text-slate-200">
 
-      {/* ──── 1. EXL-STYLE HERO CASE STUDY BANNER (Matching User Screenshot 2) ──── */}
+      {/* ──── 1. EXL-STYLE HERO CASE STUDY BANNER (Crisp White on Deep Navy) ──── */}
       <section className="relative overflow-hidden bg-white text-slate-900 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
@@ -91,7 +91,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
       </section>
 
       {/* ──── 2. THREE (3) RICH PRODUCT UI SCREENS / DASHBOARD MOCKUPS ──── */}
-      <section className="py-16 bg-[#0b192e] border-b border-cyan-500/20">
+      <section className="py-16 bg-[#091526] border-b border-cyan-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">
@@ -156,29 +156,29 @@ export default function ServicePage({ params }: { params: { id: string } }) {
         </div>
       </section>
 
-      {/* ──── 3. KEY FEATURES & MODULES ──── */}
+      {/* ──── 3. KEY FEATURES & MODULES (CRISP WHITE CARDS ON NAVY BACKDROP) ──── */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 items-start">
 
-          {/* Left Column (8 Cols): Features & Modules */}
+          {/* Left Column (8 Cols): Features & Modules in Crisp White Containers */}
           <div className="lg:col-span-8 space-y-10">
 
-            {/* Features list */}
+            {/* Key Features Container (Crisp White Card) */}
             {service.features && (
-              <div className="rounded-2xl bg-[#0d203b] border border-cyan-500/25 p-7 sm:p-9 shadow-xl">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4">
+              <div className="rounded-2xl bg-white text-slate-900 border border-slate-200 p-7 sm:p-9 shadow-xl">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 mb-2 font-mono">
                   <Sparkles size={16} /> Architectural Capabilities
                 </div>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-6">
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-slate-900 mb-6">
                   Key Features of {service.title}
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-3.5">
                   {service.features.map((f) => (
                     <div
                       key={f}
-                      className="flex items-start gap-3 p-3 rounded-xl bg-[#091526] border border-cyan-500/15 text-xs sm:text-sm text-slate-200"
+                      className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 text-xs sm:text-sm text-slate-800 font-medium hover:bg-blue-50/60 hover:border-blue-200 transition-colors"
                     >
-                      <CheckCircle size={17} className="text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle size={17} className="text-emerald-600 shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -186,23 +186,28 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               </div>
             )}
 
-            {/* Modules list */}
+            {/* Included Sub-Modules (Crisp White Cards Grid) */}
             {service.modules && (
               <div>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-6">
-                  Included Sub-Modules
-                </h3>
+                <div className="mb-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">
+                    Comprehensive Suite
+                  </span>
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-white mt-1">
+                    Included Sub-Modules
+                  </h3>
+                </div>
                 <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
                   {service.modules.map((m) => (
                     <div
                       key={m.name}
-                      className="rounded-xl bg-[#0d203b] border border-cyan-500/20 p-5 hover:border-cyan-400/40 transition-all duration-300 group"
+                      className="rounded-xl bg-white text-slate-900 border border-slate-200 p-5 shadow-md hover:shadow-xl hover:border-blue-300 transition-all duration-300 group"
                     >
                       <div className="text-2xl mb-2.5">{m.icon}</div>
-                      <div className="text-white text-sm font-semibold mb-1 group-hover:text-cyan-300 transition-colors">
+                      <div className="text-slate-900 font-bold text-sm mb-1 group-hover:text-blue-700 transition-colors">
                         {m.name}
                       </div>
-                      <div className="text-slate-300 text-xs leading-relaxed">
+                      <div className="text-slate-600 text-xs leading-relaxed">
                         {m.desc}
                       </div>
                     </div>
@@ -213,35 +218,44 @@ export default function ServicePage({ params }: { params: { id: string } }) {
 
           </div>
 
-          {/* Right Column (4 Cols): Pricing or Custom Enterprise Quote */}
+          {/* Right Column (4 Cols): Deployment & Pricing in Crisp White Cards */}
           <div className="lg:col-span-4 space-y-6">
-            <h3 className="font-display font-bold text-xl text-white">Deployment &amp; Pricing</h3>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">
+                Institutional Licensing
+              </span>
+              <h3 className="font-display font-bold text-xl text-white mt-1">
+                Deployment &amp; Pricing
+              </h3>
+            </div>
 
             {service.plans && service.plans.length > 0 ? (
               service.plans.map((plan) => (
                 <div
                   key={plan.name}
-                  className={`rounded-2xl p-6 transition-all duration-300 ${
+                  className={`rounded-2xl p-6 transition-all duration-300 bg-white text-slate-900 border shadow-xl ${
                     plan.popular
-                      ? 'bg-[#102747] border-2 border-cyan-400 shadow-[0_0_30px_rgba(37,99,235,0.35)]'
-                      : 'rounded-2xl bg-[#0d203b] border border-cyan-500/25'
+                      ? 'border-2 border-blue-600 shadow-2xl relative ring-4 ring-blue-500/20'
+                      : 'border-slate-200'
                   }`}
                 >
                   {plan.badge && (
-                    <span className="badge text-[10px] mb-3 inline-flex bg-gradient-to-r from-blue-600 to-cyan-500 border-cyan-300 text-white px-2.5 py-0.5">
-                      {plan.badge}
-                    </span>
+                    <div className="mb-3">
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-0.5 rounded-full shadow-sm">
+                        {plan.badge}
+                      </span>
+                    </div>
                   )}
-                  <div className="font-display font-bold text-white text-base mb-1">{plan.name}</div>
-                  <div className="gradient-text text-2xl sm:text-3xl font-extrabold font-display mb-2">
+                  <div className="font-display font-bold text-slate-900 text-base mb-1">{plan.name}</div>
+                  <div className="text-slate-900 text-2xl sm:text-3xl font-extrabold font-display mb-2">
                     {plan.price}
-                    <span className="text-slate-300 text-xs font-normal ml-1">{plan.period}</span>
+                    <span className="text-slate-500 text-xs font-normal ml-1">{plan.period}</span>
                   </div>
 
                   <ul className="mt-4 space-y-2.5 mb-6">
                     {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-xs text-slate-200">
-                        <Check size={14} className="text-emerald-400 shrink-0 mt-0.5" />
+                      <li key={f} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                        <Check size={14} className="text-emerald-600 shrink-0 mt-0.5" />
                         {f}
                       </li>
                     ))}
@@ -249,8 +263,10 @@ export default function ServicePage({ params }: { params: { id: string } }) {
 
                   <Link
                     href="/demo"
-                    className={`block text-center text-sm font-semibold py-2.5 rounded-xl transition-all ${
-                      plan.popular ? 'btn-primary justify-center w-full' : 'btn-secondary justify-center w-full'
+                    className={`block text-center text-xs sm:text-sm font-bold py-3 rounded-xl transition-all shadow-md ${
+                      plan.popular
+                        ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-500/30'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-800'
                     }`}
                   >
                     {plan.cta}
@@ -258,15 +274,15 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                 </div>
               ))
             ) : (
-              <div className="rounded-2xl bg-[#0d203b] border border-cyan-500/25 p-6 text-center space-y-4 shadow-xl">
-                <div className="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center mx-auto text-cyan-300">
+              <div className="rounded-2xl bg-white text-slate-900 border border-slate-200 p-6 text-center space-y-4 shadow-xl">
+                <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto text-orange-600">
                   <Clock size={24} />
                 </div>
-                <div className="badge bg-amber-500/15 border-amber-400/30 text-amber-300 text-[10px]">
+                <div className="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-1 rounded-full inline-block">
                   Custom Institutional Scope
                 </div>
-                <div className="text-white font-bold text-base">Early Access &amp; Enterprise Quote</div>
-                <p className="text-slate-300 text-xs leading-relaxed">
+                <div className="text-slate-900 font-bold text-base">Early Access &amp; Enterprise Quote</div>
+                <p className="text-slate-600 text-xs leading-relaxed">
                   Every {service.shortTitle} rollout is tailored specifically for your volume, user roles, and existing database migration.
                 </p>
                 <Link href="/contact" className="btn-primary text-xs justify-center w-full py-3">
@@ -275,11 +291,11 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               </div>
             )}
 
-            {/* Direct Support Card */}
-            <div className="rounded-2xl bg-[#081220] border border-cyan-500/25 p-5 text-center">
-              <div className="text-xs text-slate-400 mb-1">Direct Enterprise Advisory</div>
-              <div className="text-white font-semibold text-sm">OnePlatform360@gmail.com</div>
-              <div className="text-cyan-300 text-xs font-medium mt-1">+91 62079 47958</div>
+            {/* Direct Support Card (Crisp White Card) */}
+            <div className="rounded-2xl bg-white text-slate-900 border border-slate-200 p-5 text-center shadow-lg">
+              <div className="text-xs text-slate-500 font-medium mb-1">Direct Enterprise Advisory</div>
+              <div className="text-slate-900 font-bold text-sm">OnePlatform360@gmail.com</div>
+              <div className="text-blue-600 text-xs font-semibold mt-1">+91 62079 47958</div>
             </div>
 
           </div>

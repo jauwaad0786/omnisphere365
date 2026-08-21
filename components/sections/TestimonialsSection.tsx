@@ -9,16 +9,16 @@ export default function TestimonialsSection() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section className="section-pad section-alt relative overflow-hidden" ref={ref}>
+    <section className="section-pad bg-[#091526] relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <div className="badge mb-4">
-            <Sparkles size={12} className="text-blue-400" /> Proven Outcomes
+            <Sparkles size={12} className="text-cyan-300" /> Proven Outcomes
           </div>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-white">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white">
             Trusted by <span className="gradient-text">500+ Institutions</span>
           </h2>
-          <p className="text-slate-400 mt-4 text-sm sm:text-base">
+          <p className="text-slate-300 mt-4 text-sm sm:text-base">
             See how schools, hospitals, and growing businesses run seamlessly on OnePlatform360.
           </p>
         </div>
@@ -30,57 +30,57 @@ export default function TestimonialsSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="testimonial-card group hover:border-blue-500/40 hover:shadow-[0_10px_40px_rgba(37,99,235,0.2)] hover:-translate-y-2 relative overflow-hidden flex flex-col justify-between"
+              className="rounded-2xl p-7 relative overflow-hidden flex flex-col justify-between bg-white text-slate-900 border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group"
             >
               {/* Decorative quote icon */}
               <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Quote size={44} className="text-blue-400" />
+                <Quote size={44} className="text-blue-600" />
               </div>
 
               <div>
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: t.rating }).map((_, idx) => (
-                    <Star key={idx} size={15} className="fill-amber-400 text-amber-400" />
+                    <Star key={idx} size={16} className="fill-amber-400 text-amber-400" />
                   ))}
                 </div>
 
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 relative">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed mb-6 relative font-medium">
                   &ldquo;{t.text}&rdquo;
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 pt-4 border-t border-blue-500/15">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-lg shadow-blue-500/30">
+              <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white text-xs font-bold shrink-0 shadow-md">
                   {t.avatar}
                 </div>
                 <div>
-                  <div className="text-white text-sm font-semibold">{t.name}</div>
-                  <div className="text-slate-400 text-xs">{t.role}, {t.org}</div>
+                  <div className="text-slate-900 text-sm font-bold">{t.name}</div>
+                  <div className="text-slate-500 text-xs font-medium">{t.role}, {t.org}</div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Logos row */}
+        {/* Client Logos Strip */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 border-t border-blue-500/15 pt-10"
+          className="mt-16 border-t border-cyan-500/20 pt-10"
         >
-          <p className="text-center text-xs text-slate-400 uppercase tracking-widest mb-6 font-medium">
-            Recognized & trusted by leaders across India
+          <p className="text-center text-xs text-slate-300 uppercase tracking-widest mb-6 font-semibold">
+            Recognized &amp; trusted by leaders across India
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {['Delhi Public Academy', 'Modern School Noida', 'Apex Hospital Group', 'TechCorp India', 'St. Xavier Global', 'EduTech Solutions'].map((org) => (
-              <div
+              <span
                 key={org}
-                className="px-5 py-2.5 rounded-xl border border-blue-500/15 text-slate-300 text-xs font-medium bg-[#0c1527] hover:border-blue-500/40 hover:text-white transition-all duration-300 cursor-pointer shadow-sm"
+                className="px-4 py-2 rounded-xl bg-white text-slate-800 text-xs font-bold border border-slate-200 shadow-sm hover:shadow-md transition-all"
               >
                 {org}
-              </div>
+              </span>
             ))}
           </div>
         </motion.div>
