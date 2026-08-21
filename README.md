@@ -146,7 +146,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Contact Details (Configured in site)
 
-- **Email**: shaikhjauwaad@gmail.com
+- **Email**: OnePlatform360@gmail.com
 - **Phone**: 6207947958
 - **Location**: Delhi, India
 - **WhatsApp**: Quick connect button on all pages

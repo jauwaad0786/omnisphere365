@@ -1,30 +1,26 @@
 'use client'
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import {
   ArrowRight, GraduationCap, Users, TrendingUp, CheckCircle,
   BarChart3, Shield, Bot, Briefcase, IndianRupee, Sparkles, Cloud,
   BookOpen, Calendar, FileText, Bell, Settings, Search, Plus, MoreHorizontal,
-  Activity, PieChart, LineChart, Lock, Layers, Play,
+  Activity, PieChart, LineChart, Lock, Layers, Play, MessageCircle,
+  Clock, Award, UserPlus, FolderOpen, Building2, BookOpenCheck, Check,
+  ChevronRight, Tv, Monitor
 } from 'lucide-react'
 
 /* ─── Top trust strip data ──────────────────────────────── */
 const TOP_STATS = [
   { icon: Cloud, label: 'Cloud Powered', sub: 'Access Anytime, Anywhere' },
-  { icon: Bot, label: 'AI Automation', sub: 'Smarter Workflows' },
-  { icon: Shield, label: 'Secure & Reliable', sub: 'Enterprise Grade' },
-  { icon: TrendingUp, label: 'Scalable', sub: 'Built for Growth' },
+  { icon: Bot, label: 'AI Automation', sub: 'Smarter Autonomous Workflows' },
+  { icon: Shield, label: 'Secure & Reliable', sub: 'Bank-Grade 256-bit Encryption' },
+  { icon: TrendingUp, label: 'Scalable', sub: 'From 50 to 50,000+ Users' },
 ]
 
-/* ─── Counter data ──────────────────────────────── */
-const COUNTERS = [
-  { end: 500, suffix: '+', label: 'Institutions' },
-  { end: 120, suffix: 'K+', label: 'Students' },
-  { end: 99, suffix: '.9%', label: 'Uptime' },
-  { end: 12, suffix: '+', label: 'Modules' },
-]
-
+/* ─── Metric Counter Hook ──────────────────────────────── */
 function useCountUp(end: number, duration = 1800) {
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLDivElement>(null)
@@ -36,8 +32,12 @@ function useCountUp(end: number, duration = 1800) {
     const step = end / (duration / 16)
     const timer = setInterval(() => {
       start += step
-      if (start >= end) { setCount(end); clearInterval(timer) }
-      else setCount(Math.floor(start))
+      if (start >= end) {
+        setCount(end)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(start))
+      }
     }, 16)
     return () => clearInterval(timer)
   }, [end, duration, inView])
@@ -45,17 +45,19 @@ function useCountUp(end: number, duration = 1800) {
   return { count, ref }
 }
 
-function Counter({ end, suffix, label }: { end: number; suffix: string; label: string }) {
+function Counter({ end, suffix, label, prefix = '' }: { end: number; suffix: string; label: string; prefix?: string }) {
   const { count, ref } = useCountUp(end)
   return (
-    <div className="text-center" ref={ref}>
-      <div className="text-2xl font-bold font-display gradient-text">{count}{suffix}</div>
-      <div className="text-xs text-slate-500 mt-0.5">{label}</div>
+    <div className="glass rounded-xl p-4 text-center border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300" ref={ref}>
+      <div className="text-2xl sm:text-3xl font-extrabold font-display gradient-text">
+        {prefix}{count}{suffix}
+      </div>
+      <div className="text-[11px] font-medium text-slate-400 mt-1">{label}</div>
     </div>
   )
 }
 
-/* ─── Dashboard Tab Data ──────────────────────────────── */
+/* ─── Dashboard Tab Types & Data ──────────────────────────────── */
 type Tab = {
   id: string
   label: string
@@ -71,95 +73,104 @@ type Tab = {
 
 const TABS: Tab[] = [
   {
-    id: 'school', label: 'School ERP', icon: GraduationCap, color: '#2563eb',
-    dashboardTitle: 'School Dashboard', url: 'app.oneplatform360.com/school',
+    id: 'school',
+    label: 'Academic ERP',
+    icon: GraduationCap,
+    color: '#38bdf8',
+    dashboardTitle: 'Academics & Operations Overview',
+    url: 'app.oneplatform360.com/education-erp',
     kpis: [
-      { label: 'Total Students', value: '2,480', change: '+12%', icon: Users, color: 'text-brand-600', bg: 'bg-brand-50' },
-      { label: 'Fee Collection', value: '₹42.8L', change: '+23%', icon: IndianRupee, color: 'text-success-600', bg: 'bg-success-50' },
-      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-accent-600', bg: 'bg-sky-50' },
+      { label: 'Total Students', value: '2,480', change: '+8.4%', icon: Users, color: 'text-sky-400', bg: 'bg-sky-500/10' },
+      { label: 'Total Employees', value: '184', change: '+4.2%', icon: Briefcase, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
+      { label: 'Fee Collection', value: '₹42.8L', change: '+12.6%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
     ],
-    chartLabel: 'Fee Collection Trend', chartData: [40, 65, 50, 80, 70, 95],
+    chartLabel: 'Fee Collection Trend',
+    chartData: [45, 68, 52, 85, 74, 98],
     activity: [
-      { text: 'Fee payment received', sub: '₹8,400 — Class X-A', time: '2 min', dot: 'bg-success-500' },
-      { text: 'Attendance marked', sub: 'Class XII-B (94%)', time: '5 min', dot: 'bg-accent-500' },
-      { text: 'New admission', sub: 'Aryan Sharma — Class VI', time: '12 min', dot: 'bg-brand-500' },
+      { text: 'Fee payment received', sub: '₹14,500 — Class X-A', time: '2 min ago', dot: 'bg-emerald-400' },
+      { text: 'Attendance marked', sub: 'Class XII-B (94.7%)', time: '5 min ago', dot: 'bg-sky-400' },
+      { text: 'Exam schedule published', sub: 'Term 2 Finals', time: '15 min ago', dot: 'bg-indigo-400' },
+      { text: 'New admission approved', sub: 'Aryan Sharma — Class VI', time: '30 min ago', dot: 'bg-blue-400' },
     ],
   },
   {
-    id: 'hrms', label: 'HRMS', icon: Briefcase, color: '#7c3aed',
-    dashboardTitle: 'HR Dashboard', url: 'app.oneplatform360.com/hrms',
+    id: 'hrms',
+    label: 'Smart HRMS',
+    icon: Briefcase,
+    color: '#a78bfa',
+    dashboardTitle: 'Human Resources & Payroll',
+    url: 'app.oneplatform360.com/smart-hrms',
     kpis: [
-      { label: 'Employees', value: '248', change: '+5', icon: Users, color: 'text-violet-600', bg: 'bg-violet-50' },
-      { label: 'Payroll Run', value: '₹18.6L', change: 'On time', icon: IndianRupee, color: 'text-success-600', bg: 'bg-success-50' },
-      { label: 'Open Roles', value: '12', change: '+3 new', icon: Briefcase, color: 'text-brand-600', bg: 'bg-brand-50' },
+      { label: 'Total Staff', value: '348', change: '+12 new', icon: Users, color: 'text-purple-400', bg: 'bg-purple-500/10' },
+      { label: 'Active Today', value: '339', change: '97.4%', icon: CheckCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+      { label: 'Payroll Processed', value: '₹34.2L', change: '100% on time', icon: IndianRupee, color: 'text-sky-400', bg: 'bg-sky-500/10' },
+      { label: 'Open Positions', value: '8', change: 'Hiring', icon: UserPlus, color: 'text-amber-400', bg: 'bg-amber-500/10' },
     ],
-    chartLabel: 'Headcount Growth', chartData: [55, 60, 68, 72, 78, 90],
+    chartLabel: 'Workforce Growth & Retention',
+    chartData: [55, 62, 70, 78, 86, 96],
     activity: [
-      { text: 'Riya Singh', sub: 'Onboarding completed', time: '8 min', dot: 'bg-violet-500' },
-      { text: 'Payroll', sub: 'October run completed', time: '1 hr', dot: 'bg-success-500' },
-      { text: 'Karan Mehta', sub: 'Leave approved', time: '3 hr', dot: 'bg-brand-500' },
+      { text: 'Pooja Verma', sub: 'Onboarding completed', time: '8 min ago', dot: 'bg-purple-400' },
+      { text: 'Payroll Run Oct', sub: 'Disbursed via Direct Bank API', time: '45 min ago', dot: 'bg-emerald-400' },
+      { text: 'Leave Request Approved', sub: 'Dr. Sameer (Medical)', time: '2 hr ago', dot: 'bg-sky-400' },
+      { text: 'Appraisal Report', sub: 'Q3 review completed', time: '4 hr ago', dot: 'bg-indigo-400' },
     ],
   },
   {
-    id: 'sales', label: 'Sales CRM', icon: TrendingUp, color: '#ea580c',
-    dashboardTitle: 'Sales Dashboard', url: 'app.oneplatform360.com/sales',
+    id: 'ai',
+    label: 'AI Automation',
+    icon: Bot,
+    color: '#34d399',
+    dashboardTitle: 'AI Workflows & Autonomous Ops',
+    url: 'app.oneplatform360.com/ai-automation',
     kpis: [
-      { label: 'Pipeline', value: '₹2.4Cr', change: '+18%', icon: TrendingUp, color: 'text-warn-600', bg: 'bg-warn-50' },
-      { label: 'Deals Won', value: '34', change: '+6', icon: CheckCircle, color: 'text-success-600', bg: 'bg-success-50' },
-      { label: 'Win Rate', value: '42%', change: '+4%', icon: BarChart3, color: 'text-brand-600', bg: 'bg-brand-50' },
+      { label: 'Workflows Active', value: '24', change: 'Active', icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+      { label: 'Executions / Mo', value: '1,284', change: '+28%', icon: Bot, color: 'text-teal-400', bg: 'bg-teal-500/10' },
+      { label: 'Success Rate', value: '97.8%', change: 'Zero fault', icon: Shield, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+      { label: 'Hours Saved', value: '356 hrs', change: 'This month', icon: Clock, color: 'text-purple-400', bg: 'bg-purple-500/10' },
     ],
-    chartLabel: 'Pipeline Value', chartData: [45, 55, 62, 70, 85, 92],
+    chartLabel: 'Autonomous Execution Volume',
+    chartData: [38, 54, 66, 78, 89, 100],
     activity: [
-      { text: 'Acme Corp', sub: 'Deal closed — ₹4.2L', time: '4 min', dot: 'bg-warn-500' },
-      { text: 'TechWave Pvt Ltd', sub: 'New lead created', time: '20 min', dot: 'bg-brand-500' },
-      { text: 'Sunrise Schools', sub: 'Quotation sent', time: '1 hr', dot: 'bg-success-500' },
+      { text: 'Auto Fee Reminder WhatsApp', sub: '342 parents notified', time: '1 min ago', dot: 'bg-emerald-400' },
+      { text: 'Automated Attendance Alert', sub: 'Sent to absent student guardians', time: '18 min ago', dot: 'bg-teal-400' },
+      { text: 'AI Anomaly Detected', sub: 'Payment discrepancy auto-reconciled', time: '52 min ago', dot: 'bg-cyan-400' },
+      { text: 'Weekly AI Summary Report', sub: 'Delivered to Management', time: '3 hr ago', dot: 'bg-purple-400' },
     ],
   },
   {
-    id: 'ai', label: 'AI Insights', icon: Bot, color: '#16a34a',
-    dashboardTitle: 'AI Insights', url: 'app.oneplatform360.com/ai',
+    id: 'whatsapp',
+    label: 'WhatsApp Bot',
+    icon: MessageCircle,
+    color: '#22c55e',
+    dashboardTitle: 'Official WhatsApp Business Cloud',
+    url: 'app.oneplatform360.com/whatsapp-hub',
     kpis: [
-      { label: 'Automations', value: '1,204', change: '+22%', icon: Sparkles, color: 'text-success-600', bg: 'bg-success-50' },
-      { label: 'Hours Saved', value: '380', change: 'this month', icon: BarChart3, color: 'text-violet-600', bg: 'bg-violet-50' },
-      { label: 'Accuracy', value: '96.4%', change: 'model avg', icon: Shield, color: 'text-brand-600', bg: 'bg-brand-50' },
+      { label: 'Messages Sent', value: '2.5M+', change: 'High Speed', icon: MessageCircle, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+      { label: 'Read Rate', value: '98.2%', change: 'Industry Top', icon: CheckCircle, color: 'text-teal-400', bg: 'bg-teal-500/10' },
+      { label: 'Instant Bot Replies', value: '18.4K', change: '< 2s latency', icon: Bot, color: 'text-sky-400', bg: 'bg-sky-500/10' },
+      { label: 'Fee Payments via WA', value: '₹18.9L', change: '+34%', icon: IndianRupee, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
     ],
-    chartLabel: 'Automated Tasks', chartData: [30, 42, 58, 66, 80, 97],
+    chartLabel: 'Daily WhatsApp Broadcast Traffic',
+    chartData: [42, 60, 58, 82, 91, 99],
     activity: [
-      { text: 'Monthly Report', sub: 'Auto-generated', time: '1 min', dot: 'bg-success-500' },
-      { text: 'Anomaly #2291', sub: 'Flagged for review', time: '34 min', dot: 'bg-warn-500' },
-      { text: 'Support Bot', sub: '86 queries resolved', time: '2 hr', dot: 'bg-brand-500' },
+      { text: 'Broadcast: Term Exams Timetable', sub: 'Delivered to 1,850 students', time: '4 min ago', dot: 'bg-emerald-400' },
+      { text: 'WhatsApp Pay Link Clicked', sub: 'Receipt auto-issued', time: '12 min ago', dot: 'bg-teal-400' },
+      { text: 'Parent Bot Inquiry', sub: 'Bus tracking link dispatched', time: '22 min ago', dot: 'bg-sky-400' },
+      { text: 'Staff Circular Sent', sub: 'Meeting notification', time: '1 hr ago', dot: 'bg-cyan-400' },
     ],
   },
-]
-
-/* ─── Sidebar nav items for dashboard mockup ──── */
-const SIDEBAR_ITEMS = [
-  { icon: BarChart3, label: 'Dashboard', active: true },
-  { icon: GraduationCap, label: 'Academics' },
-  { icon: Users, label: 'Students' },
-  { icon: Briefcase, label: 'HRMS' },
-  { icon: IndianRupee, label: 'Finance' },
-  { icon: Calendar, label: 'Timetable' },
-  { icon: Bell, label: 'Communication' },
-  { icon: FileText, label: 'Reports' },
-]
-
-/* ─── Quick actions for dashboard ──── */
-const QUICK_ACTIONS = [
-  { icon: Plus, label: 'Add Student', color: '#2563eb' },
-  { icon: CheckCircle, label: 'Mark Attendance', color: '#16a34a' },
-  { icon: FileText, label: 'Collect Fee', color: '#7c3aed' },
 ]
 
 /* ─── Mini donut chart SVG ──── */
 function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
   const total = data.reduce((a, b) => a + b, 0)
   let cumulative = 0
-  const r = 28
+  const r = 30
   const c = 2 * Math.PI * r
 
   return (
-    <svg width="80" height="80" viewBox="0 0 80 80">
+    <svg width="84" height="84" viewBox="0 0 84 84">
       {data.map((val, i) => {
         const pct = val / total
         const dasharray = `${pct * c} ${c}`
@@ -167,15 +178,21 @@ function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
         cumulative += pct
         return (
           <circle
-            key={i} cx="40" cy="40" r={r}
-            fill="none" strokeWidth="8" stroke={colors[i]}
-            strokeDasharray={dasharray} strokeDashoffset={dashoffset}
+            key={i}
+            cx="42"
+            cy="42"
+            r={r}
+            fill="none"
+            strokeWidth="9"
+            stroke={colors[i]}
+            strokeDasharray={dasharray}
+            strokeDashoffset={dashoffset}
             strokeLinecap="round"
             style={{ transform: 'rotate(-90deg)', transformOrigin: 'center', transition: 'stroke-dasharray 0.8s ease' }}
           />
         )
       })}
-      <text x="40" y="40" textAnchor="middle" dominantBaseline="central" className="fill-slate-800 font-bold text-sm" style={{ fontSize: '13px' }}>
+      <text x="42" y="42" textAnchor="middle" dominantBaseline="central" fill="#ffffff" fontWeight="bold" fontSize="11px">
         94.7%
       </text>
     </svg>
@@ -184,182 +201,240 @@ function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
 
 export default function HeroSection() {
   const [activeId, setActiveId] = useState(TABS[0].id)
+  const [viewMode, setViewMode] = useState<'dashboard' | 'boardroom'>('dashboard')
   const tab = TABS.find((t) => t.id === activeId)!
 
-  /* Auto-rotate tabs every 5s */
+  // Auto-switch tabs gently if on dashboard mode
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveId(prev => {
-        const idx = TABS.findIndex(t => t.id === prev)
+      setActiveId((prev) => {
+        const idx = TABS.findIndex((t) => t.id === prev)
         return TABS[(idx + 1) % TABS.length].id
       })
-    }, 5000)
+    }, 6000)
     return () => clearInterval(timer)
   }, [])
 
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-20 overflow-hidden hero-gradient grid-pattern">
+    <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-24 overflow-hidden hero-gradient grid-pattern">
       {/* Background glow orbs */}
-      <div className="glow-orb w-[700px] h-[700px] bg-brand-500/[0.06] -top-40 -left-48" />
-      <div className="glow-orb w-[500px] h-[500px] bg-accent-500/[0.05] top-20 -right-28" />
-      <div className="glow-orb w-[350px] h-[350px] bg-violet-500/[0.04] bottom-0 left-1/3" />
+      <div className="glow-orb w-[750px] h-[750px] bg-blue-600/[0.12] -top-48 -left-40" />
+      <div className="glow-orb w-[650px] h-[650px] bg-indigo-600/[0.10] top-40 -right-32" />
+      <div className="glow-orb w-[500px] h-[500px] bg-cyan-500/[0.08] bottom-0 left-1/3" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Top trust strip — desktop only */}
-        <div className="hidden md:flex items-center justify-end gap-6 mb-8 flex-wrap">
-          {TOP_STATS.map((s) => (
-            <div key={s.label} className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center shrink-0 group-hover:bg-brand-100 transition-all duration-300 group-hover:scale-105">
-                <s.icon size={15} className="text-brand-600" />
+        {/* Top trust strip badges */}
+        <div className="hidden md:flex items-center justify-between mb-8 pb-4 border-b border-blue-500/15">
+          <div className="flex items-center gap-2 text-xs text-blue-300 font-semibold uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Next-Generation Enterprise ERP & AI Operating System
+          </div>
+          <div className="flex items-center gap-6 flex-wrap">
+            {TOP_STATS.map((s) => (
+              <div key={s.label} className="flex items-center gap-2.5 group">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/25 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 group-hover:scale-105 transition-all duration-300">
+                  <s.icon size={14} className="text-blue-400" />
+                </div>
+                <div className="leading-tight">
+                  <div className="text-xs font-semibold text-white">{s.label}</div>
+                  <div className="text-[10px] text-slate-400">{s.sub}</div>
+                </div>
               </div>
-              <div className="leading-tight">
-                <div className="text-xs font-semibold text-slate-800">{s.label}</div>
-                <div className="text-[10px] text-slate-400">{s.sub}</div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* ──── HERO MAIN 3-COLUMN / GRID LAYOUT ──── */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
 
-          {/* ──── LEFT — Hero Text ──── */}
+          {/* ──── LEFT COLUMN: Headline & CTA (4 Cols) ──── */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="space-y-7"
+            className="lg:col-span-4 space-y-6"
           >
+            {/* Top Pill */}
             <div className="badge-glow w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
-              All-in-One Business Operating System
+              <Sparkles size={12} className="text-cyan-300" />
+              ALL-IN-ONE BUSINESS OPERATING SYSTEM
             </div>
 
-            <h1 className="font-display font-extrabold text-4xl sm:text-5xl xl:text-[3.5rem] leading-[1.1] tracking-tight text-slate-900">
-              Run Everything.{' '}
-              <br className="hidden sm:block" />
-              <span className="gradient-text-vibrant">Smarter. Faster.</span>
-              <br />
-              On <span className="gradient-text">OnePlatform360</span>
+            {/* Main Headline */}
+            <h1 className="font-display font-extrabold text-3xl sm:text-4xl xl:text-[3.2rem] leading-[1.12] tracking-tight text-white">
+              Run Everything.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">
+                Smarter. Faster.
+              </span><br />
+              On <span className="text-white">One</span><span className="gradient-text">Platform360</span>
             </h1>
 
-            <p className="text-slate-500 text-lg leading-relaxed max-w-lg">
+            {/* Description */}
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
               ERP, HRMS, AI Automation, WhatsApp Integration and many more — everything you need to run and grow your organisation from a single platform.
             </p>
 
-            {/* Feature pills row */}
-            <div className="flex flex-wrap gap-3">
+            {/* Feature Pills */}
+            <div className="grid grid-cols-2 gap-2.5 pt-1">
               {[
                 { icon: Layers, text: 'Unified Platform' },
                 { icon: Lock, text: 'Role Based Access' },
                 { icon: Bot, text: 'AI Powered' },
                 { icon: Shield, text: 'Secure & Scalable' },
               ].map((f) => (
-                <div key={f.text} className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-surface-border text-xs font-medium text-slate-600 shadow-sm hover:border-brand-200 hover:shadow-md transition-all duration-300">
-                  <f.icon size={13} className="text-brand-500" />
+                <div
+                  key={f.text}
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[#0c1527]/80 border border-blue-500/20 text-xs font-medium text-slate-200 hover:border-blue-500/40 hover:bg-blue-600/10 transition-all duration-300"
+                >
+                  <f.icon size={13} className="text-blue-400" />
                   {f.text}
                 </div>
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3 pt-1">
-              <Link href="/demo" className="btn-primary text-base px-7 py-3.5">
-                Explore Platform <ArrowRight size={16} />
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link
+                href="/demo"
+                className="btn-primary text-sm px-6 py-3.5 shadow-[0_0_25px_rgba(37,99,235,0.45)]"
+              >
+                Explore Platform <ArrowRight size={15} />
               </Link>
-              <Link href="/contact" className="btn-secondary text-base px-7 py-3.5 group">
-                <Play size={14} className="text-brand-500 group-hover:scale-110 transition-transform" />
+              <Link
+                href="/contact"
+                className="btn-secondary text-sm px-6 py-3.5 group"
+              >
+                <Play size={13} className="text-cyan-400 group-hover:scale-110 transition-transform" />
                 Watch Demo
               </Link>
             </div>
 
-            {/* Trust avatars */}
-            <div className="flex items-center gap-3 pt-2">
-              <div className="flex -space-x-2">
-                {['#3b82f6', '#8b5cf6', '#06b6d4', '#f59e0b', '#10b981'].map((c, i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white" style={{ background: c, zIndex: 5 - i }}>
-                    {['A', 'B', 'C', 'D', 'E'][i]}
+            {/* Social Trust Proof with live metrics */}
+            <div className="pt-3 border-t border-blue-500/15 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {['#3b82f6', '#8b5cf6', '#06b6d4', '#f59e0b', '#10b981'].map((c, i) => (
+                    <div
+                      key={i}
+                      className="w-7 h-7 rounded-full border-2 border-[#070c1b] flex items-center justify-center text-[9px] font-bold text-white shadow-md"
+                      style={{ background: c, zIndex: 5 - i }}
+                    >
+                      {['A', 'R', 'P', 'S', 'K'][i]}
+                    </div>
+                  ))}
+                  <div className="w-7 h-7 rounded-full border-2 border-[#070c1b] bg-blue-950 flex items-center justify-center text-[8px] font-bold text-blue-300 z-0">
+                    +500
+                  </div>
+                </div>
+                <p className="text-xs text-slate-400">
+                  Trusted by <span className="font-semibold text-white">500+ organisations</span> across India
+                </p>
+              </div>
+
+              {/* 4 Mini Stat Pills */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { value: '72%', label: 'Tasks Automated' },
+                  { value: '97.8%', label: 'Accuracy' },
+                  { value: '2.5M+', label: 'Messages Sent' },
+                  { value: '500+', label: 'Happy Clients' },
+                ].map((stat) => (
+                  <div key={stat.label} className="p-2 rounded-lg bg-[#0c1527] border border-blue-500/15 text-center">
+                    <div className="text-xs font-bold text-blue-300 font-display">{stat.value}</div>
+                    <div className="text-[9px] text-slate-400 mt-0.5">{stat.label}</div>
                   </div>
                 ))}
-                <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[9px] font-bold text-slate-500 z-0">
-                  +500
-                </div>
               </div>
-              <p className="text-xs text-slate-500">
-                Trusted by <span className="font-semibold text-slate-700">500+ organisations</span>
-              </p>
             </div>
           </motion.div>
 
-          {/* ──── RIGHT — Interactive Dashboard Preview ──── */}
+          {/* ──── CENTER COLUMN: Large Interactive TV / Boardroom Showcase (5 Cols) ──── */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="relative lg:ml-2"
+            className="lg:col-span-5 space-y-4"
           >
-            {/* Tab switcher */}
-            <div className="flex items-center gap-1.5 mb-4 flex-wrap relative z-10">
-              {TABS.map((t) => (
-                <button
-                  key={t.id}
-                  onClick={() => setActiveId(t.id)}
-                  className={`tab-pill ${activeId === t.id ? 'active' : ''}`}
-                >
-                  <t.icon size={14} />
-                  {t.label}
-                </button>
-              ))}
+            {/* View Mode & Tab Selectors */}
+            <div className="flex items-center justify-between gap-2 flex-wrap">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                {TABS.map((t) => (
+                  <button
+                    key={t.id}
+                    onClick={() => {
+                      setActiveId(t.id)
+                      setViewMode('dashboard')
+                    }}
+                    className={`tab-pill ${activeId === t.id && viewMode === 'dashboard' ? 'active' : ''}`}
+                  >
+                    <t.icon size={13} />
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Toggle Boardroom Photo / Live Mockup */}
+              <button
+                onClick={() => setViewMode(viewMode === 'dashboard' ? 'boardroom' : 'dashboard')}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-blue-500/15 border border-blue-500/30 text-blue-300 hover:bg-blue-500/25 transition-all"
+                title="Switch between Live UI & Boardroom Scene"
+              >
+                {viewMode === 'dashboard' ? <Tv size={13} /> : <Monitor size={13} />}
+                {viewMode === 'dashboard' ? 'Boardroom View' : 'Live UI View'}
+              </button>
             </div>
 
-            {/* Main dashboard card */}
-            <div className="relative">
-              <div className="dashboard-card">
-                {/* Browser chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-surface-border bg-surface-subtle">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
-                  </div>
-                  <div className="flex-1 mx-3 flex items-center gap-2">
-                    <div className="flex-1 px-3 py-1.5 rounded-lg bg-white border border-surface-border text-xs text-slate-400 font-mono truncate flex items-center gap-2">
-                      <Lock size={10} className="text-success-500 shrink-0" />
-                      {tab.url}
+            {/* Main Center Display Screen */}
+            <div className="dashboard-card relative group">
+              {viewMode === 'boardroom' ? (
+                /* Boardroom Presentation Image View */
+                <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                  <Image
+                    src="/hero-showcase.jpg"
+                    alt="OnePlatform360 Executive Boardroom Presentation"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070c1b] via-transparent to-black/40" />
+                  <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#0a1122]/90 backdrop-blur-md border border-blue-500/30 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-white flex items-center gap-1.5">
+                        <Sparkles size={12} className="text-cyan-400" /> OnePlatform360 Executive Boardroom Display
+                      </div>
+                      <div className="text-[10px] text-slate-300">Empowering institutions with real-time enterprise intelligence</div>
                     </div>
+                    <button
+                      onClick={() => setViewMode('dashboard')}
+                      className="px-3 py-1 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-colors"
+                    >
+                      Open Live UI
+                    </button>
                   </div>
                 </div>
-
-                <div className="flex">
-                  {/* Mini sidebar — hidden on small screens */}
-                  <div className="hidden md:flex flex-col w-[180px] border-r border-surface-border bg-surface-subtle p-3 gap-0.5">
-                    <div className="flex items-center gap-2 px-2 mb-3">
-                      <div className="w-6 h-6 rounded-lg bg-brand-500 flex items-center justify-center">
-                        <Sparkles size={11} className="text-white" />
-                      </div>
-                      <span className="text-xs font-bold text-slate-800">OnePlatform360</span>
+              ) : (
+                /* Interactive Live Dashboard Mockup */
+                <div>
+                  {/* Browser Bar */}
+                  <div className="flex items-center gap-2 px-4 py-2.5 border-b border-blue-500/20 bg-[#070c1b]">
+                    <div className="flex gap-1.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                     </div>
-
-                    <div className="flex items-center gap-2 px-3 py-1.5 mb-2 rounded-lg bg-white border border-surface-border">
-                      <Search size={11} className="text-slate-400" />
-                      <span className="text-[10px] text-slate-400">Search...</span>
-                    </div>
-
-                    {SIDEBAR_ITEMS.map((item) => (
-                      <div key={item.label}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-[11px] font-medium transition-all cursor-pointer
-                          ${item.active
-                            ? 'bg-brand-50 text-brand-700 border border-brand-100'
-                            : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
-                          }`}
-                      >
-                        <item.icon size={13} />
-                        {item.label}
+                    <div className="flex-1 mx-2">
+                      <div className="px-3 py-1 rounded-md bg-[#0c1527] border border-blue-500/20 text-[11px] text-slate-300 font-mono flex items-center gap-1.5 truncate">
+                        <Lock size={10} className="text-emerald-400 shrink-0" />
+                        {tab.url}
                       </div>
-                    ))}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live System
+                    </div>
                   </div>
 
-                  {/* Dashboard content */}
+                  {/* Dashboard Body */}
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={tab.id}
@@ -367,94 +442,99 @@ export default function HeroSection() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.3 }}
-                      className="flex-1 p-4 sm:p-5 space-y-4"
+                      className="p-4 sm:p-5 space-y-4 bg-[#0a1122]"
                     >
-                      {/* Header */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-[11px] text-slate-400">Dashboard Overview</div>
-                          <div className="text-slate-900 font-bold text-sm font-display">{tab.dashboardTitle}</div>
+                      {/* Top Header */}
+                      <div className="flex items-center justify-between border-b border-blue-500/15 pb-3">
+                        <div className="flex items-center gap-2.5">
+                          <div
+                            className="w-8 h-8 rounded-lg flex items-center justify-center"
+                            style={{ background: `${tab.color}15`, border: `1px solid ${tab.color}35` }}
+                          >
+                            <tab.icon size={16} style={{ color: tab.color }} />
+                          </div>
+                          <div>
+                            <div className="text-[10px] uppercase tracking-wider text-slate-400">OnePlatform360</div>
+                            <div className="text-white font-bold text-xs sm:text-sm font-display">{tab.dashboardTitle}</div>
+                          </div>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="badge text-[10px] py-0.5 px-2.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-success-500 animate-pulse" /> Live
-                          </div>
-                          <div className="w-7 h-7 rounded-lg bg-surface-subtle border border-surface-border flex items-center justify-center cursor-pointer hover:bg-surface-hover transition-colors">
-                            <Settings size={12} className="text-slate-400" />
-                          </div>
+                          <span className="text-[10px] text-slate-400 bg-[#0c1527] px-2.5 py-1 rounded-lg border border-blue-500/15">
+                            Today: Live
+                          </span>
                         </div>
                       </div>
 
-                      {/* KPI Stats Row */}
-                      <div className="grid grid-cols-3 gap-3">
-                        {tab.kpis.map((s, i) => (
-                          <motion.div
-                            key={s.label}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="rounded-xl bg-surface-subtle border border-surface-border p-3 hover:shadow-sm transition-all duration-300 cursor-pointer group"
+                      {/* KPI Cards Grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        {tab.kpis.map((kpi) => (
+                          <div
+                            key={kpi.label}
+                            className="rounded-xl bg-[#0c1527] border border-blue-500/20 p-2.5 hover:border-blue-500/40 transition-colors"
                           >
-                            <div className="flex items-center justify-between mb-2">
-                              <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${s.bg} group-hover:scale-110 transition-transform`}>
-                                <s.icon size={13} className={s.color} />
+                            <div className="flex items-center justify-between mb-1.5">
+                              <div className={`w-6 h-6 rounded-md flex items-center justify-center ${kpi.bg}`}>
+                                <kpi.icon size={12} className={kpi.color} />
                               </div>
-                              <MoreHorizontal size={12} className="text-slate-300" />
+                              <span className="text-[9px] text-emerald-400 font-semibold">{kpi.change}</span>
                             </div>
-                            <div className="text-slate-900 font-bold text-base leading-none">{s.value}</div>
-                            <div className="text-slate-400 text-[10px] mt-1">{s.label}</div>
-                            <div className="text-success-600 text-[10px] mt-1 font-semibold flex items-center gap-0.5">
-                              <TrendingUp size={9} /> {s.change}
-                            </div>
-                          </motion.div>
+                            <div className="text-white font-bold text-sm sm:text-base font-display">{kpi.value}</div>
+                            <div className="text-[9.5px] text-slate-400 mt-0.5">{kpi.label}</div>
+                          </div>
                         ))}
                       </div>
 
-                      {/* Chart + Students by Class */}
+                      {/* Charts Grid */}
                       <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                        {/* Bar chart */}
-                        <div className="sm:col-span-3 rounded-xl bg-surface-subtle border border-surface-border p-4">
-                          <div className="flex items-center justify-between mb-3">
-                            <span className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                              <BarChart3 size={12} style={{ color: tab.color }} /> {tab.chartLabel}
+                        {/* Line / Bar Chart */}
+                        <div className="sm:col-span-3 rounded-xl bg-[#0c1527] border border-blue-500/20 p-3.5">
+                          <div className="flex items-center justify-between mb-2.5">
+                            <span className="text-xs font-semibold text-white flex items-center gap-1.5">
+                              <BarChart3 size={13} style={{ color: tab.color }} /> {tab.chartLabel}
                             </span>
-                            <span className="text-[10px] text-slate-400 px-2 py-0.5 rounded bg-white border border-surface-border">This Month</span>
+                            <span className="text-[9px] text-blue-300 px-2 py-0.5 rounded bg-blue-600/20 border border-blue-500/30">
+                              Monthly
+                            </span>
                           </div>
-                          <div className="flex items-end gap-[6px] h-16">
+                          <div className="flex items-end gap-2 h-20 pt-2">
                             {tab.chartData.map((h, i) => (
                               <motion.div
                                 key={i}
                                 initial={{ scaleY: 0 }}
                                 animate={{ scaleY: 1 }}
-                                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                                style={{ height: `${h}%`, background: tab.color, opacity: 0.25 + i * 0.15, transformOrigin: 'bottom' }}
-                                className="flex-1 rounded-t-md hover:opacity-100 transition-opacity cursor-pointer"
+                                transition={{ duration: 0.5, delay: i * 0.05 }}
+                                style={{
+                                  height: `${h}%`,
+                                  background: `linear-gradient(to top, #2563eb, ${tab.color})`,
+                                  transformOrigin: 'bottom',
+                                }}
+                                className="flex-1 rounded-t-md opacity-85 hover:opacity-100 transition-opacity cursor-pointer"
                               />
                             ))}
                           </div>
-                          <div className="flex justify-between mt-2 text-[10px] text-slate-400">
+                          <div className="flex justify-between mt-2 text-[9px] text-slate-400">
                             {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'].map((m) => <span key={m}>{m}</span>)}
                           </div>
                         </div>
 
-                        {/* Donut chart */}
-                        <div className="sm:col-span-2 rounded-xl bg-surface-subtle border border-surface-border p-4">
-                          <div className="text-xs font-semibold text-slate-700 mb-2">Students by Class</div>
-                          <div className="flex items-center justify-center">
+                        {/* Donut Chart */}
+                        <div className="sm:col-span-2 rounded-xl bg-[#0c1527] border border-blue-500/20 p-3.5 flex flex-col justify-between">
+                          <div className="text-xs font-semibold text-white mb-1">Status & Distribution</div>
+                          <div className="flex items-center justify-center my-auto">
                             <DonutChart
                               data={[35, 25, 22, 18]}
-                              colors={['#2563eb', '#7c3aed', '#0ea5e9', '#10b981']}
+                              colors={['#38bdf8', '#818cf8', '#a855f7', '#34d399']}
                             />
                           </div>
-                          <div className="grid grid-cols-2 gap-1 mt-2">
+                          <div className="grid grid-cols-2 gap-1 mt-1">
                             {[
-                              { label: 'Class 10', color: '#2563eb' },
-                              { label: 'Class 11', color: '#7c3aed' },
-                              { label: 'Class 12', color: '#0ea5e9' },
-                              { label: 'Others', color: '#10b981' },
+                              { label: 'Active', color: '#38bdf8' },
+                              { label: 'Verified', color: '#818cf8' },
+                              { label: 'Pending', color: '#a855f7' },
+                              { label: 'Completed', color: '#34d399' },
                             ].map((c) => (
-                              <div key={c.label} className="flex items-center gap-1 text-[9px] text-slate-500">
-                                <div className="w-2 h-2 rounded-sm" style={{ background: c.color }} />
+                              <div key={c.label} className="flex items-center gap-1 text-[8.5px] text-slate-400">
+                                <div className="w-1.5 h-1.5 rounded-full" style={{ background: c.color }} />
                                 {c.label}
                               </div>
                             ))}
@@ -462,96 +542,148 @@ export default function HeroSection() {
                         </div>
                       </div>
 
-                      {/* Activity + Quick Actions */}
-                      <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                        {/* Recent Activity */}
-                        <div className="sm:col-span-3 space-y-2">
-                          <div className="text-xs font-semibold text-slate-700 mb-1">Recent Activity</div>
-                          {tab.activity.map((a, i) => (
-                            <motion.div
-                              key={a.text + a.sub}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.3 + i * 0.1 }}
-                              className="flex items-center gap-3 text-xs p-2 rounded-lg hover:bg-surface-subtle transition-colors cursor-pointer"
-                            >
-                              <div className={`w-2 h-2 rounded-full shrink-0 ${a.dot}`} />
-                              <span className="text-slate-700 font-medium">{a.text}</span>
-                              <span className="text-slate-400 hidden sm:inline">{a.sub}</span>
-                              <span className="ml-auto text-slate-400 shrink-0">{a.time}</span>
-                            </motion.div>
-                          ))}
+                      {/* Recent Real-time Activities */}
+                      <div className="rounded-xl bg-[#0c1527] border border-blue-500/20 p-3 space-y-1.5">
+                        <div className="text-xs font-semibold text-white mb-1 flex items-center justify-between">
+                          <span>Live System Stream</span>
+                          <span className="text-[9px] text-blue-400">Auto Refresh</span>
                         </div>
-
-                        {/* Quick Actions */}
-                        <div className="sm:col-span-2">
-                          <div className="text-xs font-semibold text-slate-700 mb-2">Quick Actions</div>
-                          <div className="space-y-1.5">
-                            {QUICK_ACTIONS.map((action) => (
-                              <div key={action.label} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-surface-border bg-white text-xs font-medium text-slate-600 cursor-pointer hover:border-brand-200 hover:shadow-sm transition-all">
-                                <div className="w-6 h-6 rounded-md flex items-center justify-center" style={{ background: `${action.color}10` }}>
-                                  <action.icon size={12} style={{ color: action.color }} />
-                                </div>
-                                {action.label}
-                              </div>
-                            ))}
+                        {tab.activity.slice(0, 3).map((a, i) => (
+                          <div key={i} className="flex items-center gap-2.5 text-xs p-1.5 rounded-lg hover:bg-blue-600/10 transition-colors">
+                            <div className={`w-2 h-2 rounded-full shrink-0 ${a.dot}`} />
+                            <span className="text-slate-200 font-medium text-[11px]">{a.text}</span>
+                            <span className="text-slate-400 text-[10px] hidden sm:inline">{a.sub}</span>
+                            <span className="ml-auto text-slate-500 text-[9px] shrink-0">{a.time}</span>
                           </div>
-                        </div>
+                        ))}
                       </div>
                     </motion.div>
                   </AnimatePresence>
                 </div>
-              </div>
-
-              {/* Floating notification cards */}
-              <div className="absolute top-16 -right-4 glass rounded-xl px-4 py-3 shadow-float notif-float hidden xl:block z-20">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-success-50 flex items-center justify-center">
-                    <CheckCircle size={14} className="text-success-600" />
-                  </div>
-                  <div>
-                    <div className="text-slate-900 text-xs font-semibold">New Admission</div>
-                    <div className="text-success-600 text-[10px] font-medium">Just now</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-4 -left-4 glass rounded-xl px-4 py-3 shadow-float notif-float-delay hidden xl:block z-20">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center">
-                    <Sparkles size={14} className="text-brand-600" />
-                  </div>
-                  <div>
-                    <div className="text-slate-900 text-xs font-semibold">AI Report Ready</div>
-                    <div className="text-brand-600 text-[10px] font-medium">Click to view →</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute top-1/2 -right-6 glass rounded-xl px-3.5 py-2.5 shadow-float hidden xl:block z-20" style={{ animation: 'notifFloat 7s ease-in-out 2s infinite' }}>
-                <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full bg-violet-50 flex items-center justify-center">
-                    <Activity size={12} className="text-violet-600" />
-                  </div>
-                  <div>
-                    <div className="text-slate-900 text-[11px] font-semibold">₹42.8L</div>
-                    <div className="text-violet-600 text-[9px] font-medium">Fee Collected</div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </motion.div>
+
+          {/* ──── RIGHT COLUMN: Service & Module Cards Showcase (3 Cols) ──── */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-3 space-y-4"
+          >
+            {/* Card 1: Powerful ERP */}
+            <div className="glass rounded-2xl p-5 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 group">
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="w-8 h-8 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                  <GraduationCap size={16} />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-white text-sm">Powerful ERP</h3>
+                  <div className="text-[10px] text-blue-300">Complete Institutional Control</div>
+                </div>
+              </div>
+              <p className="text-slate-400 text-xs leading-relaxed mb-3">
+                Manage academics, students, finance, exams, attendance and more — all in one place.
+              </p>
+
+              {/* Module Icons 4x2 Grid */}
+              <div className="grid grid-cols-4 gap-1.5 mb-3">
+                {[
+                  { label: 'Students', icon: Users, color: '#38bdf8' },
+                  { label: 'Academics', icon: BookOpen, color: '#818cf8' },
+                  { label: 'Exams', icon: FileText, color: '#0ea5e9' },
+                  { label: 'Attendance', icon: CheckCircle, color: '#34d399' },
+                  { label: 'Fees', icon: IndianRupee, color: '#fbbf24' },
+                  { label: 'Timetable', icon: Calendar, color: '#f472b6' },
+                  { label: 'Library', icon: BookOpenCheck, color: '#a78bfa' },
+                  { label: 'Reports', icon: BarChart3, color: '#2dd4bf' },
+                ].map((m) => (
+                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0c1527] border border-blue-500/10 flex flex-col items-center gap-0.5 text-center group-hover:border-blue-500/25">
+                    <m.icon size={12} style={{ color: m.color }} />
+                    <span className="text-[8px] text-slate-300 truncate w-full">{m.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/services/school-erp"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 group-hover:gap-2 transition-all"
+              >
+                Explore ERP <ChevronRight size={13} />
+              </Link>
+            </div>
+
+            {/* Card 2: Smart HRMS */}
+            <div className="glass rounded-2xl p-5 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 group">
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="w-8 h-8 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                  <Users size={16} />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-white text-sm">Smart HRMS</h3>
+                  <div className="text-[10px] text-purple-300">Staff & Payroll Engine</div>
+                </div>
+              </div>
+              <p className="text-slate-400 text-xs leading-relaxed mb-3">
+                Complete employee management from onboarding to payroll and performance.
+              </p>
+
+              {/* HRMS Icons 4x2 Grid */}
+              <div className="grid grid-cols-4 gap-1.5 mb-3">
+                {[
+                  { label: 'Employees', icon: Users, color: '#a78bfa' },
+                  { label: 'Attendance', icon: CheckCircle, color: '#34d399' },
+                  { label: 'Leave', icon: Clock, color: '#fb923c' },
+                  { label: 'Payroll', icon: IndianRupee, color: '#38bdf8' },
+                  { label: 'Appraisal', icon: Award, color: '#f472b6' },
+                  { label: 'Recruit', icon: UserPlus, color: '#818cf8' },
+                  { label: 'Docs', icon: FolderOpen, color: '#2dd4bf' },
+                  { label: 'Org Chart', icon: Building2, color: '#fbbf24' },
+                ].map((m) => (
+                  <div key={m.label} className="p-1.5 rounded-lg bg-[#0c1527] border border-purple-500/10 flex flex-col items-center gap-0.5 text-center group-hover:border-purple-500/25">
+                    <m.icon size={12} style={{ color: m.color }} />
+                    <span className="text-[8px] text-slate-300 truncate w-full">{m.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/services/hrms"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-purple-400 hover:text-purple-300 group-hover:gap-2 transition-all"
+              >
+                Explore HRMS <ChevronRight size={13} />
+              </Link>
+            </div>
+
+            {/* Card 3: AI & WhatsApp Mini Feature Banners */}
+            <div className="grid grid-cols-2 gap-2.5">
+              <Link href="/services/ai-automation" className="glass rounded-xl p-3 border border-emerald-500/20 hover:border-emerald-500/40 transition-all group block">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/15 flex items-center justify-center text-emerald-400 mb-1.5">
+                  <Bot size={14} />
+                </div>
+                <div className="text-xs font-bold text-white group-hover:text-emerald-300">AI Automation</div>
+                <div className="text-[9.5px] text-slate-400 mt-0.5">Autonomous tasks</div>
+              </Link>
+              <Link href="/services/whatsapp-automation" className="glass rounded-xl p-3 border border-green-500/20 hover:border-green-500/40 transition-all group block">
+                <div className="w-7 h-7 rounded-lg bg-green-500/15 flex items-center justify-center text-green-400 mb-1.5">
+                  <MessageCircle size={14} />
+                </div>
+                <div className="text-xs font-bold text-white group-hover:text-green-300">WhatsApp Hub</div>
+                <div className="text-[9.5px] text-slate-400 mt-0.5">Instant alerts & bot</div>
+              </Link>
+            </div>
+          </motion.div>
+
         </div>
 
-        {/* Counter strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto"
-        >
-          {COUNTERS.map((c) => <Counter key={c.label} {...c} />)}
-        </motion.div>
+        {/* ──── Bottom Counters Strip ──── */}
+        <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <Counter end={500} suffix="+" label="Institutions Across India" />
+          <Counter end={120} suffix="K+" label="Students & Staff Managed" />
+          <Counter end={99} suffix=".9%" label="Uptime SLA Guaranteed" />
+          <Counter end={12} suffix="+" label="Unified Enterprise Modules" />
+        </div>
+
       </div>
     </section>
   )
