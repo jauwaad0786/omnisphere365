@@ -24,7 +24,7 @@ const FOOTER_COMPANY = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050813] text-slate-300 border-t border-blue-500/15 relative overflow-hidden">
+    <footer className="bg-[#091526] text-slate-300 border-t border-cyan-500/20 relative overflow-hidden">
       {/* Background glow */}
       <div className="glow-orb w-96 h-96 bg-blue-600/10 -top-20 left-1/4" />
 
