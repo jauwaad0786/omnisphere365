@@ -9,7 +9,7 @@ import {
   BookOpen, Calendar, FileText, Bell, Settings, Search, Plus, MoreHorizontal,
   Activity, PieChart, LineChart, Lock, Layers, Play, MessageCircle,
   Clock, Award, UserPlus, FolderOpen, Building2, BookOpenCheck, Check,
-  ChevronRight, Tv, Monitor
+  ChevronRight, Tv, Monitor, Zap
 } from 'lucide-react'
 
 /* ─── Top trust strip data ──────────────────────────────── */

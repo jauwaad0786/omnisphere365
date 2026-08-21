@@ -2,7 +2,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { SERVICES } from '../../../lib/data'
-import { Check, ArrowRight, Target, Sparkles, CheckCircle2 } from 'lucide-react'
+import { Check, ArrowRight, Target, Sparkles, CheckCircle } from 'lucide-react'
 
 export default function ServicePage({ params }: { params: { id: string } }) {
   const service = SERVICES.find(s => s.id === params.id)
@@ -64,7 +64,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                 <div className="grid sm:grid-cols-2 gap-3.5">
                   {service.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 p-2 rounded-lg bg-[#0c1527] border border-blue-500/10">
-                      <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
+                      <CheckCircle size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </div>
                   ))}
