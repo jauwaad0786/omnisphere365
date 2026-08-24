@@ -8,10 +8,11 @@ const SERVICE_IMAGES: Record<string, string> = {
   'school-erp': '/school-erp-showcase.jpg',
   'college-erp': '/school-erp-showcase.jpg',
   'hrms': '/hrms-showcase.jpg',
+  'hospital-opd': '/hero-presentation.jpg',
+  'gym-management': '/hero-presentation.jpg',
   'inventory': '/hero-showcase.jpg',
   'sales-erp': '/hero-presentation.jpg',
   'whatsapp-automation': '/whatsapp-showcase.jpg',
-  'hospital-opd': '/hero-presentation.jpg',
   'website-development': '/ai-automation-showcase.jpg',
   'digital-transformation': '/hero-showcase.jpg',
   'custom-cloud-erp': '/hero-presentation.jpg',
@@ -29,14 +30,14 @@ export default function ServicesPage() {
           <div className="flex items-center gap-3 mb-3">
             <div className="w-10 h-1 bg-gradient-to-r from-amber-500 to-cyan-400 rounded-full" />
             <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">
-              Complete Enterprise Portfolio
+              Multi-Tenant Enterprise Portfolio
             </span>
           </div>
           <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
             Our <span className="gradient-text">Solutions &amp; Capabilities</span>
           </h1>
           <p className="text-slate-300 mt-4 text-sm sm:text-base leading-relaxed">
-            Data, cloud, and artificial intelligence architectures purpose-built to streamline institutional operations, optimize workforce productivity, and accelerate growth.
+            Data, cloud, and artificial intelligence architectures purpose-built to streamline enterprise, educational, healthcare, gym and supply chain operations, optimize workforce productivity, and accelerate growth.
           </p>
         </div>
 

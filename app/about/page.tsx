@@ -20,10 +20,10 @@ export default function AboutPage() {
             <Sparkles size={12} className="text-cyan-300" /> About OnePlatform360
           </div>
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mb-5 leading-tight">
-            We Build the <span className="gradient-text">Digital Future</span><br />for India&apos;s Institutions
+            We Build the <span className="gradient-text">Digital Future</span><br />for India&apos;s Enterprises &amp; Institutions
           </h1>
           <p className="text-slate-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
-            OnePlatform360 was built with a single mission — make enterprise-grade ERP, HRMS, and AI automation affordable, modern, and accessible for every school, hospital, and growing enterprise.
+            OnePlatform360 was built with a single mission — make enterprise-grade Multi-Tenant ERP, HRMS, and AI automation affordable, modern, and accessible for schools, universities, hospitals, gyms, retail supply chains, and growing enterprises.
           </p>
         </motion.div>
 
@@ -35,10 +35,10 @@ export default function AboutPage() {
           className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16"
         >
           {[
-            { value: '500+', label: 'Institutions', sub: 'across India' },
-            { value: '1.2L+', label: 'Students & Staff', sub: 'managed daily' },
+            { value: '500+', label: 'Enterprises & Institutions', sub: 'across India' },
+            { value: '2.5M+', label: 'Active Users & Members', sub: 'managed daily' },
             { value: '99.9%', label: 'Uptime SLA', sub: 'enterprise guaranteed' },
-            { value: '12+', label: 'ERP Modules', sub: 'one unified platform' },
+            { value: '15+', label: 'Multi-Tenant Modules', sub: 'one unified platform' },
           ].map((s) => (
             <div key={s.label} className="rounded-2xl p-6 text-center bg-white text-slate-900 border border-slate-200 shadow-xl">
               <div className="text-3xl font-extrabold font-display text-slate-900">{s.value}</div>
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </div>
             <h2 className="font-display font-bold text-2xl text-slate-900 mb-3">Our Mission</h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              To eliminate paper bureaucracy and fragmented software in Indian educational and healthcare organizations by delivering a cohesive, cloud-first, AI-driven operating system that works seamlessly out of the box.
+              To eliminate paper bureaucracy and fragmented software across Indian businesses, educational campuses, hospitals, gym chains, and retail supply networks by delivering a cohesive, cloud-first, multi-tenant operating system that works seamlessly out of the box.
             </p>
           </motion.div>
 
@@ -78,7 +78,7 @@ export default function AboutPage() {
             </div>
             <h2 className="font-display font-bold text-2xl text-slate-900 mb-3">Our Vision</h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              To be the most trusted institutional software platform in South Asia, empowering 10,000+ organizations with predictive intelligence, automated workflows, and world-class digital experiences for parents, students, and employees.
+              To be the most versatile and trusted multi-tenant software platform in South Asia, empowering 10,000+ organizations with predictive intelligence, automated workflows, and world-class digital experiences for clients, patients, students, and employees.
             </p>
           </motion.div>
         </div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-cyan-300">
               Core Principles
             </span>
-            <h2 className="font-display font-bold text-3xl text-white mt-1">Why Institutions Partner With Us</h2>
+            <h2 className="font-display font-bold text-3xl text-white mt-1">Why Enterprises &amp; Institutions Partner With Us</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {WHY_US.map((item) => (
@@ -106,7 +106,7 @@ export default function AboutPage() {
         <div className="rounded-3xl p-8 sm:p-12 text-center bg-white text-slate-900 border border-slate-200 shadow-2xl">
           <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-3">Ready to Modernize Your Organisation?</h2>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-6">
-            Join 500+ institutions running on OnePlatform360. Talk to our solution specialists today.
+            Join 500+ enterprises and institutions running on OnePlatform360. Talk to our solution specialists today.
           </p>
           <div className="flex justify-center gap-3">
             <Link href="/demo" className="btn-primary text-xs sm:text-sm px-6 py-3">

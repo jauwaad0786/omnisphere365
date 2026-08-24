@@ -32,37 +32,37 @@ type WhatWeDoItem = {
 const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
   {
     id: 'erp',
-    title: 'Data & Enterprise ERP',
-    subtitle: 'Core Academic & Business Foundation',
-    desc: 'Build the trusted, scalable, and AI-ready data foundation your school, college, or enterprise needs to operate at peak efficiency.',
-    image: '/school-erp-showcase.jpg',
-    badge: 'Education & Enterprise',
+    title: 'Multi-Tenant Enterprise ERP',
+    subtitle: 'Unified Multi-Industry Operating System',
+    desc: 'One scalable cloud architecture engineered for Schools, Colleges & Universities, Hospitals & OPDs, Gyms, Warehouses, and modern multi-branch Enterprises.',
+    image: '/hero-showcase.jpg',
+    badge: 'Multi-Tenant Architecture',
     color: '#0284c7',
-    icon: GraduationCap,
-    href: '/services/school-erp',
+    icon: Layers,
+    href: '/services',
     impactMetrics: [
-      { value: '50K+', label: 'Students Managed' },
+      { value: '500+', label: 'Active Tenants' },
       { value: '99.9%', label: 'Uptime SLA' },
-      { value: '12+', label: 'Integrated Modules' },
+      { value: '15+', label: 'Vertical Modules' },
     ],
     capabilities: [
-      'Automated student admission to alumni lifecycle',
-      'Real-time biometric attendance & parent sync',
-      'Fee collection engine with online UPI reconciliation',
-      'Continuous gradebook & CBSE/ICSE exam generator',
+      'Multi-tenant data isolation, custom domains & role security',
+      'Vertical suites: School/College, Hospital OPD, Gyms & Retail POS',
+      'Automated billing, fee collection & online UPI reconciliation',
+      'Centralized multi-branch BI dashboards & live telemetry',
     ],
     liveDemo: {
-      title: 'Fee Receipt & Admission Simulator',
-      actionPrompt: 'Simulate Automated Fee Collection for Class X-A',
-      resultLabel: 'Instant Verification Result',
-      resultData: 'Receipt #OP360-8429 generated for ₹14,500. WhatsApp confirmation dispatched to parent in 1.2s.',
+      title: 'Multi-Tenant Provisioning & Billing Simulator',
+      actionPrompt: 'Simulate Multi-Tenant Provisioning for Healthcare & Gym Group',
+      resultLabel: 'Multi-Tenant Engine Status',
+      resultData: 'Tenant "Apex Group" provisioned with Hospital OPD + Gym Modules in 1.4s. Master invoice #OP360-9182 reconciled with 100% tenant data isolation.',
     },
   },
   {
     id: 'hrms',
-    title: 'Smart HRMS & Payroll',
-    subtitle: 'Workforce Intelligence & Automation',
-    desc: 'Automate biometric attendance, leave policies, automated salary slips, and staff performance from one central command center.',
+    title: 'Smart HRMS & Global Payroll',
+    subtitle: 'Workforce Intelligence & Tax Compliance',
+    desc: 'Automate biometric attendance across shifts, leave policies, automated salary slips, TDS/PF/ESI statutory deductions, and appraisals for any corporate or institutional team.',
     image: '/hrms-showcase.jpg',
     badge: 'HR & Payroll',
     color: '#7c3aed',
@@ -89,8 +89,8 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
   {
     id: 'ai',
     title: 'Agentic AI-Led Operations',
-    subtitle: 'Autonomous Workflow Engine',
-    desc: 'Embed real-time artificial intelligence into your routines — from automated fee recovery reminders to instant gradebook generation.',
+    subtitle: 'Autonomous Workflow & Decision Engine',
+    desc: 'Embed real-time artificial intelligence into your business routines — from autonomous payment & fee recovery reminders to predictive demand and intelligent OCR reporting.',
     image: '/ai-automation-showcase.jpg',
     badge: 'AI & Automation',
     color: '#059669',
@@ -102,23 +102,23 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
       { value: '356 Hrs', label: 'Monthly Hours Saved' },
     ],
     capabilities: [
-      'Autonomous fee reminder & intelligent follow-up scheduling',
-      'Automated attendance anomaly detection for absent staff/students',
-      'Predictive student performance analytics & early intervention',
-      'Natural language queries for institutional data reports',
+      'Autonomous dues recovery & intelligent follow-up scheduling',
+      'Automated biometric anomaly detection for absent staff/members',
+      'Predictive revenue forecasting & operational early intervention',
+      'Natural language queries for enterprise data reports',
     ],
     liveDemo: {
-      title: 'Autonomous Fee Recovery Bot Simulator',
-      actionPrompt: 'Trigger Smart AI Reminder for Overdue Fees',
+      title: 'Autonomous Dues Recovery Bot Simulator',
+      actionPrompt: 'Trigger Smart AI Reminder for Overdue Dues & Invoices',
       resultLabel: 'AI Execution Status',
-      resultData: 'AI analyzed 48 pending dues, scheduled personalized WhatsApp reminders at parent-preferred hours, recovered 84% within 48h.',
+      resultData: 'AI analyzed 48 pending dues, scheduled personalized WhatsApp reminders at customer-preferred hours, recovered 84% within 48h.',
     },
   },
   {
     id: 'whatsapp',
     title: 'Integrated WhatsApp Ecosystem',
     subtitle: 'Omnichannel Engagement & Instant Support',
-    desc: 'Leverage official Meta-verified WhatsApp Cloud APIs for instant parent alerts, fee payment confirmations, and 24/7 student support bots.',
+    desc: 'Leverage official Meta-verified WhatsApp Cloud APIs for instant customer, parent, patient & member alerts, payment links, and 24/7 AI support bots.',
     image: '/whatsapp-showcase.jpg',
     badge: 'WhatsApp Cloud API',
     color: '#16a34a',
@@ -131,13 +131,13 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
     ],
     capabilities: [
       'Official Meta Verified Green Badge Business Cloud API',
-      'Automated circulars, exam timetables & homework distribution',
-      'Direct in-chat fee payment links with instant PDF receipts',
-      'Interactive AI chatbot answering admission & bus route FAQs',
+      'Automated appointment, renewal, circular & timetable alerts',
+      'Direct in-chat payment links with instant PDF receipts',
+      'Interactive AI chatbot answering FAQs & routing support tickets',
     ],
     liveDemo: {
       title: 'Verified WhatsApp Broadcast Simulator',
-      actionPrompt: 'Dispatch Exam Date Sheet to 1,850 Parents',
+      actionPrompt: 'Dispatch Omnichannel Broadcast to 1,850 Users',
       resultLabel: 'Broadcast Metrics',
       resultData: 'Dispatched 1,850 personalized messages in 12 seconds. 94% read within 15 minutes. 0 bounce rate.',
     },
@@ -182,10 +182,10 @@ export default function WhatWeDoSection() {
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] text-white leading-tight">
             Data, AI, and cloud expertise coupled with trusted execution to{' '}
-            <span className="gradient-text">drive institutional outcomes</span>
+            <span className="gradient-text">drive enterprise &amp; institutional outcomes</span>
           </h2>
           <p className="text-slate-300 text-xs sm:text-sm mt-3">
-            Click &quot;Learn more&quot; to view detailed case studies, or &quot;Inspect Sandbox&quot; to test real-time simulations.
+            Click &quot;Learn more&quot; to view detailed case studies, or &quot;Inspect Sandbox&quot; to test real-time multi-tenant simulations.
           </p>
         </div>
 

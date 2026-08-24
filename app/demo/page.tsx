@@ -78,7 +78,7 @@ export default function DemoPage() {
             Schedule a <span className="gradient-text">Personalized Demo</span>
           </h1>
           <p className="text-slate-300 mt-4 max-w-xl mx-auto text-sm sm:text-base">
-            See how OnePlatform360 simplifies admissions, fees, payroll, and parent communication in real-time.
+            See how OnePlatform360 simplifies multi-tenant operations, biometrics, OPD queues, gym memberships, payroll, and WhatsApp automation in real-time.
           </p>
         </div>
 
@@ -90,8 +90,8 @@ export default function DemoPage() {
               <h2 className="font-display font-bold text-2xl text-slate-900">What to Expect</h2>
               <div className="space-y-4">
                 {[
-                  { title: 'Interactive Live Walkthrough', desc: 'Real-time test run of student masters, fee reconciliation, and HRMS.' },
-                  { title: 'Tailored to Your Workflow', desc: 'Demonstration customized to your institution scale and specific departments.' },
+                  { title: 'Interactive Live Walkthrough', desc: 'Real-time test run of multi-tenant dashboards, attendance hardware, and billing.' },
+                  { title: 'Tailored to Your Industry', desc: 'Demonstration customized to your organization type (School, University, Hospital OPD, Gym, Warehouse, or HRMS).' },
                   { title: 'Full ROI & Cost Assessment', desc: 'Transparent pricing breakdown with migration guidance from legacy tools.' },
                   { title: 'Q&A with Solution Architects', desc: 'Get technical and architectural questions answered by expert engineers.' },
                 ].map((item) => (
@@ -122,24 +122,24 @@ export default function DemoPage() {
           {/* Right Form in Crisp White Container */}
           <div className="lg:col-span-7">
             <div className="rounded-3xl p-7 sm:p-9 bg-white text-slate-900 border border-slate-200 shadow-2xl space-y-4">
-              <h2 className="font-display font-bold text-2xl text-slate-900">Request Institutional Access</h2>
-              <p className="text-slate-500 text-xs">Fill out the details below to book your slot.</p>
+              <h2 className="font-display font-bold text-2xl text-slate-900">Request Enterprise Access</h2>
+              <p className="text-slate-500 text-xs">Fill out the details below to book your personalized live walkthrough.</p>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5">Full Name *</label>
-                  <input name="name" value={form.name} onChange={handleChange} placeholder="Dr. Sameer Khan" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
+                  <input name="name" value={form.name} onChange={handleChange} placeholder="Dr. Sameer Khan / Rahul Verma" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">Institution / Company *</label>
-                  <input name="company" value={form.company} onChange={handleChange} placeholder="Delhi Public Academy" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">Organization / Enterprise *</label>
+                  <input name="company" value={form.company} onChange={handleChange} placeholder="Apex Health / FitPulse / St. Xavier / Nexus" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
                 </div>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5">Work Email *</label>
-                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="principal@dpa.edu.in" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
+                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="admin@yourcompany.com" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5">Phone Number *</label>
@@ -158,12 +158,12 @@ export default function DemoPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">User / Student Scale</label>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">User / Member / Student Scale</label>
                   <select name="size" value={form.size} onChange={handleChange} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 outline-none focus:border-blue-500 focus:bg-white transition-all">
                     <option value="">Select scale...</option>
-                    <option>&lt; 200 Users</option>
-                    <option>200 – 500 Users</option>
-                    <option>500 – 2,000 Users</option>
+                    <option>&lt; 200 Users / Members</option>
+                    <option>200 – 500 Users / Members</option>
+                    <option>500 – 2,000 Users / Members</option>
                     <option>2,000+ Enterprise Scale</option>
                   </select>
                 </div>
@@ -171,7 +171,7 @@ export default function DemoPage() {
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">City / Location</label>
-                <input name="city" value={form.city} onChange={handleChange} placeholder="Delhi NCR" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
+                <input name="city" value={form.city} onChange={handleChange} placeholder="Delhi NCR / Mumbai / Bangalore" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:bg-white transition-all" />
               </div>
 
               <div>

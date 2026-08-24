@@ -1,34 +1,33 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { Check, X, Zap, Sparkles, ArrowRight, Clock } from 'lucide-react'
+import { Check, X, Zap, Sparkles, ArrowRight, Clock, Layers, Building2 } from 'lucide-react'
 import { SERVICES } from '../../lib/data'
 
 const COMPARISON = [
-  { feature: 'Students / Users Limit', basic: 'Up to 200', pro: 'Up to 500', enterprise: 'Unlimited Scale' },
-  { feature: 'Admin & Staff Accounts', basic: '1 Admin', pro: '3 Admins', enterprise: 'Unlimited Roles' },
-  { feature: 'Support SLA', basic: 'Email (48h)', pro: '24/7 Priority', enterprise: 'Dedicated Manager' },
-  { feature: 'Student & Profile Master', basic: true, pro: true, enterprise: true },
-  { feature: 'Attendance & Biometrics', basic: true, pro: true, enterprise: true },
-  { feature: 'Online & Offline Fees', basic: true, pro: true, enterprise: true },
-  { feature: 'Exams & Gradebook', basic: true, pro: true, enterprise: true },
-  { feature: 'Standard Reports', basic: true, pro: true, enterprise: true },
-  { feature: 'Smart HRMS & Payroll', basic: false, pro: true, enterprise: true },
-  { feature: 'Teacher & Staff Portal', basic: false, pro: true, enterprise: true },
+  { feature: 'Users / Members / Students Scale', basic: 'Up to 200', pro: 'Up to 500', enterprise: 'Unlimited Scale' },
+  { feature: 'Admin & Staff Role Accounts', basic: '1 Admin', pro: '3 Admins', enterprise: 'Unlimited Custom Roles' },
+  { feature: 'Support SLA & Onboarding', basic: 'Standard Support', pro: '24/7 Priority Support', enterprise: 'Dedicated Solution Manager' },
+  { feature: 'Multi-Tenant Branch Isolation', basic: 'Single Branch', pro: 'Up to 3 Branches', enterprise: 'Unlimited Multi-Tenant Branches' },
+  { feature: 'Biometric & Attendance Hardware Sync', basic: true, pro: true, enterprise: true },
+  { feature: 'Online Invoicing, Fees & UPI QR', basic: true, pro: true, enterprise: true },
+  { feature: 'Standard Reports & Data Export', basic: true, pro: true, enterprise: true },
+  { feature: 'Smart HRMS & Global Payroll', basic: false, pro: true, enterprise: true },
   { feature: 'Direct Bank Settlement API', basic: false, pro: true, enterprise: true },
-  { feature: 'Predictive AI Analytics', basic: false, pro: true, enterprise: true },
-  { feature: 'Official WhatsApp Automation', basic: false, pro: false, enterprise: true },
-  { feature: 'AI Auto-Generated Reports', basic: false, pro: false, enterprise: true },
-  { feature: 'White-label Custom Domain', basic: false, pro: false, enterprise: true },
-  { feature: 'Custom Module Development', basic: false, pro: false, enterprise: true },
+  { feature: 'AI Predictive Operations & Forecasts', basic: false, pro: true, enterprise: true },
+  { feature: 'Official Meta WhatsApp Business API', basic: false, false: false, enterprise: true },
+  { feature: 'Hospital OPD / Gym Turnstile Addons', basic: false, pro: false, enterprise: true },
+  { feature: 'White-Label Branding & Custom Domain', basic: false, pro: false, enterprise: true },
+  { feature: 'Dedicated Cloud Database Instance', basic: false, pro: false, enterprise: true },
 ]
 
 const PRICING_TABS = [
-  { id: 'school-erp', label: 'School ERP', status: 'Live' },
-  { id: 'hrms', label: 'Smart HRMS', status: 'Coming Soon' },
-  { id: 'ai-automation', label: 'AI Automation', status: 'Coming Soon' },
-  { id: 'hospital-opd', label: 'Hospital OPD', status: 'Coming Soon' },
-  { id: 'whatsapp-automation', label: 'WhatsApp Hub', status: 'Coming Soon' },
+  { id: 'multi-tenant', label: 'Multi-Tenant ERP', status: 'Live' },
+  { id: 'hrms', label: 'Smart HRMS & Payroll', status: 'Live' },
+  { id: 'hospital-opd', label: 'Hospital OPD & Clinic', status: 'Early Access' },
+  { id: 'gym-management', label: 'Gym & Fitness Studio', status: 'Early Access' },
+  { id: 'inventory', label: 'Inventory & POS', status: 'Early Access' },
+  { id: 'whatsapp-automation', label: 'WhatsApp Hub', status: 'Live' },
 ]
 
 const plans = SERVICES.find(s => s.id === 'school-erp')?.plans ?? []
@@ -42,7 +41,7 @@ function Cell({ val }: { val: boolean | string }) {
 }
 
 export default function PricingPage() {
-  const [selectedTab, setSelectedTab] = useState('school-erp')
+  const [selectedTab, setSelectedTab] = useState('multi-tenant')
 
   return (
     <div className="pt-28 pb-20 bg-[#091526] min-h-screen text-slate-200">
@@ -51,13 +50,13 @@ export default function PricingPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="badge mb-4">
-            <Sparkles size={12} className="text-cyan-300" /> Transparent Pricing
+            <Sparkles size={12} className="text-cyan-300" /> Transparent Multi-Tenant Pricing
           </div>
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white">
             Simple, <span className="gradient-text">Predictable Pricing</span>
           </h1>
-          <p className="text-slate-300 mt-4 max-w-xl mx-auto text-sm sm:text-base">
-            School ERP standard tiers are active. Other enterprise modules are open for early access &amp; custom consultation.
+          <p className="text-slate-300 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+            Transparent subscription tiers for Multi-Tenant ERP, Schools, Universities, Hospital OPDs, Gyms, HRMS, and Custom Enterprise Deployments.
           </p>
 
           {/* Module Filter Tabs */}
@@ -79,7 +78,7 @@ export default function PricingPage() {
                   </span>
                 ) : (
                   <span className="text-[9px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300 font-medium">
-                    Coming Soon
+                    Early Access
                   </span>
                 )}
               </button>
@@ -87,8 +86,8 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {selectedTab === 'school-erp' ? (
-          /* Live School ERP Tier Cards in Crisp White Containers */
+        {selectedTab === 'multi-tenant' || selectedTab === 'hrms' ? (
+          /* Live ERP Tier Cards in Crisp White Containers */
           <>
             <div className="grid md:grid-cols-3 gap-6 mb-20 items-stretch">
               {plans.map((plan) => (
@@ -144,17 +143,17 @@ export default function PricingPage() {
             {/* Feature Comparison Matrix in Crisp White */}
             <div className="rounded-2xl overflow-hidden mb-16 border border-slate-200 bg-white text-slate-900 shadow-2xl">
               <div className="p-6 border-b border-slate-200 bg-slate-50">
-                <h2 className="font-display font-bold text-xl text-slate-900">Full Feature Comparison Matrix</h2>
-                <p className="text-slate-500 text-xs mt-1">Detailed module breakdown across all three School ERP plans</p>
+                <h2 className="font-display font-bold text-xl text-slate-900">Full Multi-Tenant Feature Comparison Matrix</h2>
+                <p className="text-slate-500 text-xs mt-1">Detailed module breakdown across all three OnePlatform360 tiers</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-slate-200 bg-slate-100">
                       <th className="text-xs text-slate-700 font-bold px-6 py-4">Core Feature</th>
-                      <th className="text-center text-xs text-slate-700 font-bold px-6 py-4">Basic</th>
+                      <th className="text-center text-xs text-slate-700 font-bold px-6 py-4">Starter Tier</th>
                       <th className="text-center text-xs text-blue-700 font-bold px-6 py-4 bg-blue-50">Professional ⭐</th>
-                      <th className="text-center text-xs text-slate-700 font-bold px-6 py-4">Enterprise</th>
+                      <th className="text-center text-xs text-slate-700 font-bold px-6 py-4">Enterprise Scale</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -172,7 +171,7 @@ export default function PricingPage() {
             </div>
           </>
         ) : (
-          /* Coming Soon module container in Crisp White Card */
+          /* Early access module container in Crisp White Card */
           <div className="rounded-3xl p-10 sm:p-16 text-center border border-slate-200 bg-white text-slate-900 max-w-3xl mx-auto space-y-6 mb-16 shadow-2xl">
             <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto text-orange-600">
               <Clock size={32} />
@@ -182,10 +181,10 @@ export default function PricingPage() {
                 Early Access &amp; Enterprise Scoping
               </div>
               <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-900">
-                {PRICING_TABS.find(t => t.id === selectedTab)?.label} Standard Pricing
+                {PRICING_TABS.find(t => t.id === selectedTab)?.label}
               </h3>
               <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-                Standard tiered self-serve pricing for this solution will be published soon. In the meantime, we are delivering tailor-made institutional rollouts.
+                Standard self-serve pricing for this vertical module is rolling out. We are currently provisioning dedicated early-access instances for hospital clinics, gyms, warehouses &amp; enterprises.
               </p>
             </div>
 
@@ -194,10 +193,10 @@ export default function PricingPage() {
                 Request Early Access &amp; Custom Quote <ArrowRight size={14} />
               </Link>
               <button
-                onClick={() => setSelectedTab('school-erp')}
+                onClick={() => setSelectedTab('multi-tenant')}
                 className="px-6 py-3 rounded-xl bg-slate-100 text-slate-800 font-semibold text-xs sm:text-sm hover:bg-slate-200 transition-colors"
               >
-                View Live School ERP Pricing
+                View Live Multi-Tenant ERP Pricing
               </button>
             </div>
           </div>
@@ -206,12 +205,12 @@ export default function PricingPage() {
         {/* Custom ERP section in Crisp White Container */}
         <div className="rounded-3xl border border-slate-200 bg-white text-slate-900 p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
           <div className="relative z-10">
-            <h3 className="font-display font-bold text-2xl text-slate-900 mb-3">Looking for Bespoke Enterprise Architecture?</h3>
+            <h3 className="font-display font-bold text-2xl text-slate-900 mb-3">Looking for Bespoke Multi-Tenant Architecture?</h3>
             <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mb-6">
-              Custom modules, dedicated servers, white-label branding, or on-premise cloud instances — we build exactly to your requirements.
+              Custom modules, dedicated servers, white-label branding, turnstiles, or on-premise cloud instances — we build exactly to your requirements.
             </p>
             <div className="flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto">
-              {['Custom Modules', 'Private Cloud', 'White-Label Branding', 'Pay-as-you-go', 'Custom ERP Migration', 'Dedicated Support Architect'].map((f) => (
+              {['Multi-Tenant Isolation', 'Private Cloud Hosting', 'White-Label Branding', 'Pay-as-you-grow', 'Legacy ERP Migration', 'Dedicated Support Architect'].map((f) => (
                 <span key={f} className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">{f}</span>
               ))}
             </div>

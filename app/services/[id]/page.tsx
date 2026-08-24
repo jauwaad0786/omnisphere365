@@ -12,10 +12,11 @@ const SERVICE_IMAGES: Record<string, string> = {
   'school-erp': '/school-erp-showcase.jpg',
   'college-erp': '/school-erp-showcase.jpg',
   'hrms': '/hrms-showcase.jpg',
+  'hospital-opd': '/hero-presentation.jpg',
+  'gym-management': '/hero-presentation.jpg',
   'inventory': '/hero-showcase.jpg',
   'sales-erp': '/hero-presentation.jpg',
   'whatsapp-automation': '/whatsapp-showcase.jpg',
-  'hospital-opd': '/hero-presentation.jpg',
   'website-development': '/ai-automation-showcase.jpg',
   'digital-transformation': '/hero-showcase.jpg',
   'custom-cloud-erp': '/hero-presentation.jpg',
@@ -48,15 +49,15 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               </div>
 
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-orange-600 leading-tight">
-                Streamlining complex, interconnected operations
+                Streamlining complex, multi-tenant operations
               </h1>
 
               <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                Like many growing organizations, institutions suffer from an overly intricate operations framework encompassing multiple disparate systems, manual paperwork, and delayed reconciliation. This requires painstaking verification processes between multiple stakeholders, typically executed in manual silos.
+                Growing organizations and multi-branch enterprises suffer from disparate legacy tools, manual registers, delayed reconciliations, and isolated data silos. This results in lost productivity and operational friction.
               </p>
 
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Discover how <strong className="text-slate-900 font-semibold">OnePlatform360 {service.title}</strong> steps in with digital cloud operations to help leadership enhance operational resilience, accelerate fee and revenue recovery through data-driven insights, and shift to an innovative leadership benchmark.
+                Discover how <strong className="text-slate-900 font-semibold">OnePlatform360 {service.title}</strong> delivers high-speed cloud operations, automated workflows, and data-driven insights to establish a modern operational benchmark.
               </p>
 
               <div className="pt-3 flex flex-wrap items-center gap-4">
@@ -110,13 +111,13 @@ export default function ServicePage({ params }: { params: { id: string } }) {
                 <Monitor size={20} />
               </div>
               <div className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">UI View 01</div>
-              <h3 className="font-display font-bold text-lg text-slate-900">Executive Command Center</h3>
+              <h3 className="font-display font-bold text-lg text-slate-900">Enterprise Command Center</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Centralized cloud interface consolidating student masters, staff records, real-time KPI metrics, and live status logs in one dashboard.
+                Centralized cloud interface consolidating records, staff profiles, multi-branch KPI metrics, and live telemetry logs in one dashboard.
               </p>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
-                ✓ Multi-role permission control<br />
-                ✓ 100% cloud synced database
+                ✓ Multi-role granular permissions<br />
+                ✓ 100% cloud synced multi-tenant database
               </div>
             </div>
 
@@ -128,11 +129,11 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               <div className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">UI View 02</div>
               <h3 className="font-display font-bold text-lg text-slate-900">Automated Processing Stream</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Visual timeline tracking daily fee receipts, biometric attendance punches, automated report calculations, and reconciliation batches.
+                Visual timeline tracking daily transactions, biometric attendance punches, automated report calculations, and reconciliation batches.
               </p>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
                 ✓ Automated audit logging<br />
-                ✓ Instant PDF receipt dispatch
+                ✓ Instant PDF invoice &amp; receipt dispatch
               </div>
             </div>
 
@@ -144,7 +145,7 @@ export default function ServicePage({ params }: { params: { id: string } }) {
               <div className="text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">UI View 03</div>
               <h3 className="font-display font-bold text-lg text-slate-900">Mobile &amp; WhatsApp Gateway</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                Parents, teachers, and staff receive real-time circulars, payment links, and timetable notifications directly on verified WhatsApp.
+                Clients, members, patients, and employees receive real-time notifications, payment links, and scheduled reminders directly on WhatsApp.
               </p>
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-700 font-mono">
                 ✓ Meta Verified Cloud API<br />

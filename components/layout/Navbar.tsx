@@ -9,38 +9,38 @@ import {
 
 const WHAT_WE_DO_MENU = {
   col1: {
-    title: 'Core Institutional ERP',
+    title: 'Multi-Tenant Industry ERPs',
     links: [
       { label: 'School ERP System', desc: 'Admissions, fees, attendance & exams', href: '/services/school-erp' },
-      { label: 'College & University ERP', desc: 'Multi-campus academic management', href: '/services/college-erp' },
-      { label: 'Hospital & Clinic OPD', desc: 'Patient records, appointments & billing', href: '/services/hospital-opd' },
-      { label: 'Custom Cloud ERP', desc: 'Bespoke scalable enterprise architecture', href: '/services/custom-cloud-erp' },
+      { label: 'College & University ERP', desc: 'Higher ed & semester management', href: '/services/college-erp' },
+      { label: 'Hospital & Clinic OPD', desc: 'Patient EMR, queues & OPD billing', href: '/services/hospital-opd' },
+      { label: 'Gym & Fitness Center ERP', desc: 'Memberships, turnstile gate & POS', href: '/services/gym-management' },
     ]
   },
   col2: {
-    title: 'Workforce & Business',
+    title: 'Workforce & Operations',
     links: [
-      { label: 'Smart HRMS & Payroll', desc: 'Biometric check-in, payroll & appraisal', href: '/services/hrms' },
-      { label: 'Sales CRM & Billing', desc: 'Deals pipeline, quotes & automated invoices', href: '/services/sales-erp' },
-      { label: 'Inventory & Assets', desc: 'Stock control & purchase management', href: '/services/inventory' },
-      { label: 'Pay-As-You-Go ERP', desc: 'Affordable modular tier for startups', href: '/services/payg-erp' },
+      { label: 'Smart HRMS & Payroll', desc: 'Biometric check-in, payroll & tax compliance', href: '/services/hrms' },
+      { label: 'Inventory & POS Supply', desc: 'Multi-warehouse stock & retail billing', href: '/services/inventory' },
+      { label: 'Sales CRM & Invoicing', desc: 'Deals pipeline, quotes & GST invoices', href: '/services/sales-erp' },
+      { label: 'Custom Cloud ERP', desc: 'Bespoke multi-tenant architecture', href: '/services/custom-cloud-erp' },
     ]
   },
   col3: {
     title: 'AI & Automation Hub',
     links: [
-      { label: 'AI Business Automation', desc: 'Autonomous tasks & smart triggers', href: '/services/ai-automation' },
-      { label: 'WhatsApp Business Hub', desc: 'Automated parent alerts & instant bots', href: '/services/whatsapp-automation' },
-      { label: 'Digital Transformation', desc: 'Legacy workflow modernization', href: '/services/digital-transformation' },
-      { label: 'Web & Mobile Portals', desc: 'Parent, teacher & student apps', href: '/services/website-development' },
+      { label: 'AI Business Automation', desc: 'Autonomous tasks, alerts & auto-reports', href: '/services/ai-automation' },
+      { label: 'WhatsApp Business Hub', desc: 'Omnichannel broadcasts, alerts & bots', href: '/services/whatsapp-automation' },
+      { label: 'Pay-As-You-Go Modular ERP', desc: 'Zero upfront cost modular tier', href: '/services/payg-erp' },
+      { label: 'Web & Mobile Portals', desc: 'Custom client, patient & staff apps', href: '/services/website-development' },
     ]
   },
   featured: {
-    tag: 'FEATURED LAUNCH',
-    title: 'OnePlatform360 AI Operating Hub',
-    desc: 'A unified leap forward in harnessing autonomous AI to streamline campus operations, fee recovery, and parent communications.',
-    href: '/services/ai-automation',
-    cta: 'Explore AI Hub'
+    tag: 'MULTI-TENANT PLATFORM',
+    title: 'Unified Multi-Industry Operating Hub',
+    desc: 'Seamlessly run schools, universities, hospital OPDs, gym networks, warehouses & enterprise payroll on one cloud platform.',
+    href: '/services',
+    cta: 'Explore All Modules'
   }
 }
 

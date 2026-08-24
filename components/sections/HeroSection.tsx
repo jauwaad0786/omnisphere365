@@ -73,25 +73,25 @@ type Tab = {
 
 const TABS: Tab[] = [
   {
-    id: 'school',
-    label: 'Academic ERP',
-    icon: GraduationCap,
+    id: 'multi-tenant',
+    label: 'Multi-Tenant ERP',
+    icon: Layers,
     color: '#0284c7',
-    dashboardTitle: 'Academics & School ERP Command Center',
-    url: 'app.oneplatform360.com/school-erp',
+    dashboardTitle: 'Multi-Tenant Enterprise ERP Command Center',
+    url: 'app.oneplatform360.com/multi-tenant-erp',
     kpis: [
-      { label: 'Total Students', value: '2,480', change: '+8.4%', icon: Users, color: 'text-sky-600', bg: 'bg-sky-100' },
-      { label: 'Total Staff', value: '184', change: '+4.2%', icon: Briefcase, color: 'text-indigo-600', bg: 'bg-indigo-100' },
-      { label: 'Fee Collection', value: '₹42.8L', change: '+12.6%', icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-100' },
-      { label: 'Attendance', value: '94.7%', change: '+2.1%', icon: CheckCircle, color: 'text-cyan-600', bg: 'bg-cyan-100' },
+      { label: 'Active Tenants', value: '500+', change: '+18.4%', icon: Building2, color: 'text-sky-600', bg: 'bg-sky-100' },
+      { label: 'Daily Active Users', value: '124.8K', change: '+24.2%', icon: Users, color: 'text-indigo-600', bg: 'bg-indigo-100' },
+      { label: 'Monthly Billing', value: '₹84.6L', change: '+16.5%', icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'System Uptime', value: '99.98%', change: 'Optimal', icon: CheckCircle, color: 'text-cyan-600', bg: 'bg-cyan-100' },
     ],
-    chartLabel: 'Monthly Fee Collection Trend',
-    chartData: [45, 68, 52, 85, 74, 98],
+    chartLabel: 'Multi-Tenant Monthly Transaction Trend',
+    chartData: [55, 68, 76, 85, 92, 98],
     activity: [
-      { text: 'Fee payment received', sub: '₹14,500 — Class X-A', time: '2 min ago', dot: 'bg-emerald-500' },
-      { text: 'Attendance marked', sub: 'Class XII-B (94.7%)', time: '5 min ago', dot: 'bg-sky-500' },
-      { text: 'Exam schedule published', sub: 'Final Term Examinations', time: '15 min ago', dot: 'bg-indigo-500' },
-      { text: 'New admission enrolled', sub: 'Aryan Sharma — Class VI', time: '30 min ago', dot: 'bg-blue-500' },
+      { text: 'Hospital OPD Token #42', sub: 'Dr. Sameer — Cardiology', time: '1 min ago', dot: 'bg-rose-500' },
+      { text: 'FitPulse Gym Check-in', sub: 'Biometric Turnstile Verified', time: '3 min ago', dot: 'bg-amber-500' },
+      { text: 'School Fee UPI Received', sub: '₹18,500 — Class X-A', time: '6 min ago', dot: 'bg-emerald-500' },
+      { text: 'Warehouse POS Dispatched', sub: 'Invoice #WH-4092 Reconciled', time: '12 min ago', dot: 'bg-sky-500' },
     ],
   },
   {
@@ -99,62 +99,62 @@ const TABS: Tab[] = [
     label: 'Smart HRMS',
     icon: Briefcase,
     color: '#7c3aed',
-    dashboardTitle: 'HRMS, Attendance & Payroll System',
-    url: 'app.oneplatform360.com/hrms',
+    dashboardTitle: 'Enterprise HRMS, Biometrics & Payroll System',
+    url: 'app.oneplatform360.com/hrms-payroll',
     kpis: [
-      { label: 'Total Employees', value: '348', change: '+12 new', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100' },
-      { label: 'Active On-Site', value: '339', change: '97.4%', icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-100' },
-      { label: 'Payroll Run', value: '₹34.2L', change: 'On Time', icon: IndianRupee, color: 'text-sky-600', bg: 'bg-sky-100' },
-      { label: 'Open Positions', value: '8', change: 'Hiring', icon: UserPlus, color: 'text-amber-600', bg: 'bg-amber-100' },
+      { label: 'Total Employees', value: '1,420', change: '+48 new', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100' },
+      { label: 'Active On-Shift', value: '1,385', change: '97.5%', icon: CheckCircle, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Payroll Disbursed', value: '₹68.4L', change: 'Direct Bank', icon: IndianRupee, color: 'text-sky-600', bg: 'bg-sky-100' },
+      { label: 'Open Requisitions', value: '14', change: 'Active', icon: UserPlus, color: 'text-amber-600', bg: 'bg-amber-100' },
     ],
-    chartLabel: 'Workforce Growth & Attendance',
-    chartData: [55, 62, 70, 78, 86, 96],
+    chartLabel: 'Workforce Attendance & Salary Trends',
+    chartData: [60, 68, 74, 82, 89, 97],
     activity: [
-      { text: 'Pooja Verma', sub: 'Onboarding completed', time: '8 min ago', dot: 'bg-purple-500' },
-      { text: 'Monthly Salary Run', sub: 'Disbursed via Direct Bank API', time: '45 min ago', dot: 'bg-emerald-500' },
-      { text: 'Medical Leave Approved', sub: 'Dr. Sameer (Cardiology)', time: '2 hr ago', dot: 'bg-sky-500' },
+      { text: 'Biometric Shift Punch Synced', sub: '348 factory & office staff', time: '4 min ago', dot: 'bg-purple-500' },
+      { text: 'Monthly Salary Run', sub: 'Automated PF & TDS statutory deduction', time: '35 min ago', dot: 'bg-emerald-500' },
+      { text: 'New Hire Onboarded', sub: 'Pooja Verma — Engineering', time: '1 hr ago', dot: 'bg-sky-500' },
     ],
   },
   {
-    id: 'ai',
-    label: 'AI Automation',
+    id: 'verticals',
+    label: 'Hospital & Gyms',
+    icon: Activity,
+    color: '#f97316',
+    dashboardTitle: 'Hospital OPD, Gym Turnstiles & Inventory POS',
+    url: 'app.oneplatform360.com/specialized-operations',
+    kpis: [
+      { label: 'OPD Patients Today', value: '412', change: '+15.8%', icon: Activity, color: 'text-red-600', bg: 'bg-red-100' },
+      { label: 'Gym Active Members', value: '3,850', change: '+9.4%', icon: Users, color: 'text-orange-600', bg: 'bg-orange-100' },
+      { label: 'Pharmacy & POS Sales', value: '₹14.2L', change: 'Live Sync', icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Turnstile Access Rate', value: '99.8%', change: 'Verified', icon: Shield, color: 'text-blue-600', bg: 'bg-blue-100' },
+    ],
+    chartLabel: 'Daily Patient & Member Traffic',
+    chartData: [45, 62, 70, 84, 91, 99],
+    activity: [
+      { text: 'Digital Prescription E-Signed', sub: 'Patient EMR #HP-9102', time: '2 min ago', dot: 'bg-red-500' },
+      { text: 'Gym Auto-Renewal Dispatched', sub: 'WhatsApp payment link sent', time: '8 min ago', dot: 'bg-orange-500' },
+      { text: 'Stock Reorder Triggered', sub: 'Warehouse Min-Max Alert', time: '20 min ago', dot: 'bg-emerald-500' },
+    ],
+  },
+  {
+    id: 'ai-whatsapp',
+    label: 'AI & WhatsApp',
     icon: Bot,
     color: '#059669',
-    dashboardTitle: 'AI Autonomous Workflow Pipeline',
-    url: 'app.oneplatform360.com/ai-automation',
+    dashboardTitle: 'AI Autonomous Pipeline & Meta WhatsApp Hub',
+    url: 'app.oneplatform360.com/ai-whatsapp-hub',
     kpis: [
-      { label: 'Active Workflows', value: '24', change: 'Live', icon: Zap, color: 'text-emerald-600', bg: 'bg-emerald-100' },
-      { label: 'Executions / Mo', value: '1,284', change: '+28%', icon: Bot, color: 'text-teal-600', bg: 'bg-teal-100' },
-      { label: 'Accuracy Score', value: '97.8%', change: 'Verified', icon: Shield, color: 'text-cyan-600', bg: 'bg-cyan-100' },
-      { label: 'Time Saved', value: '356 hrs', change: 'This Month', icon: Clock, color: 'text-purple-600', bg: 'bg-purple-100' },
+      { label: 'Messages Sent / Mo', value: '2.5M+', change: 'Meta Cloud', icon: MessageCircle, color: 'text-emerald-600', bg: 'bg-emerald-100' },
+      { label: 'Read Rate', value: '98.2%', change: '< 2s avg', icon: CheckCircle, color: 'text-teal-600', bg: 'bg-teal-100' },
+      { label: 'Autonomous Workflows', value: '36 Live', change: 'Active', icon: Bot, color: 'text-cyan-600', bg: 'bg-cyan-100' },
+      { label: 'Dues Recovered via AI', value: '₹28.4L', change: '+42%', icon: IndianRupee, color: 'text-purple-600', bg: 'bg-purple-100' },
     ],
-    chartLabel: 'Autonomous Execution Throughput',
-    chartData: [38, 54, 66, 78, 89, 100],
+    chartLabel: 'Autonomous AI Throughput & In-Chat Conversions',
+    chartData: [42, 58, 69, 81, 90, 100],
     activity: [
-      { text: 'Auto Fee Reminder WhatsApp', sub: '342 parents notified', time: '1 min ago', dot: 'bg-emerald-500' },
-      { text: 'Attendance Alert Dispatched', sub: 'Sent to guardian phones', time: '18 min ago', dot: 'bg-teal-500' },
-      { text: 'AI Anomaly Reconciled', sub: 'Bank payment matched', time: '52 min ago', dot: 'bg-cyan-500' },
-    ],
-  },
-  {
-    id: 'whatsapp',
-    label: 'WhatsApp Hub',
-    icon: MessageCircle,
-    color: '#16a34a',
-    dashboardTitle: 'Official WhatsApp Business API Hub',
-    url: 'app.oneplatform360.com/whatsapp-hub',
-    kpis: [
-      { label: 'Messages Sent', value: '2.5M+', change: 'High Speed', icon: MessageCircle, color: 'text-emerald-600', bg: 'bg-emerald-100' },
-      { label: 'Read Rate', value: '98.2%', change: 'Instant', icon: CheckCircle, color: 'text-teal-600', bg: 'bg-teal-100' },
-      { label: 'Bot Auto-Replies', value: '18.4K', change: '< 2s avg', icon: Bot, color: 'text-sky-600', bg: 'bg-sky-100' },
-      { label: 'Fees via WhatsApp', value: '₹18.9L', change: '+34%', icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-100' },
-    ],
-    chartLabel: 'Daily WhatsApp Broadcast Traffic',
-    chartData: [42, 60, 58, 82, 91, 99],
-    activity: [
-      { text: 'Broadcast: Final Exam Date Sheet', sub: 'Delivered to 1,850 parents', time: '4 min ago', dot: 'bg-emerald-500' },
-      { text: 'Payment Confirmation Link', sub: 'Receipt PDF sent to mobile', time: '12 min ago', dot: 'bg-teal-500' },
-      { text: 'Parent Bot Query: Bus Route #4', sub: 'Live location dispatched', time: '22 min ago', dot: 'bg-sky-500' },
+      { text: 'Auto Fee & Dues WhatsApp Reminder', sub: '540 parents & members notified', time: '1 min ago', dot: 'bg-emerald-500' },
+      { text: 'WhatsApp Payment PDF Receipt', sub: 'Dispatched in 0.8s', time: '10 min ago', dot: 'bg-teal-500' },
+      { text: 'AI Anomaly Reconciled', sub: 'Bank payment matched', time: '25 min ago', dot: 'bg-cyan-500' },
     ],
   },
 ]
@@ -190,7 +190,7 @@ function DonutChart({ data, colors }: { data: number[]; colors: string[] }) {
         )
       })}
       <text x="42" y="42" textAnchor="middle" dominantBaseline="central" fill="#0f172a" fontWeight="bold" fontSize="11px">
-        94.7%
+        99.8%
       </text>
     </svg>
   )
@@ -224,7 +224,7 @@ export default function HeroSection() {
         <div className="hidden md:flex items-center justify-between mb-10 pb-5 border-b border-cyan-500/20">
           <div className="flex items-center gap-2 text-xs text-cyan-300 font-bold uppercase tracking-wider">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            Next-Generation Enterprise ERP &amp; AI Operating System
+            Next-Generation Multi-Tenant Enterprise ERP &amp; AI Operating System
           </div>
           <div className="flex items-center gap-3.5 flex-wrap">
             {TOP_STATS.map((s) => (
@@ -257,7 +257,7 @@ export default function HeroSection() {
             {/* Top Pill */}
             <div className="badge-glow w-fit">
               <Sparkles size={12} className="text-cyan-300" />
-              ALL-IN-ONE BUSINESS OPERATING SYSTEM
+              MULTI-TENANT ENTERPRISE OPERATING SYSTEM
             </div>
 
             {/* Main Headline */}
@@ -271,13 +271,13 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              ERP, HRMS, AI Automation, WhatsApp Integration and many more — everything you need to run and grow your organisation from a single unified platform.
+              Multi-Tenant ERP for Schools, Universities, Hospital OPDs, Gyms, Inventory &amp; HRMS — everything you need to run any business or institution from a single unified cloud platform.
             </p>
 
             {/* 🌟 4 CRISP WHITE FEATURE PILLS ON NAVY 🌟 */}
             <div className="grid grid-cols-2 gap-2.5 pt-1">
               {[
-                { icon: Layers, text: 'Unified Platform', color: 'text-blue-600' },
+                { icon: Layers, text: 'Multi-Tenant Core', color: 'text-blue-600' },
                 { icon: Lock, text: 'Role Based Access', color: 'text-purple-600' },
                 { icon: Bot, text: 'AI Powered Engine', color: 'text-emerald-600' },
                 { icon: Shield, text: 'Secure & Scalable', color: 'text-orange-600' },
@@ -327,7 +327,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Trusted by <span className="font-semibold text-white">500+ organisations</span> across India
+                  Trusted by <span className="font-semibold text-white">500+ enterprises &amp; institutions</span> across India
                 </p>
               </div>
 
@@ -335,9 +335,9 @@ export default function HeroSection() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {[
                   { value: '72%', label: 'Tasks Automated' },
-                  { value: '97.8%', label: 'Accuracy' },
-                  { value: '2.5M+', label: 'Messages Sent' },
-                  { value: '500+', label: 'Happy Clients' },
+                  { value: '99.98%', label: 'Accuracy' },
+                  { value: '2.5M+', label: 'Active Users' },
+                  { value: '500+', label: 'Happy Tenants' },
                 ].map((stat) => (
                   <div key={stat.label} className="p-2.5 rounded-xl bg-white text-slate-900 border border-slate-200 shadow-sm text-center">
                     <div className="text-xs font-extrabold text-slate-900 font-display">{stat.value}</div>
@@ -359,7 +359,7 @@ export default function HeroSection() {
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden">
                 <Image
                   src="/hero-showcase.jpg"
-                  alt="OnePlatform360 Executive Boardroom Presentation"
+                  alt="OnePlatform360 Multi-Tenant Enterprise Command Center"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
@@ -370,7 +370,7 @@ export default function HeroSection() {
                 <div className="absolute top-3 left-3 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200 flex items-center gap-2 shadow-md">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                   <span className="text-[11px] font-bold text-slate-900 tracking-wide">
-                    OnePlatform360 Cloud ERP Display
+                    Multi-Tenant Cloud ERP Display
                   </span>
                 </div>
 
@@ -381,8 +381,8 @@ export default function HeroSection() {
                       <Sparkles size={16} />
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-slate-900">Live Institutional Command Center</div>
-                      <div className="text-[10px] text-slate-600 font-medium">Empowering school boards, hospital directors &amp; CEOs</div>
+                      <div className="text-xs font-bold text-slate-900">Live Multi-Tenant Command Center</div>
+                      <div className="text-[10px] text-slate-600 font-medium">Empowering schools, hospitals, gyms, warehouses &amp; enterprises</div>
                     </div>
                   </div>
                   <Link
@@ -419,7 +419,7 @@ export default function HeroSection() {
               </div>
               <div className="text-xs text-cyan-300 font-semibold flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Interactive Live Preview
+                Multi-Tenant Live Preview
               </div>
             </div>
 
@@ -439,7 +439,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="text-[10px] text-emerald-700 font-bold px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300">
-                  Active Instance
+                  Active Multi-Tenant Cluster
                 </div>
               </div>
 
@@ -464,7 +464,7 @@ export default function HeroSection() {
                       </div>
                       <div>
                         <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold font-mono">
-                          OnePlatform360 Analytics Engine
+                          OnePlatform360 Multi-Tenant Engine
                         </div>
                         <div className="text-slate-900 font-bold text-base sm:text-lg font-display">
                           {tab.dashboardTitle}
@@ -532,7 +532,7 @@ export default function HeroSection() {
 
                     {/* Donut Chart Card */}
                     <div className="sm:col-span-2 rounded-xl bg-white border border-slate-200 p-4 shadow-sm flex flex-col justify-between">
-                      <div className="text-xs font-bold text-slate-900 mb-1">Status &amp; Verification</div>
+                      <div className="text-xs font-bold text-slate-900 mb-1">Tenant Cluster Health</div>
                       <div className="flex items-center justify-center my-auto py-2">
                         <DonutChart
                           data={[35, 25, 22, 18]}
@@ -541,10 +541,10 @@ export default function HeroSection() {
                       </div>
                       <div className="grid grid-cols-2 gap-1.5 mt-1">
                         {[
-                          { label: 'Active', color: '#0284c7' },
-                          { label: 'Verified', color: '#6366f1' },
-                          { label: 'Processing', color: '#a855f7' },
-                          { label: 'Completed', color: '#10b981' },
+                          { label: 'Schools', color: '#0284c7' },
+                          { label: 'Hospitals', color: '#6366f1' },
+                          { label: 'Gyms', color: '#a855f7' },
+                          { label: 'Enterprise', color: '#10b981' },
                         ].map((c) => (
                           <div key={c.label} className="flex items-center gap-1.5 text-[9.5px] text-slate-600 font-medium">
                             <div className="w-2 h-2 rounded-full" style={{ background: c.color }} />
@@ -558,7 +558,7 @@ export default function HeroSection() {
                   {/* Real-time Activity Stream */}
                   <div className="rounded-xl bg-white border border-slate-200 p-4 space-y-2 shadow-sm">
                     <div className="text-xs font-bold text-slate-900 mb-2 flex items-center justify-between">
-                      <span>Real-time Operations Log</span>
+                      <span>Real-time Multi-Tenant Operations Log</span>
                       <span className="text-[9.5px] font-semibold text-blue-600">Updated 1s ago</span>
                     </div>
                     {tab.activity.map((a, i) => (
@@ -578,32 +578,32 @@ export default function HeroSection() {
           {/* ──── RIGHT (4 Cols): Module Showcase Cards in Crisp White ──── */}
           <div className="lg:col-span-4 space-y-4">
 
-            {/* Card 1: Powerful ERP */}
+            {/* Card 1: Multi-Tenant ERP */}
             <div className="rounded-2xl p-5 bg-white text-slate-900 border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 group">
               <div className="flex items-center gap-2.5 mb-2">
                 <div className="w-8 h-8 rounded-xl bg-blue-100 border border-blue-200 flex items-center justify-center text-blue-700">
-                  <GraduationCap size={16} />
+                  <Layers size={16} />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-slate-900 text-sm">Powerful ERP</h3>
-                  <div className="text-[10px] text-blue-600 font-semibold">Manage academics, finance, exams</div>
+                  <h3 className="font-display font-bold text-slate-900 text-sm">Multi-Tenant ERP</h3>
+                  <div className="text-[10px] text-blue-600 font-semibold">Schools, Hospitals, Gyms, POS</div>
                 </div>
               </div>
               <p className="text-slate-600 text-xs leading-relaxed mb-3">
-                Complete student lifecycle, examination, gradebooks, and fee collection in one place.
+                Tailored industry modules for academic lifecycle, hospital OPD queues, gym turnstiles, and POS billing.
               </p>
 
               {/* 8 Module Icons */}
               <div className="grid grid-cols-4 gap-1.5 mb-3">
                 {[
-                  { label: 'Students', icon: Users, color: '#0284c7' },
-                  { label: 'Academics', icon: BookOpen, color: '#6366f1' },
-                  { label: 'Exams', icon: FileText, color: '#0ea5e9' },
-                  { label: 'Attendance', icon: CheckCircle, color: '#10b981' },
-                  { label: 'Fees', icon: IndianRupee, color: '#f59e0b' },
-                  { label: 'Timetable', icon: Calendar, color: '#ec4899' },
-                  { label: 'Library', icon: BookOpenCheck, color: '#8b5cf6' },
-                  { label: 'Reports', icon: BarChart3, color: '#14b8a6' },
+                  { label: 'Schools', icon: GraduationCap, color: '#0284c7' },
+                  { label: 'University', icon: Building2, color: '#6366f1' },
+                  { label: 'Hospital', icon: Activity, color: '#ef4444' },
+                  { label: 'Gym/Fitness', icon: Users, color: '#f97316' },
+                  { label: 'Inventory', icon: FolderOpen, color: '#10b981' },
+                  { label: 'Billing/POS', icon: IndianRupee, color: '#f59e0b' },
+                  { label: 'Turnstiles', icon: Lock, color: '#8b5cf6' },
+                  { label: 'BI Reports', icon: BarChart3, color: '#14b8a6' },
                 ].map((m) => (
                   <div key={m.label} className="p-1.5 rounded-lg bg-slate-50 border border-slate-200 flex flex-col items-center gap-0.5 text-center group-hover:border-blue-300">
                     <m.icon size={13} style={{ color: m.color }} />
@@ -613,10 +613,10 @@ export default function HeroSection() {
               </div>
 
               <Link
-                href="/services/school-erp"
+                href="/services"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 group-hover:gap-2 transition-all"
               >
-                Explore ERP Modules <ChevronRight size={13} />
+                Explore Multi-Tenant Modules <ChevronRight size={13} />
               </Link>
             </div>
 
@@ -686,10 +686,10 @@ export default function HeroSection() {
 
         {/* 🌟 BOTTOM COUNTERS STRIP IN CRISP WHITE CARDS 🌟 */}
         <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          <Counter end={500} suffix="+" label="Institutions Across India" />
-          <Counter end={120} suffix="K+" label="Students &amp; Staff Managed" />
+          <Counter end={500} suffix="+" label="Enterprises &amp; Institutions" />
+          <Counter end={2500} suffix="K+" label="Active Users &amp; Members" />
           <Counter end={99} suffix=".9%" label="Uptime SLA Guaranteed" />
-          <Counter end={12} suffix="+" label="Unified Enterprise Modules" />
+          <Counter end={15} suffix="+" label="Multi-Tenant Modules" />
         </div>
 
       </div>

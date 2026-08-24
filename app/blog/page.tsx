@@ -8,22 +8,22 @@ import {
 } from 'lucide-react'
 import { BLOG_POSTS } from '../../lib/data'
 
-const CATEGORIES = ['All', 'Education ERP', 'AI & Automation', 'HRMS & Payroll', 'Digital Transformation']
+const CATEGORIES = ['All', 'Multi-Tenant ERP', 'Healthcare & OPD', 'Gym & Fitness', 'AI & Automation', 'HRMS & Payroll']
 
 const FEATURED_POST = {
   id: 'featured-ai-erp-2026',
-  title: 'How Autonomous AI Workflows are Slashing Administrative Overhead by 72% in Indian Schools',
-  excerpt: 'A comprehensive operational breakdown of how modern educational institutions in Delhi NCR and across India are replacing fragmented legacy software with unified AI-driven operating systems.',
-  content: `Traditional schools spend up to 45 hours each week on routine administrative tasks: manual fee reconciliation, recording daily attendance in registers, sending circulars via paper diaries, and preparing report cards manually.
+  title: 'How Multi-Tenant ERP & AI Automation Are Slashing Administrative Overhead by 72% Across Organizations',
+  excerpt: 'A comprehensive operational breakdown of how schools, universities, hospital OPDs, gym networks, and enterprises across India are replacing fragmented legacy software with unified multi-tenant operating systems.',
+  content: `Traditional organizations and campuses spend up to 45 hours each week on routine administrative tasks: manual billing reconciliation, tracking attendance across shifts, paper registers, and calculating payroll manually.
 
-With OnePlatform360's autonomous AI operating architecture, these bottlenecks are eliminated:
-1. Automated Real-Time Attendance: Biometric & facial scan hardware syncs directly with the cloud database. Guardians receive instant WhatsApp notifications if a student is absent.
-2. AI-Driven Fee Recovery: The system analyzes overdue patterns and sends personalized WhatsApp payment links at times when parents are most active, improving on-time collection by 3x.
-3. One-Click Exam Gradebook: Teachers input marks digitally or via optical scan sheets; the AI engine auto-calculates percentiles, remarks, and CBSE/ICSE compliant report card PDFs in seconds.`,
-  category: 'AI & Automation',
+With OnePlatform360's multi-tenant AI operating architecture, these bottlenecks are eliminated:
+1. Automated Real-Time Attendance & Biometrics: Biometric, facial scan, and RFID turnstile hardware syncs directly with the cloud database. Instant notifications are triggered on WhatsApp.
+2. AI-Driven Dues & Fee Recovery: The system analyzes overdue patterns and sends personalized WhatsApp payment links with embedded UPI QR codes at optimal times, improving on-time collection by 3x.
+3. Multi-Tenant Unified Data Engine: Whether handling patient OPD queues, gym memberships, university semesters, or corporate payroll, leadership accesses real-time consolidated reports in seconds.`,
+  category: 'Multi-Tenant ERP',
   date: 'August 20, 2026',
   readTime: '6 min read',
-  author: 'OnePlatform360 Research Team',
+  author: 'OnePlatform360 Architecture Team',
   image: '/ai-automation-showcase.jpg'
 }
 
@@ -34,7 +34,7 @@ export default function BlogPage() {
   const [liked, setLiked] = useState(false)
 
   // Interactive ROI Calculator State
-  const [calcOrgType, setCalcOrgType] = useState('School (500 - 2,000 Students)')
+  const [calcOrgType, setCalcOrgType] = useState('School / College (500 - 2,000 Students)')
   const [calcStaffCount, setCalcStaffCount] = useState(50)
 
   const filteredPosts = BLOG_POSTS.filter((post) => {
@@ -63,7 +63,7 @@ export default function BlogPage() {
             Perspectives on <span className="gradient-text">Cloud ERP, AI &amp; Operations</span>
           </h1>
           <p className="text-slate-300 mt-4 text-sm sm:text-base leading-relaxed">
-            Case studies, architectural deep-dives, and tactical guides to modernizing educational, healthcare, and enterprise software.
+            Case studies, architectural deep-dives, and tactical guides to modernizing educational, healthcare, gym, supply chain, and enterprise software.
           </p>
         </div>
 
@@ -118,33 +118,35 @@ export default function BlogPage() {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-4">
               <div className="flex items-center gap-2 text-xs font-bold text-orange-600 uppercase tracking-wider font-mono">
-                <Calculator size={16} /> Interactive Institutional ROI Estimator
+                <Calculator size={16} /> Interactive Multi-Tenant ROI Estimator
               </div>
               <h3 className="font-display font-bold text-2xl sm:text-3xl text-slate-900">
-                How Much Time &amp; Cost Will OnePlatform360 Save Your Institution?
+                How Much Time &amp; Cost Will OnePlatform360 Save Your Organization?
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Estimate the monthly hours recovered from paperwork, manual attendance tracking, fee recovery, and automated payroll calculations.
+                Estimate the monthly hours recovered from paperwork, manual attendance tracking, fee/dues recovery, and automated payroll calculations.
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-2">
                 <div>
-                  <label className="block text-xs text-slate-700 mb-1.5 font-semibold">Institution Profile</label>
+                  <label className="block text-xs text-slate-700 mb-1.5 font-semibold">Organization Profile</label>
                   <select
                     value={calcOrgType}
                     onChange={(e) => setCalcOrgType(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 outline-none focus:border-blue-500 transition-all"
                   >
-                    <option>School (500 - 2,000 Students)</option>
-                    <option>College / Higher Education (2,000+)</option>
-                    <option>Hospital / Medical OPD</option>
+                    <option>School / College (500 - 2,000 Students)</option>
+                    <option>University / Higher Education (2,000+)</option>
+                    <option>Hospital / Medical Clinic OPD</option>
+                    <option>Gym / Fitness Center Chain</option>
+                    <option>Retail &amp; Warehouse Logistics</option>
                     <option>Corporate Enterprise</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-xs text-slate-700 mb-1.5 font-semibold">
-                    Total Staff / Teachers: <span className="text-blue-600 font-bold">{calcStaffCount}</span>
+                    Total Staff / Members: <span className="text-blue-600 font-bold">{calcStaffCount}</span>
                   </label>
                   <input
                     type="range"

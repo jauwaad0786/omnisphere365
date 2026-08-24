@@ -5,12 +5,13 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight, Sparkles, 
 const FOOTER_SERVICES = [
   { label: 'School ERP System', href: '/services/school-erp' },
   { label: 'College & University ERP', href: '/services/college-erp' },
-  { label: 'Smart HRMS & Payroll', href: '/services/hrms' },
-  { label: 'Inventory & Asset Mgmt', href: '/services/inventory' },
-  { label: 'Sales CRM & Pipeline', href: '/services/sales-erp' },
-  { label: 'WhatsApp Automation', href: '/services/whatsapp-automation' },
   { label: 'Hospital & Clinic OPD', href: '/services/hospital-opd' },
+  { label: 'Gym & Fitness Studio ERP', href: '/services/gym-management' },
+  { label: 'Smart HRMS & Payroll', href: '/services/hrms' },
+  { label: 'Inventory & POS Supply', href: '/services/inventory' },
+  { label: 'Sales CRM & Billing', href: '/services/sales-erp' },
   { label: 'AI Business Automation', href: '/services/ai-automation' },
+  { label: 'WhatsApp Business Hub', href: '/services/whatsapp-automation' },
 ]
 
 const FOOTER_COMPANY = [
@@ -38,7 +39,7 @@ export default function Footer() {
                 <Sparkles size={12} className="text-blue-600" /> Start Today
               </div>
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-display">
-                Ready to run your entire institution on one platform?
+                Ready to run your entire enterprise or institution on one platform?
               </h3>
               <p className="text-slate-600 mt-1 text-xs sm:text-sm font-medium">
                 Book a personalized live demo — no credit card or commitment required.
@@ -81,7 +82,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
-              Empowering organizations, schools &amp; hospitals across India — ERP, CRM, HRMS, AI &amp; Automation, unified on one enterprise cloud platform.
+              Empowering businesses, schools, universities, hospitals, gym networks &amp; warehouses across India — Multi-Tenant ERP, CRM, HRMS, AI &amp; Automation, unified on one enterprise cloud platform.
             </p>
 
             <div className="space-y-3 text-xs sm:text-sm text-slate-300">
