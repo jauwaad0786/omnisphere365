@@ -5,7 +5,7 @@ import Image from 'next/image'
 import {
   ArrowRight, Sparkles, CheckCircle, ChevronRight, X, Play,
   Zap, Bot, MessageCircle, Users, GraduationCap, IndianRupee,
-  ShieldCheck, BarChart3, Clock, Check
+  ShieldCheck, BarChart3, Clock, Check, Layers
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 

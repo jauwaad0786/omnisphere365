@@ -15,7 +15,7 @@ const COMPARISON = [
   { feature: 'Smart HRMS & Global Payroll', basic: false, pro: true, enterprise: true },
   { feature: 'Direct Bank Settlement API', basic: false, pro: true, enterprise: true },
   { feature: 'AI Predictive Operations & Forecasts', basic: false, pro: true, enterprise: true },
-  { feature: 'Official Meta WhatsApp Business API', basic: false, false: false, enterprise: true },
+  { feature: 'Official Meta WhatsApp Business API', basic: false, pro: false, enterprise: true },
   { feature: 'Hospital OPD / Gym Turnstile Addons', basic: false, pro: false, enterprise: true },
   { feature: 'White-Label Branding & Custom Domain', basic: false, pro: false, enterprise: true },
   { feature: 'Dedicated Cloud Database Instance', basic: false, pro: false, enterprise: true },
