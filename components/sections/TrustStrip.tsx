@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
-import { ArrowRight, Fingerprint, ShieldCheck, Cloud, Lock } from 'lucide-react'
+import { ArrowRight, UserCheck, ShieldCheck, Cloud, Lock } from 'lucide-react'
 
 const TRUST_ITEMS = [
-  { icon: Fingerprint, label: 'Single Sign-On', desc: 'One secure master login for all modules' },
+  { icon: UserCheck, label: 'Single Sign-On', desc: 'One secure master login for all modules' },
   { icon: ShieldCheck, label: 'Role-Based Access', desc: 'Granular permissions for Admin, Staff & Users' },
   { icon: Cloud, label: 'Cloud Hosted', desc: 'High-availability AWS India servers' },
   { icon: Lock, label: '256-Bit SSL Security', desc: 'Bank-grade encrypted database & backups' },
