@@ -114,8 +114,8 @@ export default function ServicesGrid() {
                 {/* Real showcase photo */}
                 <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-3 border border-slate-200 shadow-sm group">
                   <Image
-                    src="/school-erp-showcase.jpg"
-                    alt="Multi-Tenant Cloud ERP Showcase"
+                    src="/cloud-infrastructure-showcase.jpg"
+                    alt="Multi-Tenant Cloud ERP Architecture"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -176,8 +176,8 @@ export default function ServicesGrid() {
                 {/* Real Operations showcase photo */}
                 <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-3 border border-slate-200 shadow-sm group">
                   <Image
-                    src="/hero-presentation.jpg"
-                    alt="Hospital OPD and Gym Operations Showcase"
+                    src="/hospital-opd-showcase.jpg"
+                    alt="Hospital OPD and Clinical Operations Showcase"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />

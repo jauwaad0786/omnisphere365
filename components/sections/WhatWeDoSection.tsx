@@ -35,7 +35,7 @@ const WHAT_WE_DO_CARDS: WhatWeDoItem[] = [
     title: 'Multi-Tenant Enterprise ERP',
     subtitle: 'Unified Multi-Industry Operating System',
     desc: 'One scalable cloud architecture engineered for Schools, Colleges & Universities, Hospitals & OPDs, Gyms, Warehouses, and modern multi-branch Enterprises.',
-    image: '/hero-showcase.jpg',
+    image: '/cloud-infrastructure-showcase.jpg',
     badge: 'Multi-Tenant Architecture',
     color: '#0284c7',
     icon: Layers,

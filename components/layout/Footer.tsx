@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, ArrowRight, Sparkles, Send } from 'lucide-react'
+import { Mail, Phone, MapPin, Globe, Share2, MessageSquare, ArrowRight, Sparkles, Send } from 'lucide-react'
 
 const FOOTER_SERVICES = [
   { label: 'School ERP System', href: '/services/school-erp' },
@@ -106,9 +106,9 @@ export default function Footer() {
 
             <div className="flex gap-3 mt-6">
               {[
-                { icon: Linkedin, href: '#' },
-                { icon: Twitter, href: '#' },
-                { icon: Youtube, href: '#' },
+                { icon: Globe, href: '#' },
+                { icon: Share2, href: '#' },
+                { icon: MessageSquare, href: '#' },
               ].map(({ icon: Icon, href }, i) => (
                 <a
                   key={i}

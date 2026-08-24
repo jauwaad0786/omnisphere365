@@ -10,17 +10,17 @@ import {
 
 const SERVICE_IMAGES: Record<string, string> = {
   'school-erp': '/school-erp-showcase.jpg',
-  'college-erp': '/school-erp-showcase.jpg',
+  'college-erp': '/college-university-showcase.jpg',
   'hrms': '/hrms-showcase.jpg',
-  'hospital-opd': '/hero-presentation.jpg',
-  'gym-management': '/hero-presentation.jpg',
-  'inventory': '/hero-showcase.jpg',
-  'sales-erp': '/hero-presentation.jpg',
+  'hospital-opd': '/hospital-opd-showcase.jpg',
+  'gym-management': '/gym-showcase.jpg',
+  'inventory': '/inventory-showcase.jpg',
+  'sales-erp': '/sales-crm-showcase.jpg',
   'whatsapp-automation': '/whatsapp-showcase.jpg',
-  'website-development': '/ai-automation-showcase.jpg',
-  'digital-transformation': '/hero-showcase.jpg',
-  'custom-cloud-erp': '/hero-presentation.jpg',
-  'payg-erp': '/school-erp-showcase.jpg',
+  'website-development': '/web-dev-showcase.jpg',
+  'digital-transformation': '/hero-presentation.jpg',
+  'custom-cloud-erp': '/cloud-infrastructure-showcase.jpg',
+  'payg-erp': '/payg-modular-showcase.jpg',
   'ai-automation': '/ai-automation-showcase.jpg',
 }
 
